@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desi Downshift</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            color: white;
+        }
+
+        nav {
+            background-color: #1a1a1a;
+            padding: 15px 0;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #FF2800;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            display: inline-block;
+            margin: 0 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            transition: all 0.4s ease;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            color: #FF2800;
+            background-color: rgba(255, 40, 0, 0.1);
+        }
+
+        h1 {
+            color: #FF2800;
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+            line-height: 1;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        h2 {
+            color: #FF2800;
+            text-align: left;
+            font-size: 24px;
+            margin: 30px 0 15px 0;
+            padding-top: 0px;
+            line-height: 1.2;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        p {
+            color: white;
+            font-size: 18px;
+            line-height: 2;
+            text-align: justify;
+            max-width: none;
+            margin: 0 0 20px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .back-link {
+            text-align: left;
+            margin: 10px 100;
+            opacity: 0;
+            transform: translateX(-15px);
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .back-link a {
+            color: #FF2800;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            transition: all 0.4s ease;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Image container to keep image and copyright together */
+        .image-container {
+            display: inline-block;
+            margin: 20px;
+            opacity: 0;
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .image-container.right {
+            float: right;
+            margin-left: 25px;
+            margin-right: 0;
+            transform: translateX(50px) scale(0.9);
+        }
+
+        .image-container.left {
+            float: left;
+            margin-right: 25px;
+            margin-left: 0;
+            transform: translateX(-50px) scale(0.9);
+        }
+
+        /* Monaco Images Styling with Alternating Positions */
+        .monaco-image {
+            width: 300px;
+            height: 200px;
+            border-radius: 8px;
+            border: 3px solid #FF2800;
+            box-shadow: 0 4px 15px rgba(255, 40, 0, 0.3);
+            object-fit: cover;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .monaco-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 40, 0, 0.5);
+            border-color: #FF2800;
+        }
+
+        /* Content sections for proper text flow */
+        .content-section {
+            overflow: auto;
+            margin-bottom: 30px;
+        }
+
+        .content-section:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .highlight-text {
+            color: #FF2800;
+            font-weight: 600;
+        }
+
+        .section-divider {
+            border-top: 2px solid #FF2800;
+            margin: 50px 0;
+            opacity: 0.3;
+        }
+
+        /* Copyright positioning - directly under image */
+        .copyright {
+            font-size: 10px;
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            width: 300px; /* Match image width */
+            display: block;
+        }
+
+        /* Loaded state with extended timing for all content */
+        body.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        body.loaded nav {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.1s;
+        }
+
+        body.loaded h1 {
+            opacity: 1;
+            transform: scale(1);
+            transition-delay: 0.2s;
+        }
+
+        body.loaded h2:nth-of-type(1) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.6s;
+        }
+
+        body.loaded h2:nth-of-type(2) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.0s;
+        }
+
+        body.loaded h2:nth-of-type(3) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.4s;
+        }
+
+        body.loaded h2:nth-of-type(4) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.8s;
+        }
+
+        body.loaded h2:nth-of-type(5) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.2s;
+        }
+
+        body.loaded h2:nth-of-type(6) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.6s;
+        }
+
+        body.loaded h2:nth-of-type(7) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 3.0s;
+        }
+
+        body.loaded h2:nth-of-type(8) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 3.4s;
+        }
+
+        body.loaded p:nth-of-type(1) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.4s;
+        }
+
+        body.loaded p:nth-of-type(2) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.5s;
+        }
+
+        body.loaded p:nth-of-type(3) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.8s;
+        }
+
+        body.loaded p:nth-of-type(4) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.2s;
+        }
+
+        body.loaded p:nth-of-type(5) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.6s;
+        }
+
+        body.loaded p:nth-of-type(6) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.0s;
+        }
+
+        body.loaded p:nth-of-type(7) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.4s;
+        }
+
+        body.loaded p:nth-of-type(8) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.8s;
+        }
+
+        body.loaded p:nth-of-type(9) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 3.2s;
+        }
+
+        body.loaded p:nth-of-type(10) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 3.6s;
+        }
+
+        body.loaded p:nth-of-type(11) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 4.0s;
+        }
+
+        body.loaded p:nth-of-type(12) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 4.4s;
+        }
+
+        /* Image container animations */
+        body.loaded .image-container.right:nth-of-type(1) {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 0.7s;
+        }
+
+        body.loaded .image-container.left:nth-of-type(1) {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 1.3s;
+        }
+
+        body.loaded .image-container.right:nth-of-type(2) {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 2.7s;
+        }
+
+        body.loaded .image-container.left:nth-of-type(2) {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 4.2s;
+        }
+
+        body.loaded .back-link {
+            opacity: 1;
+            transform: translateX(0);
+            transition-delay: 4.8s;
+        }
+
+        /* Enhanced responsive design */
+        @media (max-width: 1024px) {
+            nav li {
+                margin: 0 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                padding: 15px;
+            }
+            
+            nav li {
+                margin: 8px 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            nav a {
+                display: block;
+                padding: 12px 20px;
+                font-size: 16px;
+                background-color: rgba(255, 255, 255, 0.05);
+                border-radius: 8px;
+                border: 1px solid #333;
+            }
+            
+            nav a:hover {
+                background-color: rgba(255, 40, 0, 0.2);
+                border-color: #FF2800;
+            }
+
+            .image-container.left,
+            .image-container.right {
+                float: none;
+                display: block;
+                margin: 20px auto;
+            }
+            
+            .monaco-image {
+                width: 280px;
+                height: 180px;
+            }
+            
+            .copyright {
+                width: 280px;
+            }
+            
+            h1 {
+                font-size: 40px;
+            }
+            
+            body {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-link">
+        <a href="drsdrama.html">← Back to DRS & Drama</a>
+    </div>
+
+    <h1>🏎️ Spanish GP 2025: Siesta? Not Today. Piastri Woke the Whole Grid Up.</h1>
+    <br>
+
+    <!-- First Spanish GP Content Section with Image (Right) -->
+    <div class="content-section">
+        <div class="image-container right">
+            <img src="spanish1.webp" alt="Oscar Piastri Spanish GP Victory" class="monaco-image">
+            <div class="copyright">© 2025 Yahoo. All rights reserved.</div>
+        </div>
+        
+        <p><strong>Location:</strong> Barcelona, Spain<br>
+        <strong>Result:</strong> McLaren 1–2, Ferrari crying in Spanish, Red Bull eating four-stop strategy crumbs.</p>
+
+        <p>In a race that usually feels like a warm-up lap with tapas, the 2025 Spanish Grand Prix <em>actually delivered</em> — and not just in strategy bingo. The McLaren boys weren't just racing — they were out here <strong>executing</strong>. Precision, pace, and a whole lot of papaya.</p>
+    </div>
+
+    <!-- Second Spanish GP Content Section with Image (Left) -->
+    <div class="content-section">
+        <div class="image-container left">
+            <img src="spanish2.webp" alt="McLaren Team Celebration" class="monaco-image">
+            <div class="copyright">McLAREN Racing ©2025</div>
+        </div>
+        
+        <h2>The Aussie with the Audiobook Voice: Oscar Piastri</h2>
+
+        <p>Oscar didn't just win. He <em>monologued</em> his way to the top step. Calm, controlled, clinical — like if someone taught ChatGPT how to drive an F1 car and gave it caffeine. His pole lap was poetry. His race pace was pain for the rest. While Norris hovered in DRS range like a curious intern, Oscar just said:</p>
+
+        <p>> "Nah mate, I got this."</p>
+
+        <p>He led from lights out to lights off — no fuss, no fireworks, just efficiency so brutal it felt rude.</p>
+
+        <h2>Norris: Playing Wingman or Just Biding His Time?</h2>
+
+        <p><span class="highlight-text">Lando</span> was fast. Like "should I be leading this race?" fast. But after a spicy Monaco win, he seemed content keeping it civil this time. He stayed close, played the team game, and walked away with P2 and a smug grin. The papaya party continues.</p>
+    </div>
+
+    <!-- Third Spanish GP Content Section with Image (Right) -->
+    <div class="content-section">
+        <div class="image-container right">
+            <img src="spanish3.jpg" alt="Charles Leclerc Racing Action" class="monaco-image">
+            <div class="copyright">© The Race 2025.</div>
+        </div>
+        
+        <h2>Charles Leclerc: Stuck in P3… Again</h2>
+
+        <p><span class="highlight-text">Leclerc</span> tried. He <em>really</em> did. But every time Ferrari gets close to a win, the universe presses the "denied" button. He pitted early, drove clean, and nailed the restart — but when McLaren is locked in like this, third place is basically a moral victory.</p>
+
+        <p>> Also, let's be honest: P3 without pit lane heartbreak is a <em>great</em> day for Ferrari. But watching a seven-time world champion get overtaken by a Sauber is not for the weak-hearted</p>
+
+        <h2>Max Verstappen: The Four-Stop Fever Dream</h2>
+
+        <p>Somewhere between Lap 12 and Lap 58, Red Bull forgot they were racing and thought they were running a tire degradation experiment. <span class="highlight-text">Max</span> pitted so many times we lost count. When he <em>finally</em> had clear air, he punted Russell like it was bumper cars at Dilli Haat.<br>
+        Result? A 10-second penalty and a P10 finish.</p>
+
+        <p>> "Is this strategy or just spicy sabotage?" – Max, probably.</p>
+    </div>
+
+    <!-- Fourth Spanish GP Content Section with Image (Left) -->
+    <div class="content-section">
+        <div class="image-container left">
+            <img src="spanish4.jpg" alt="Spanish GP Race Action" class="monaco-image">
+            <div class="copyright">© 2025 Motorsport Network All rights reserved.</div>
+        </div>
+        
+        <h2>George Russell: Blocking, Barging, and Braking Late</h2>
+
+        <p><span class="highlight-text">Russell</span> drove like a man defending his grocery cart. He muscled through traffic, annoyed Verstappen, and still came home P4. Bonus points for the sass. Mercedes may not be in title contention, but Russell's fight is always turned up to 11.</p>
+
+        <h2>Alonso: Home Crowd Hero, Sort Of</h2>
+
+        <p><span class="highlight-text">Fernando Alonso</span> didn't win. Or podium. Or even radio-in anything juicy. But he did finish P9, and that was enough to send the grandstands into a <strong>national festival</strong>. Spaniards don't need trophies — they just need Alonso to show up and wave.</p>
+
+        <h2>🏁 Final Classification</h2>
+
+        <p>1. Oscar Piastri — Cold as Catalunya concrete<br>
+        2. Lando Norris — Smooth operator energy<br>
+        3. Charles Leclerc — Unlucky prince<br>
+        4. George Russell — Defender of the midfield realm<br>
+        5. Nico Hülkenberg — Still not retired, still delivering<br>
+        6. Lewis Hamilton — Probably meditating already<br>
+        ...<br>
+        10. Max Verstappen — RIP strategy</p>
+
+        <h2>Verdict:</h2>
+
+        <p>Spain 2025 was proof that McLaren isn't playing anymore. They're planning world domination one brake duct at a time. If you're Red Bull, now might be a good time to check your mirrors… and your math.</p>
+
+        <p>Next up: Canada. Bring maple syrup. And maybe new engineers.</p>
+    </div>
+
+    <div class="back-link">
+        <a href="drsdrama.html">← Back to DRS & Drama</a>
+    </div>
+    <br>
+    <div class="back-link">
+        <a href="index.html">← Back to Paddock</a>
+    </div>
+
+    <script>
+        // Smooth fade in page on load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 300);
+        });
+
+        // Smooth fade out on navigation click
+        document.querySelectorAll('nav a, .back-link a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                
+                document.body.style.transition = 'all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                document.body.classList.remove('loaded');
+                
+                setTimeout(function() {
+                    window.location.href = href;
+                }, 1200);
+            });
+        });
+
+        // Enhanced browser navigation handling
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                setTimeout(function() {
+                    document.body.classList.add('loaded');
+                }, 200);
+            }
+        });
+    </script>
+</body>
+</html>

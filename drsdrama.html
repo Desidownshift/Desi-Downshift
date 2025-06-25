@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desi Downshift</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            color: white;
+        }
+
+        nav {
+            background-color: #1a1a1a;
+            padding: 15px 0;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #FF2800;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            display: inline-block;
+            margin: 0 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            transition: all 0.4s ease;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            color: #FF2800;
+            background-color: rgba(255, 40, 0, 0.1);
+        }
+
+        h1 {
+            color: #FF2800; /* Scarlett Ferrari Red */
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+            line-height: 1;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        h2 {
+            color: #FF2800; /* Scarlett Ferrari Red */
+            text-align: center;
+            font-size: 20px;
+            margin-top: 0px;
+            padding-top: 0px;
+            line-height: 1;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        h3 {
+            color: #FF2800; /* Scarlett Ferrari Red */
+            font-size: 20px;
+            margin: 0 0 8px 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        p {
+            color: white;
+            font-size: 18px;
+            line-height: 2;
+            text-align: justify;
+            max-width: 2000px;
+            margin: 0 auto 16px;
+            opacity: 0;
+            transform: translateY(25px);
+            transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .back-link {
+            text-align: left;
+            margin: 10px 100;
+            opacity: 0;
+            transform: translateX(-15px);
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .back-link a {
+            color: #FF2800;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            transition: all 0.4s ease;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        .articles-section {
+            max-width: 2000px;
+            margin: 40px auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* Grid layout for 3 boxes per row */
+        .article-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        /* Enhanced article box with Formula 1 hover effects */
+        .article-box {
+            background-color: #1a1a1a;
+            border: 2px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            height: 220px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+            overflow: hidden;
+        }
+
+        /* Glassmorphism overlay effect with Ferrari red */
+        .article-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 40, 0, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Enhanced hover effect */
+        .article-box:hover {
+            background-color: #2a2a2a;
+            border-color: #FF2800;
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 12px 35px rgba(255, 40, 0, 0.4);
+        }
+
+        .article-box:hover::before {
+            opacity: 1;
+        }
+
+        .article-box a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .article-box-title {
+            color: #FF2800;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            line-height: 1.2;
+            text-align: center;
+            position: relative;
+            z-index: 3;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .article-box-description {
+            color: white;
+            font-size: 14px;
+            line-height: 1.4;
+            text-align: justify;
+            flex-grow: 1;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 3;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .article-box-date {
+            color: #ccc;
+            font-size: 12px;
+            font-style: italic;
+            position: absolute;
+            bottom: 15px;
+            left: 20px;
+            z-index: 3;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .tagline {
+            color: #ff6b6b;
+            text-align: center;
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Loaded state with staggered timing */
+        body.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        body.loaded nav {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.1s;
+        }
+
+        body.loaded h1 {
+            opacity: 1;
+            transform: scale(1);
+            transition-delay: 0.2s;
+        }
+
+        body.loaded .tagline {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.3s;
+        }
+
+        body.loaded h2 {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.4s;
+        }
+
+        body.loaded p {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.6s;
+        }
+
+        body.loaded .articles-section {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.8s;
+        }
+
+        body.loaded .article-box:nth-child(1) {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transition-delay: 1.0s;
+        }
+
+        body.loaded .article-box:nth-child(2) {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transition-delay: 1.1s;
+        }
+
+        body.loaded .article-box:nth-child(3) {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transition-delay: 1.2s;
+        }
+
+        body.loaded .article-box:nth-child(4) {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transition-delay: 1.3s;
+        }
+
+        body.loaded .article-box:nth-child(5) {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transition-delay: 1.4s;
+        }
+
+        body.loaded .article-box:nth-child(6) {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transition-delay: 1.5s;
+        }
+
+        body.loaded .back-link {
+            opacity: 1;
+            transform: translateX(0);
+            transition-delay: 1.7s;
+        }
+
+        /* Enhanced responsive design for 3-column layout */
+        @media (max-width: 1024px) {
+            .article-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 18px;
+            }
+            
+            nav li {
+                margin: 0 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                padding: 15px;
+            }
+            
+            nav li {
+                margin: 8px 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            nav a {
+                display: block;
+                padding: 12px 20px;
+                font-size: 16px;
+                background-color: rgba(255, 255, 255, 0.05);
+                border-radius: 8px;
+                border: 1px solid #333;
+            }
+            
+            nav a:hover {
+                background-color: rgba(255, 40, 0, 0.2);
+                border-color: #FF2800;
+            }
+
+            .article-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .article-box {
+                height: 200px;
+            }
+            
+            h1 {
+                font-size: 40px;
+            }
+            
+            body {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="back-link">
+        <a href="formula1.html">← Back to Formula 1</a>
+    </div>
+
+    <h1>DRS & Drama</h1>
+    <div class="tagline">Where wings open, tempers flare, and I serve the tea — hot and with extra sambar</div>
+    <br>
+    
+    <p>This is DRS & Drama, the part of Desi Downshift where the engineering takes a backseat and the masala hits full throttle. It's just me here — one curious soul with a keyboard and way too many opinions — dishing out the race weekends with all the spice of a well-balanced rasam.
+
+    Forget tire degradation charts (for now). This is where I talk about the juicy overtakes, the pit stop disasters, the team radios that sound like badly dubbed soap operas, and the strategies that go from genius to ayyyo in one lap.
+
+    Whether it's a late-brake divebomb, a paddock cold war, or a classic "don't talk to me while I'm driving" meltdown — I'm here to narrate it all. And no, I don't serve cold takes — just piping hot breakdowns with idli-soft humour and filter coffee-grade energy.
+
+    So sit back, grab a banana leaf full of drama, and let's debrief Desi-style.</p>
+
+    <div class="articles-section">
+        <div class="article-grid">
+
+		<div class="article-box">
+                <a href="canada.html">
+                    <h3 class="article-box-title">Canadian GP 2025: One Calm Canadian, Two Broken Papayas & A Groundhog Named Regret</h3>
+                    <p class="article-box-description">Canada 2025: The race was calm — unlike McLaren’s engines. Russell cruised, rain teased, and both papayas folded like wet napkins</p>
+                    <div class="article-box-date">16 June, 2025</div>
+                </a>
+            </div>
+
+            <div class="article-box">
+                <a href="spanish.html">
+                    <h3 class="article-box-title">Spanish GP 2025: Siesta? Not Today. Piastri Woke the Whole Grid Up.</h3>
+                    <p class="article-box-description">The one where the Papayas ruled and Mad Max was back on to attack his favourite driver on the grid! Forza Ferrari. </p>
+                    <div class="article-box-date">June 1, 2025</div>
+                </a>
+            </div>  
+          
+            <div class="article-box">
+                <a href="Monaco.html">
+                    <h3 class="article-box-title">Monaco Mayhem: When Strategy Met Chaos</h3>
+                    <p class="article-box-description">The 2025 Monaco GP delivered everything: questionable strategies, radio rants, and enough drama to fuel a Netflix series for three 			seasons.</p>
+                    <div class="article-box-date">May 25, 2025</div>
+                </a>
+            </div>
+
+
+            <div class="article-box">
+                <a href="thermal-analysis.html">
+                    <h3 class="article-box-title">Coming Soon</h3>
+                    <p class="article-box-description">Coming Soon</p>
+                    <div class="article-box-date">Soon</div>
+                </a>
+            </div>
+            <div class="article-box">
+                <a href="thermal-analysis.html">
+                    <h3 class="article-box-title">Coming Soon</h3>
+                    <p class="article-box-description">Coming Soon</p>
+                    <div class="article-box-date">Soon</div>
+                </a>
+            </div>
+
+            <div class="article-box">
+                <a href="thermal-analysis.html">
+                    <h3 class="article-box-title">Coming Soon</h3>
+                    <p class="article-box-description">Coming Soon</p>
+                    <div class="article-box-date">Soon</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="back-link">
+        <a href="formula1.html">← Back to Formula 1</a>
+    </div>
+    <br>
+    <div class="back-link">
+        <a href="index.html">← Back to Paddock</a>
+    </div>
+
+    <script>
+        // Smooth fade in page on load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 300);
+        });
+
+        // Smooth fade out on navigation click
+        document.querySelectorAll('nav a, .back-link a, .article-box a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                
+                document.body.style.transition = 'all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                document.body.classList.remove('loaded');
+                
+                setTimeout(function() {
+                    window.location.href = href;
+                }, 1200);
+            });
+        });
+
+        // Enhanced browser navigation handling
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                setTimeout(function() {
+                    document.body.classList.add('loaded');
+                }, 200);
+            }
+        });
+    </script>
+</body>
+</html>

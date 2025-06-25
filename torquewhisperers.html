@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desi Downshift</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            color: white;
+        }
+
+        h1 {
+            color: #FF2800; /* Ferrari Red */
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+            line-height: 1;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        h2 {
+            color: #FF2800; 
+            text-align: center;
+            font-size: 24px;
+            margin: 30px 0 15px 0;
+            padding-top: 0px;
+            line-height: 1.2;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        p {
+            color: white;
+            font-size: 18px;
+            line-height: 2;
+            text-align: justify;
+            max-width: 2000px;
+            margin: 0 auto 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .back-link {
+            text-align: left;
+            margin: 10px 100;
+            opacity: 0;
+            transform: translateX(-15px);
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .back-link a {
+            color: #FF2800;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            transition: all 0.4s ease;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        .highlight-text {
+            color: #FF2800;
+            font-weight: 600;
+        }
+
+
+        body.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        body.loaded h1 {
+            opacity: 1;
+            transform: scale(1);
+            transition-delay: 0.2s;
+        }
+
+        body.loaded h2 {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.4s;
+        }
+
+        body.loaded p:nth-of-type(1) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.5s;
+        }
+
+        body.loaded p:nth-of-type(2) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.7s;
+        }
+
+        body.loaded p:nth-of-type(3) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.9s;
+        }
+
+        body.loaded p:nth-of-type(4) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.1s;
+        }
+
+        body.loaded p:nth-of-type(5) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.3s;
+        }
+
+        body.loaded p:nth-of-type(6) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.5s;
+        }
+
+        body.loaded p:nth-of-type(7) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.7s;
+        }
+
+        body.loaded p:nth-of-type(8) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.9s;
+        }
+
+        body.loaded .back-link {
+            opacity: 1;
+            transform: translateX(0);
+            transition-delay: 2.1s;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 40px;
+            }
+            
+            p {
+                text-align: left;
+                font-size: 16px;
+            }
+            
+            .back-link {
+                margin: 10px 20px;
+            }
+            
+            body {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="back-link">
+        <a href="apexanatomy.html">← Back to Apex Anatomy</a>
+    </div>
+
+    <h1>Torque Whisperers</h1>
+    <h2>How F1 Power Units Work in Milliseconds</h2>
+    
+    <p>When you watch a Formula 1 car launch out of a corner, hugging the racing line like it's on rails, it's easy to be caught up in the noise, the speed, and the spectacle. But under the carbon fibre shell, there's something more fascinating going on—something that's not just about going fast, but how the car chooses to go fast. At the centre of it all is the modern F1 power unit, a hybrid marvel that doesn't just roar; it thinks, reacts, and adapts.</p>
+
+    <p>A power unit in Formula 1 is not your usual engine. Sure, there's a <span class="highlight-text">1.6-litre V6</span> tucked into the chassis, turbocharged and angry. But that's just one part of a complex orchestra. Alongside it, electric components work silently, recovering energy, storing it, and then using it again at exactly the right moments. Every time a driver touches the throttle, these systems talk to each other in real time. The combustion engine delivers the main punch, while electric motors like the <span class="highlight-text">MGU-K</span> (which recovers energy under braking) and the <span class="highlight-text">MGU-H</span> (which captures heat from the turbo) provide support, smoothing out the power and giving it an extra boost when needed.</p>
+
+    <div class="quote-block">
+       " All of this happens in milliseconds. "
+    </div>
+
+    <p>Out of a corner, the driver asks for power—and without missing a beat, the V6 responds. The turbo spools up to squeeze more air into the engine. The MGU-K adds instant torque from stored energy, and the control systems decide exactly how much to deploy based on grip, battery level, and strategy. It's a dance of numbers and electrons, happening too fast for the human eye to catch but critical for performance.</p>
+
+    <p>This precision isn't just about going faster—it's about using power wisely. Too much too soon, and the tyres spin. Too little, and you've lost precious acceleration. The battery might drain if deployment isn't managed well. Or the system could overheat. That's why engineers and drivers obsess over <span class="highlight-text">energy deployment maps</span>, throttle response, and engine braking. What looks like a straight line on track is, behind the scenes, a constant conversation between man and machine.</p>
+
+    <p>During qualifying, this conversation gets louder. Everything is turned up—maximum engine mode, full hybrid deployment, no holding back. But in the race, it's a different story. Power has to be managed. Maybe the driver needs to cool the battery. Maybe they're saving fuel. Maybe they're just trying to find grip in the middle of a long stint on worn tyres. The car becomes strategic, thinking just as much as the person behind the wheel.</p>
+
+    <p>What makes the modern F1 power unit so impressive isn't just the numbers on the spec sheet. It's that feel—the immediate, perfect response to the driver's commands. When everything clicks, it's not brute force. It's balance. It's control. It's poetry written in fuel and electricity.</p>
+
+    <p>Formula 1 is often described as a battle between drivers and teams. But underneath it all, there's another player in the mix—the power unit. <span class="highlight-text">Quiet, precise, and always ready to whisper a burst of torque at just the right time.</span></p>
+
+    <div class="back-link">
+        <a href="apexanatomy.html">← Back to Apex Anatomy</a>
+    </div>
+
+    <div class="back-link">
+        <a href="formula1.html">← Back to Formula 1</a>
+    </div>
+    <br>
+
+	
+    <script>
+        // Smooth fade in page on load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 300);
+        });
+
+        // Smooth fade out on navigation click
+        document.querySelectorAll('.back-link a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                
+                document.body.style.transition = 'all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                document.body.classList.remove('loaded');
+                
+                setTimeout(function() {
+                    window.location.href = href;
+                }, 1200);
+            });
+        });
+
+        // Enhanced browser navigation handling
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                setTimeout(function() {
+                    document.body.classList.add('loaded');
+                }, 200);
+            }
+        });
+    </script>
+
+</body>
+</html>

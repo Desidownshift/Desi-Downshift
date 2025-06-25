@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desi Downshift</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            color: white;
+        }
+
+        h1 {
+            color: #FF2800; /* Ferrari Red */
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+            line-height: 1;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        h2 {
+            color: #FF2800; 
+            text-align: center;
+            font-size: 24px;
+            margin: 30px 0 15px 0;
+            padding-top: 0px;
+            line-height: 1.2;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        h3 {
+            color: #FF2800; 
+            text-align: left;
+            font-size: 22px;
+            margin: 30px 0 15px 0;
+            padding-top: 0px;
+            line-height: 1.2;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        p {
+            color: white;
+            font-size: 18px;
+            line-height: 2;
+            text-align: justify;
+            max-width: none;
+            margin: 0 0 20px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .back-link {
+            text-align: left;
+            margin: 10px 100;
+            opacity: 0;
+            transform: translateX(-15px);
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .back-link a {
+            color: #FF2800;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            transition: all 0.4s ease;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        .highlight-text {
+            color: #FF2800;
+            font-weight: 600;
+        }
+
+        /* Image container to keep image and copyright together */
+        .image-container {
+            display: inline-block;
+            margin: 20px;
+            opacity: 0;
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .image-container.right {
+            float: right;
+            margin-left: 25px;
+            margin-right: 0;
+            transform: translateX(50px) scale(0.9);
+        }
+
+        .image-container.left {
+            float: left;
+            margin-right: 25px;
+            margin-left: 0;
+            transform: translateX(-50px) scale(0.9);
+        }
+
+        /* Tyre image styles */
+        .tyre-image {
+            width: 320px;
+            height: 220px;
+            border-radius: 8px;
+            border: 3px solid #FF2800;
+            box-shadow: 0 4px 15px rgba(255, 40, 0, 0.3);
+            object-fit: cover;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .tyre-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 40, 0, 0.5);
+            border-color: #FF2800;
+        }
+
+        /* Content sections for proper text flow */
+        .content-section {
+            overflow: auto;
+            margin-bottom: 30px;
+        }
+
+        .content-section:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Copyright positioning - directly under image */
+        .copyright {
+            font-size: 10px;
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            width: 320px; /* Match image width */
+            display: block;
+        }
+
+        /* Loaded state with extended timing for all content */
+        body.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        body.loaded h1 {
+            opacity: 1;
+            transform: scale(1);
+            transition-delay: 0.2s;
+        }
+
+        body.loaded h2 {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.4s;
+        }
+
+        body.loaded h3:nth-of-type(1) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.8s;
+        }
+
+        body.loaded h3:nth-of-type(2) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.4s;
+        }
+
+        body.loaded h3:nth-of-type(3) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.0s;
+        }
+
+        body.loaded h3:nth-of-type(4) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.6s;
+        }
+
+        body.loaded p:nth-of-type(1) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.5s;
+        }
+
+        body.loaded p:nth-of-type(2) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.6s;
+        }
+
+        body.loaded p:nth-of-type(3) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.9s;
+        }
+
+        body.loaded p:nth-of-type(4) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.0s;
+        }
+
+        body.loaded p:nth-of-type(5) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.1s;
+        }
+
+        body.loaded p:nth-of-type(6) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.5s;
+        }
+
+        body.loaded p:nth-of-type(7) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.6s;
+        }
+
+        body.loaded p:nth-of-type(8) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.7s;
+        }
+
+        body.loaded p:nth-of-type(9) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.1s;
+        }
+
+        body.loaded p:nth-of-type(10) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.2s;
+        }
+
+        body.loaded p:nth-of-type(11) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.3s;
+        }
+
+        body.loaded p:nth-of-type(12) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.7s;
+        }
+
+        body.loaded p:nth-of-type(13) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.8s;
+        }
+
+        /* Image container animations */
+        body.loaded .image-container.right {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 1.2s;
+        }
+
+        body.loaded .image-container.left {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 1.8s;
+        }
+
+        body.loaded .back-link {
+            opacity: 1;
+            transform: translateX(0);
+            transition-delay: 3.0s;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 40px;
+            }
+            
+            p {
+                text-align: left;
+                font-size: 16px;
+            }
+            
+            .back-link {
+                margin: 10px 20px;
+            }
+            
+            body {
+                padding: 15px;
+            }
+
+            .image-container.left,
+            .image-container.right {
+                float: none;
+                display: block;
+                margin: 20px auto;
+            }
+            
+            .tyre-image {
+                width: 300px;
+                height: 200px;
+            }
+            
+            .copyright {
+                width: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="back-link">
+        <a href="apexanatomy.html">← Back to Apex Anatomy</a>
+    </div>
+
+    <h1>🛞 "Tyred Yet?" — The Rubber That Runs the Grid</h1>
+    <h2>How F1 tyres cost the drivers their podium</h2>
+    
+    <p>If you've ever watched a Formula 1 race and wondered why an entire team of engineers starts panicking when a tyre starts losing grip — welcome. You're finally looking at the real MVP of F1: the tyre.</p>
+
+    <p>Yes, there are 1000-horsepower power units, millions worth of aero design, and brake ducts that look like alien tech — but none of that matters if your tyres decide they've had enough. Because in the end, a Formula 1 car only connects to the track through four small patches of rubber. That's it. Four. That's where races are won, lost, and thrown into absolute chaos.</p>
+
+    <!-- First Content Section with Tyre Image 1 (Right) -->
+    <div class="content-section">
+        <div class="image-container right">
+            <img src="tyres.1.jpg" alt="F1 Pirelli Tyre Compounds" class="tyre-image">
+            <div class="copyright">© 2024 Collantine Media Ltd</div>
+        </div>
+
+        <h3>Compound Confusion? Let's Clear It.</h3>
+        <p>Pirelli — the official tyre supplier — makes five main slick compounds for the season: C1 to C5. The lower the number, the harder the tyre. But they don't just roll up with all five to every track. Instead, they pick a set of three and rename them for simplicity: <span class="highlight-text">Hard (white), Medium (yellow), and Soft (red).</span></p>
+
+        <p>Hard tyres last long but grip like a disinterested intern. Soft tyres? Sticky as hell, but wear out quicker than free Wi-Fi at a railway station. Mediums? The goldilocks zone. The trick is finding the right compound for the right circuit — and then praying the weather doesn't throw a tantrum.</p>
+        
+        <p>Tracks like Monza love hard rubber. Monaco? Go soft or go home. It's chess on asphalt, with Pirelli playing supply god.</p>
+    </div>
+
+    <div class="content-section">
+        <h3>Grip, Heat & Mood Swings</h3>
+        <p>Here's the thing about tyres: they're moody. They need to hit the perfect temperature window (usually 90–110°C), stay inflated to just the right pressure, and not get too bored or too hot. Push them too much? They overheat, melt, and betray you. Baby them too much? They never get into the groove. Every tyre has an ideal life — a point where it grips like a dream, lets you brake late, and whisper around corners like poetry. And then, in a blink, it's gone. What follows is understeer, oversteer, and pit-wall panic.</p>
+
+        <p>And god forbid they grain — where melted rubber builds up on the surface like dead skin — or blister, where heat bubbles form inside the compound. That's when drivers go from "I'm feeling good" to "Box, box, box" in under half a lap.</p>
+    </div>
+
+    <!-- Second Content Section with Tyre Image 2 (Left) -->
+    <div class="content-section">
+        <div class="image-container left">
+            <img src="tyres.2.jpg" alt="F1 Tyre Strategy and Pit Stop" class="tyre-image">
+            <div class="copyright">©FormulaFanatics</div>
+        </div>
+
+        <h3>Strategy: Where Tyres Become Tactics</h3>
+
+        <p>This is where things get spicy. Teams don't just throw on whatever's softest. Every pit stop is timed based on degradation, pace drop-offs, and even expected Safety Car windows. Want to undercut your rival? Pit early, slap on new tyres, and pump in faster laps while they're still running old rubber. Want to go long? Stretch your tyre stint like it's exam prep at 3AM — full commitment, zero mistakes.</p>
+
+        <p>Races like Silverstone, Hungary, and yes — Monaco 2025 — are won not with sheer speed, but with tyre whispers. Take Norris this year. Controlled pace, perfect tyre temps, and a soft-tyre masterclass. Meanwhile, Leclerc had the crowd, the pace, and the strategy — but not the tyre control. And it showed.</p>
+    </div>
+
+    <div class="content-section">
+        <h3>Rubber Rules the Grid</h3>
+        <p>In F1, tyres aren't just tools — they're the plot twist. They decide when you can attack, when you must defend, and when you absolutely need to pit or perish. They're unpredictable, unforgiving, and unbelievably powerful.</p>
+
+        <p>And over the next few weeks, right here on Desi Downshift, I'll be peeling the layers off:<br>
+        * Wet and intermediate tyres and their aquaplaning dance moves.<br>
+        * FIA's tight tyre regulations (because tyre pressure is apparently that serious)<br>
+        * How software predicts when a tyre will fall off performance cliff mid-race</p>
+
+        <p>Because understanding tyres isn't optional — it's essential. Stay tuned. We're just getting warmed up.</p>
+    </div>
+    <div class="back-link">
+        <a href="apexanatomy.html">← Back to Apex Anatomy</a>
+    </div>
+
+    <div class="back-link">
+        <a href="formula1.html">← Back to Formula 1</a>
+    </div>
+    <br>
+
+    
+    <script>
+        // Smooth fade in page on load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 300);
+        });
+
+        // Smooth fade out on navigation click
+        document.querySelectorAll('.back-link a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                
+                document.body.style.transition = 'all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                document.body.classList.remove('loaded');
+                
+                setTimeout(function() {
+                    window.location.href = href;
+                }, 1200);
+            });
+        });
+
+        // Enhanced browser navigation handling
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                setTimeout(function() {
+                    document.body.classList.add('loaded');
+                }, 200);
+            }
+        });
+    </script>
+
+</body>
+</html>

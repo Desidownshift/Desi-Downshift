@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desi Downshift</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            color: white;
+        }
+
+        nav {
+            background-color: #1a1a1a;
+            padding: 15px 0;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #FF2800;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            display: inline-block;
+            margin: 0 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            transition: all 0.4s ease;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            color: #FF2800;
+            background-color: rgba(255, 40, 0, 0.1);
+        }
+
+        h1 {
+            color: #FF2800;
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+            line-height: 1;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        h2 {
+            color: #FF2800;
+            text-align: left;
+            font-size: 24px;
+            margin: 30px 0 15px 0;
+            padding-top: 0px;
+            line-height: 1.2;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        p {
+            color: white;
+            font-size: 18px;
+            line-height: 2;
+            text-align: justify;
+            max-width: none;
+            margin: 0 0 20px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .back-link {
+            text-align: left;
+            margin: 10px 100;
+            opacity: 0;
+            transform: translateX(-15px);
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .back-link a {
+            color: #FF2800;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            transition: all 0.4s ease;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Canada Images Styling with Alternating Positions */
+        .canada-image {
+            width: 300px;
+            height: 200px;
+            border-radius: 8px;
+            border: 3px solid #FF2800;
+            box-shadow: 0 4px 15px rgba(255, 40, 0, 0.3);
+            object-fit: cover;
+            margin: 20px;
+            opacity: 0;
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .canada-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 40, 0, 0.5);
+            border-color: #FF2800;
+        }
+
+        /* Alternating image positions */
+        .canada-image.right {
+            float: right;
+            margin-left: 25px;
+            margin-right: 0;
+            transform: translateX(50px) scale(0.9);
+        }
+
+        .canada-image.left {
+            float: left;
+            margin-right: 25px;
+            margin-left: 0;
+            transform: translateX(-50px) scale(0.9);
+        }
+
+        /* Content sections for proper text flow */
+        .content-section {
+            overflow: auto;
+            margin-bottom: 30px;
+        }
+
+        .content-section:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .highlight-text {
+            color: #FF2800;
+            font-weight: 600;
+        }
+
+        /* Copyright positioning - directly under image */
+        .copyright {
+            font-size: 10px;
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            width: 300px; /* Match image width */
+            display: block;
+        }
+
+        .copyright.right {
+            float: right;
+            margin-left: 25px;
+            margin-right: 0;
+            clear: right;
+        }
+
+        .copyright.left {
+            float: left;
+            margin-right: 25px;
+            margin-left: 0;
+            clear: left;
+        }
+
+        /* Loaded state with extended timing for all content */
+        body.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        body.loaded nav {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.1s;
+        }
+
+        body.loaded h1 {
+            opacity: 1;
+            transform: scale(1);
+            transition-delay: 0.2s;
+        }
+
+        body.loaded h2:nth-of-type(1) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.6s;
+        }
+
+        body.loaded h2:nth-of-type(2) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.0s;
+        }
+
+        body.loaded h2:nth-of-type(3) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.4s;
+        }
+
+        body.loaded h2:nth-of-type(4) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.8s;
+        }
+
+        body.loaded h2:nth-of-type(5) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.2s;
+        }
+
+        body.loaded p:nth-of-type(1) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.4s;
+        }
+
+        body.loaded p:nth-of-type(2) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.5s;
+        }
+
+        body.loaded p:nth-of-type(3) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.8s;
+        }
+
+        body.loaded p:nth-of-type(4) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.2s;
+        }
+
+        body.loaded p:nth-of-type(5) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.6s;
+        }
+
+        body.loaded p:nth-of-type(6) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.0s;
+        }
+
+        body.loaded p:nth-of-type(7) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.4s;
+        }
+
+        body.loaded p:nth-of-type(8) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.8s;
+        }
+
+        body.loaded p:nth-of-type(9) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 3.2s;
+        }
+
+        body.loaded p:nth-of-type(10) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 3.6s;
+        }
+
+        body.loaded .canada-image.right:nth-of-type(1) {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 0.7s;
+        }
+
+        body.loaded .canada-image.left:nth-of-type(1) {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 1.3s;
+        }
+
+        body.loaded .canada-image.right:nth-of-type(2) {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 2.7s;
+        }
+
+        body.loaded .canada-image.left:nth-of-type(2) {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 4.2s;
+        }
+
+        body.loaded .back-link {
+            opacity: 1;
+            transform: translateX(0);
+            transition-delay: 4.8s;
+        }
+
+        /* Enhanced responsive design */
+        @media (max-width: 1024px) {
+            nav li {
+                margin: 0 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                padding: 15px;
+            }
+            
+            nav li {
+                margin: 8px 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            nav a {
+                display: block;
+                padding: 12px 20px;
+                font-size: 16px;
+                background-color: rgba(255, 255, 255, 0.05);
+                border-radius: 8px;
+                border: 1px solid #333;
+            }
+            
+            nav a:hover {
+                background-color: rgba(255, 40, 0, 0.2);
+                border-color: #FF2800;
+            }
+
+            .canada-image.left,
+            .canada-image.right {
+                float: none;
+                display: block;
+                margin: 20px auto;
+                width: 280px;
+                height: 180px;
+            }
+
+            .copyright.left,
+            .copyright.right {
+                float: none;
+                margin: 5px auto 20px;
+                width: 280px;
+            }
+            
+            h1 {
+                font-size: 40px;
+            }
+            
+            body {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-link">
+        <a href="drsdrama.html">← Back to DRS & Drama</a>
+    </div>
+
+    <h1>Canadian GP 2025: One Calm Canadian, Two Broken Papayas & A Groundhog Named Regret</h1>
+    <br>
+
+    <!-- First Content Section with Canada Right Image -->
+    <div class="content-section">
+        <img src="canada1.webp" alt="Canadian GP 2025 Race Action" class="canada-image right">
+        <div class="copyright right">© 2025 Formula One History</div>
+        <p>Montreal has a reputation. Wet walls. Rogue strategy. Drama duct-taped to every turn. But in 2025? The only thing that crashed spectacularly was McLaren's hope — and a squirrel's cousin. The Canadian GP didn't give us a thriller. It gave us a slow-burn novel with a few pages violently torn out in the final chapters.</p>
+
+        <p><span class="highlight-text">George Russell</span>, a man often accused of driving with too much caution and not enough chaos, finally let his inner menace take the wheel. He nailed pole on Saturday and then pulled off what can only be described as a therapeutic victory. No drama. No radio poetry. Just clean lines, clean air, and a very un-Canadian level of ruthlessness. George didn't win the race — he disassembled it, lap by lap, until there was nothing left for anyone else to grab.</p>
+    </div>
+
+    <!-- Second Content Section with Canada Left Image -->
+    <div class="content-section">
+        <img src="canada2.avif" alt="McLaren Team Incident" class="canada-image left">
+        <div class="copyright left">© 2003-2025 Formula One World Championship Limited</div>
+        
+        <h2>McLaren's Papaya Tragedy</h2>
+
+        <p>Behind him, though? Flames.</p>
+
+        <p>McLaren were poised for big points. <span class="highlight-text">Oscar Piastri</span> was running strong in third, cool and calculating. <span class="highlight-text">Lando Norris</span> had fresher tyres and faster pace. All they had to do was not collide.</p>
+
+        <p>So of course, they collided.</p>
+
+        <p>On Lap 66, Norris sent it down the inside like he forgot Oscar was on the team. Crunch. Carbon flew. Norris was out. Piastri finished with a mangled floor and what we can only assume was an equally mangled mood. The radio was short and sharp:</p>
+
+        <p>> "That's on me. All my fault. Sorry, mate."</p>
+
+        <p>Brutally honest. Painfully British. Respectfully tragic.</p>
+    </div>
+
+    <div class="content-section">
+        <h2>The Rookie's Moment</h2>
+
+        <p>Enter <span class="highlight-text">Kimi Antonelli</span>. At just 18 years old, he wasn't supposed to be here yet — not on a Montreal podium next to Verstappen and Russell. But when the papayas folded like a weak dosa, Antonelli capitalised. Quiet, precise, and about as expressive as a torque wrench, he took P3 like it was just another Tuesday. This was his coming-out party — not with fireworks, but with quiet competence and ridiculous pace.</p>
+    </div>
+
+    <!-- Third Content Section with Canada Right2 Image -->
+    <div class="content-section">
+        <img src="canada3.jpg" alt="Lewis Hamilton Groundhog Incident" class="canada-image right">
+        <div class="copyright right">© 2025 Sky UK</div>
+        
+        <h2>Lewis vs. The Montreal Mascot</h2>
+        <p>And <span class="highlight-text">Lewis</span>? Oh, Lewis. In his new Ferrari colours, still trying to make magic happen. He might have — if not for the Montreal mascot: a groundhog with a death wish. On Lap 15, Lewis hit it head-on. The telemetry showed an immediate 20-point loss in front downforce. The front wing wasn't broken. But the vibe was. The old Montreal curse strikes again — this time, with fur.<br><span class="highlight-text">Charles Leclerc</span> was fast-ish, sad-ish, and somehow still fifth. Business as usual.
+
+</p>
+
+        <p><span class="highlight-text">Max Verstappen</span>, meanwhile, finished P2 in classic Max fashion — efficient, unbothered, and possibly daydreaming about sim racing mid-race. Red Bull's strategy worked, but there was no fire in it. No Max radio meltdown. No last-lap heroics. Just a professional drive that deserved applause, but not a standing ovation.</p>
+
+        <p>The midfield? Strategy copy-pasted. One-stop. Tyres managed. Position held. The only thing unpredictable about this race was how predictable it was — until it wasn't.</p>
+    </div>
+
+    <!-- Fourth Content Section with Canada Left2 Image -->
+    <div class="content-section">
+        <img src="canada4.avif" alt="Canadian GP Results" class="canada-image left">
+        <div class="copyright left">© 2003-2025 Formula One World Championship Limited</div>
+        
+        <h2>🏁 Final Classification:</h2>
+
+        <p>🥇 <span class="highlight-text">George Russell</span> — Smooth operator mode unlocked<br>
+        🥈 <span class="highlight-text">Max Verstappen</span> — Efficient. Emotionless. Expected.<br>
+        🥉 <span class="highlight-text">Kimi Antonelli</span> — Future world champion loading...</p>
+
+        <p>💥 DNF: <span class="highlight-text">Lando Norris</span> — Took out his teammate and himself. Owned it. Still hurts.<br>
+        🐾 <span class="highlight-text">Lewis Hamilton</span> — Groundhog said "not today, champ."</p>
+
+        <h2>💭 Verdict:</h2>
+
+        <p>Canadian GP 2025 was a contradiction — it gave us calm and catastrophe, silence and screams. McLaren fans cried. Russell fans exhaled. Antonelli fans multiplied. And somewhere in Montreal, there's a groundhog who unknowingly played a bigger part in this championship than most strategy teams.</p>
+
+        <p>This wasn't the cinematic chaos of Canada. It wasn't a classic. But in the stillness, we saw a few futures get rewritten.</p>
+
+        <p>Sometimes, <span class="highlight-text">DRS & Drama</span> doesn't mean overtakes and carnage. Sometimes, it's the quiet moments that echo the loudest.</p>
+    </div>
+
+    <div class="back-link">
+        <a href="drsdrama.html">← Back to DRS & Drama</a>
+    </div>
+    <br>
+    <div class="back-link">
+        <a href="index.html">← Back to Paddock</a>
+    </div>
+
+    <script>
+        // Smooth fade in page on load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 300);
+        });
+
+        // Smooth fade out on navigation click
+        document.querySelectorAll('nav a, .back-link a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                
+                document.body.style.transition = 'all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                document.body.classList.remove('loaded');
+                
+                setTimeout(function() {
+                    window.location.href = href;
+                }, 1200);
+            });
+        });
+
+        // Enhanced browser navigation handling
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                setTimeout(function() {
+                    document.body.classList.add('loaded');
+                }, 200);
+            }
+        });
+    </script>
+</body>
+</html>

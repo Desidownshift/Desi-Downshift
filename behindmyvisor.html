@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desi Downshift</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s cubic-bezier(0.4, 0.0, 0.2, 1);
+            color: white;
+        }
+
+        /* Profile image styling with float and transitions */
+        .profile-image {
+            float: right;
+            width: 250px;
+            height: 300px;
+            margin: 0 0 20px 30px;
+            border-radius: 10px;
+            border: 3px solid #FF2800;
+            opacity: 0;
+            transform: translateX(50px) scale(0.9);
+            transition: all 1.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(255, 40, 0, 0.3);
+            object-fit: cover;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 40, 0, 0.5);
+            border-color: #FF2800;
+        }
+
+        /* Content wrapper for proper text flow */
+        .content-wrapper {
+            overflow: auto;
+        }
+
+        h1 {
+            color: #FF2800;
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+            line-height: 1;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        h2 {
+            color: #FF2800;
+            text-align: center;
+            font-size: 20px;
+            margin-top: 0px;
+            padding-top: 0px;
+            line-height: 1;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        p {
+            color: white;
+            font-size: 18px;
+            line-height: 2;
+            text-align: justify;
+            max-width: none;
+            margin: 0 0 20px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .back-link {
+            text-align: left;
+            margin: 10px 100;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+
+        .back-link a {
+            color: #FF2800;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+            color: #FF2800;
+        }
+
+        /* Loaded state for smooth animations */
+        body.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        body.loaded h1 {
+            opacity: 1;
+            transform: scale(1);
+            transition-delay: 0.2s;
+        }
+
+        body.loaded h2 {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.4s;
+        }
+
+        body.loaded .profile-image {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 0.3s;
+        }
+
+        body.loaded p:nth-of-type(1) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.5s;
+        }
+
+        body.loaded p:nth-of-type(2) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.6s;
+        }
+
+        body.loaded p:nth-of-type(3) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.7s;
+        }
+
+        body.loaded p:nth-of-type(4) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.8s;
+        }
+
+        body.loaded p:nth-of-type(5) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.9s;
+        }
+
+        body.loaded .back-link {
+            opacity: 1;
+            transform: translateX(0);
+            transition-delay: 1.0s;
+        }
+
+        /* Responsive design for mobile */
+        @media (max-width: 768px) {
+            .profile-image {
+                float: none;
+                display: block;
+                margin: 0 auto 20px auto;
+                width: 200px;
+                height: 240px;
+            }
+
+            p {
+                text-align: left;
+            }
+            
+            h1 {
+                font-size: 40px;
+            }
+            
+            body {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-link">
+        <a href="index.html">← Back to Paddock</a>
+    </div>
+
+    <h1>Behind my Visor!</h1>
+    <br>
+    
+    <div class="content-wrapper">
+        <!-- Profile Image - Same source as requested -->
+        <img src="behindmyvisor.jpg" alt="Hrishikesh H L - Behind the Visor" class="profile-image">
+        
+        <p>I'm Hrishikesh H L (Harry).<br>
+        Mechanical engineering student by degree, race junkie by choice, and currently trying to convince my laptop to not crash mid-simulation at 3AM.</p>
+        
+        <p>This site? It's not a portfolio. It's a pitstop for all the chaos in my head — greasy thoughts, chai-fueled rants, and a dream that smells like burnt clutch and MIG welds. If you're here for clean, curated engineering, Bud, wrong garage.</p>
+        
+        <p>I didn't grow up building cars or fabricating masterpieces — I just watched one too many "how to machine a knuckle" & "Rust to Riches" episodes and now I think I'm built for the pits & the Manufacturing units.
+        I haven't snapped a bolt or set anything on fire yet, but I'm emotionally ready. I crave the late nights, the grinder burns, the existential crisis over a misaligned bracket.
+        Right now I mostly lurk, learn, and pretend to understand datasheets — but give it time. I'm already in too deep, and I haven't even ruined my first tap set. Today, I'm neck-deep in simulations, FEA errors, and that one CAD file that won't open. But the more I learn, the deeper I spiral into this whole beautiful mess of motorsport manufacturing.</p>
+        
+        <p>This isn't just about engineering. Or racing.<br>
+        It's about me — my breakdowns, breakthroughs, metal-shaving mayhem, poetry, playlists and confessions I've chosen to make public. Sometimes it's code. Sometimes it's chaos. Sometimes it's both.</p>
+        
+        <p>Why "Desi Downshift"?<br> Because every time I hit the brakes, heel-toe like a maniac, and shift down, I remember where I started—from desi streets of Coimbatore to racing dreams. This isn't just engineering. It's attitude, grit, and desi-engineered chaos control.<br>
+
+        So, welcome to Desi Downshift — torque down your doubts, and take the ride!</p>
+    </div>
+
+    <div class="back-link">
+        <a href="index.html">← Back to Paddock</a>
+    </div>
+
+    <script>
+        // Smooth fade in page on load - Updated timing to match index.html
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 300);
+        });
+
+        // Smooth fade out on navigation click - Updated to match index.html
+        document.querySelectorAll('.back-link a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                
+                document.body.style.transition = 'all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                document.body.classList.remove('loaded');
+                
+                setTimeout(function() {
+                    window.location.href = href;
+                }, 1200);
+            });
+        });
+
+        // Enhanced browser navigation handling - Updated to match index.html
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                setTimeout(function() {
+                    document.body.classList.add('loaded');
+                }, 200);
+            }
+        });
+    </script>
+</body>
+</html>

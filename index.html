@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desi Downshift</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s cubic-bezier(0.4, 0.0, 0.2, 1);
+            color: white;
+        }
+
+        /* Contact bar styling */
+        .contact-bar {
+            background-color: #0d0d0d;
+            border-bottom: 1px solid #333;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+
+        .contact-info {
+            display: inline-flex;
+            gap: 30px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            font-size: 14px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: #FF2800;
+        }
+
+        .contact-icon {
+            font-size: 16px;
+        }
+
+        .main-content {
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #1a1a1a;
+            padding: 15px 0;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #FF2800;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            display: inline-block;
+            margin: 0 60px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            transition: all 0.4s ease;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            color: #FF2800;
+            background-color: rgba(255, 40, 0, 0.1);
+        }
+
+        h1 {
+            color: #FF2800;
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+            line-height: 1;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        h2 {
+            color: #FF2800;
+            text-align: center;
+            font-size: 20px;
+            margin-top: 0px;
+            padding-top: 0px;
+            line-height: 1;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        h3 {
+            color: #FF2800;
+            font-size: 20px;
+            margin: 0 0 8px 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        p {
+            color: white;
+            font-size: 18px;
+            line-height: 2;
+            text-align: left;
+            max-width: 1500px;
+            margin: 0 auto 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .articles-section {
+            max-width: 2000px;
+            margin: 40px auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .section-title {
+            color: #FF2800;
+            font-size: 30px;
+            text-align: center;
+            margin: 40px 0 30px;
+            border-bottom: 2px solid #FF2800;
+            padding-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        .article-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .article-box {
+            background-color: #1a1a1a;
+            border: 2px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            height: 220px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+            overflow: hidden;
+        }
+
+        .article-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 40, 0, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .article-box:hover {
+            background-color: #2a2a2a;
+            border-color: #FF2800;
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 12px 35px rgba(255, 40, 0, 0.6);
+        }
+
+        .article-box:hover::before {
+            opacity: 1;
+        }
+
+        .article-box a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .article-box-title {
+            color: #FF2800;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            line-height: 1.2;
+            text-align: center;
+            position: relative;
+            z-index: 3;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .article-box-description {
+            color: white;
+            font-size: 14px;
+            line-height: 1.4;
+            text-align: justify;
+            flex-grow: 1;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 3;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .article-box-date {
+            color: #ccc;
+            font-size: 12px;
+            font-style: italic;
+            position: absolute;
+            bottom: 15px;
+            left: 20px;
+            z-index: 3;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Loaded state with staggered timing */
+        body.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        body.loaded .contact-bar {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.1s;
+        }
+
+        body.loaded nav {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.2s;
+        }
+
+        body.loaded h1 {
+            opacity: 1;
+            transform: scale(1);
+            transition-delay: 0.3s;
+        }
+
+        body.loaded h2 {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.4s;
+        }
+
+        body.loaded p {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.5s;
+        }
+
+        body.loaded .articles-section {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.8s;
+        }
+
+        body.loaded .article-box:nth-child(1) {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transition-delay: 1.0s;
+        }
+
+        body.loaded .article-box:nth-child(2) {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transition-delay: 1.1s;
+        }
+
+        body.loaded .article-box:nth-child(3) {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transition-delay: 1.2s;
+        }
+
+        body.loaded .article-box:nth-child(4) {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transition-delay: 1.3s;
+        }
+
+        body.loaded .article-box:nth-child(5) {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transition-delay: 1.4s;
+        }
+
+        body.loaded .article-box:nth-child(6) {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transition-delay: 1.5s;
+        }
+
+        /* Enhanced responsive design for mobile navigation */
+        @media (max-width: 1024px) {
+            .article-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 18px;
+            }
+            
+            nav li {
+                margin: 0 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+                padding: 10px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                padding: 15px;
+            }
+            
+            nav li {
+                margin: 8px 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            nav a {
+                display: block;
+                padding: 12px 20px;
+                font-size: 16px;
+                background-color: rgba(255, 255, 255, 0.05);
+                border-radius: 8px;
+                border: 1px solid #333;
+            }
+            
+            nav a:hover {
+                background-color: rgba(255, 40, 0, 0.2);
+                border-color: #FF2800;
+            }
+
+            .article-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .article-box {
+                height: 200px;
+            }
+            
+            h1 {
+                font-size: 40px;
+            }
+            
+            .main-content {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-content">
+        <h1>Desi - Downshift</h1>
+        <h2>Downshifting dreams, one burnout at a time</h2>
+        <br>
+        <nav>
+            <ul>
+                <li><a href="behindmyvisor.html">Behind my Visor</a></li>
+                <li><a href="formula1.html">Formula 1</a></li>	
+                <li><a href="torquetolerance.html">Torque & Tolerance</a></li>
+                <li><a href="outlapdiaries.html">Outlap Diaries</a></li>
+                <li><a href="poetry.html">Farzi Mushairen</a></li>
+            </ul>
+        </nav>
+        
+        <p>Desi Downshift isn't just a name.<br>
+        It's my lifestyle. My rhythm. A dirty little secret between me and the road.</p>
+        <p>Step gently into my Paddock!</p>
+
+        <div class="articles-section">
+            <h2 class="section-title">Latest Upgrades</h2>
+
+            <div class="article-grid">
+                <div class="article-box">
+                    <a href="aero.html">
+                        <h3 class="article-box-title">The Wind Beneath the Wheels: The Story of F1 Aerodynamics</h3>
+                        <p class="article-box-description">A deep dive into how air, speed, and smart design shape everything from racecars to rockets — and why drag is the ultimate enemy.</p>
+                        <div class="article-box-date">June 20, 2025</div>
+                    </a>
+                </div>
+
+                <div class="article-box">
+                    <a href="tyres.html">
+                        <h3 class="article-box-title">"Tyred Yet?" — The Rubber That Runs the Grid</h3>
+                        <p class="article-box-description">How the Pirelli rubbers are used every weekend.</p>
+                        <div class="article-box-date">June 18, 2025</div>
+                    </a>
+                </div>
+
+                <div class="article-box">
+                    <a href="canada.html">
+                        <h3 class="article-box-title">Canadian GP 2025: One Calm Canadian, Two Broken Papayas & A Groundhog Named Regret</h3>
+                        <p class="article-box-description">Canada 2025: The race was calm — unlike McLaren’s engines. Russell cruised, rain teased, and both papayas folded like wet napkins</p>
+                        <div class="article-box-date">June 15, 2025</div>
+                    </a>
+                </div>
+
+                <div class="article-box">
+                    <a href="chai.html">
+                        <h3 class="article-box-title">The Philosophy of Chai Breaks</h3>
+                        <p class="article-box-description">Why the best engineering solutions come not from CAD software, but from those 5-minute chai breaks when your brain finally gets a chance to breathe.</p>
+                        <div class="article-box-date">June 14, 2025</div>
+                    </a>
+                </div>
+
+                <div class="article-box">
+                    <a href="generaldibbi.html">
+                        <h3 class="article-box-title">Unreserved Realities</h3>
+                        <p class="article-box-description">Where Prada meets plastic bottles, and strangers become co-survivors.</p>
+                        <div class="article-box-date">June 1, 2025</div>
+                    </a>
+                </div>
+
+            <div class="article-box">
+                <a href="spanish.html">
+                    <h3 class="article-box-title">Spanish GP 2025: Siesta? Not Today. Piastri Woke the Whole Grid Up.</h3>
+                    <p class="article-box-description">The one where the Papayas ruled and Mad Max was back on to attack his favourite driver on the grid! Forza Ferrari. </p>
+                    <div class="article-box-date">June 1, 2025</div>
+                </a>
+            </div>  
+
+  
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-bar">
+        <div class="contact-info">
+            <a href="mailto:hrishikeshhl.21ug1001@vitbhopal.ac.in" class="contact-item">
+                <span class="contact-icon">📧</span>
+                <span>hrishikeshhl05@gmail.com</span>
+            </a>
+            <a href="https://www.linkedin.com/in/hrishikesh-h-l-440979316/" target="_blank" class="contact-item">
+                <span class="contact-icon">💼</span>
+                <span>LinkedIn: Hrishikesh H L</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Smooth fade in page on load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 300);
+        });
+
+        // Smooth fade out on navigation click
+        document.querySelectorAll('nav a, .article-box a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                
+                document.body.style.transition = 'all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                document.body.classList.remove('loaded');
+                
+                setTimeout(function() {
+                    window.location.href = href;
+                }, 1200);
+            });
+        });
+
+        // Enhanced browser navigation handling
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                setTimeout(function() {
+                    document.body.classList.add('loaded');
+                }, 200);
+            }
+        });
+    </script>
+</body>
+</html>

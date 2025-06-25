@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desi Downshift</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            color: white;
+        }
+
+        nav {
+            background-color: #1a1a1a;
+            padding: 15px 0;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #FF2800;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            display: inline-block;
+            margin: 0 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            transition: all 0.4s ease;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            color: #FF2800;
+            background-color: rgba(255, 40, 0, 0.1);
+        }
+
+        h1 {
+            color: #FF2800;
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+            line-height: 1;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        h2 {
+            color: #FF2800;
+            text-align: left;
+            font-size: 24px;
+            margin: 30px 0 15px 0;
+            padding-top: 0px;
+            line-height: 1.2;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        p {
+            color: white;
+            font-size: 18px;
+            line-height: 2;
+            text-align: justify;
+            max-width: none;
+            margin: 0 0 20px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .back-link {
+            text-align: left;
+            margin: 10px 100;
+            opacity: 0;
+            transform: translateX(-15px);
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .back-link a {
+            color: #FF2800;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            transition: all 0.4s ease;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Monaco Images Styling with Alternating Positions */
+        .monaco-image {
+            width: 300px;
+            height: 200px;
+            border-radius: 8px;
+            border: 3px solid #FF2800;
+            box-shadow: 0 4px 15px rgba(255, 40, 0, 0.3);
+            object-fit: cover;
+            margin: 20px;
+            opacity: 0;
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .monaco-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 40, 0, 0.5);
+            border-color: #FF2800;
+        }
+
+        /* Alternating image positions */
+        .monaco-image.right {
+            float: right;
+            margin-left: 25px;
+            margin-right: 0;
+            transform: translateX(50px) scale(0.9);
+        }
+
+        .monaco-image.left {
+            float: left;
+            margin-right: 25px;
+            margin-left: 0;
+            transform: translateX(-50px) scale(0.9);
+        }
+
+        /* Content sections for proper text flow */
+        .content-section {
+            overflow: auto;
+            margin-bottom: 30px;
+        }
+
+        .content-section:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .highlight-text {
+            color: #FF2800;
+            font-weight: 600;
+        }
+
+        /* Copyright positioning - directly under image */
+        .copyright {
+            font-size: 10px;
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            width: 300px; /* Match image width */
+            display: block;
+        }
+
+        .copyright.right {
+            float: right;
+            margin-left: 25px;
+            margin-right: 0;
+            clear: right;
+        }
+
+        .copyright.left {
+            float: left;
+            margin-right: 25px;
+            margin-left: 0;
+            clear: left;
+        }
+
+        /* Loaded state with extended timing for all content */
+        body.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        body.loaded nav {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.1s;
+        }
+
+        body.loaded h1 {
+            opacity: 1;
+            transform: scale(1);
+            transition-delay: 0.2s;
+        }
+
+        body.loaded h2:nth-of-type(1) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.6s;
+        }
+
+        body.loaded h2:nth-of-type(2) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.0s;
+        }
+
+        body.loaded h2:nth-of-type(3) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.4s;
+        }
+
+        body.loaded h2:nth-of-type(4) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.8s;
+        }
+
+        body.loaded h2:nth-of-type(5) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.2s;
+        }
+
+        body.loaded h2:nth-of-type(6) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.6s;
+        }
+
+        body.loaded h2:nth-of-type(7) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 3.0s;
+        }
+
+        body.loaded h2:nth-of-type(8) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 3.4s;
+        }
+
+        body.loaded p:nth-of-type(1) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.4s;
+        }
+
+        body.loaded p:nth-of-type(2) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.5s;
+        }
+
+        body.loaded p:nth-of-type(3) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.8s;
+        }
+
+        body.loaded p:nth-of-type(4) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.2s;
+        }
+
+        body.loaded p:nth-of-type(5) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.6s;
+        }
+
+        body.loaded p:nth-of-type(6) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.0s;
+        }
+
+        body.loaded p:nth-of-type(7) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.4s;
+        }
+
+        body.loaded p:nth-of-type(8) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.8s;
+        }
+
+        body.loaded p:nth-of-type(9) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 3.2s;
+        }
+
+        body.loaded p:nth-of-type(10) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 3.6s;
+        }
+
+        body.loaded p:nth-of-type(11) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 4.0s;
+        }
+
+        body.loaded p:nth-of-type(12) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 4.4s;
+        }
+
+        body.loaded .monaco-image.right:nth-of-type(1) {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 0.7s;
+        }
+
+        body.loaded .monaco-image.left:nth-of-type(1) {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 1.3s;
+        }
+
+        body.loaded .monaco-image.right:nth-of-type(2) {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 2.7s;
+        }
+
+        body.loaded .monaco-image.left:nth-of-type(2) {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 4.2s;
+        }
+
+        body.loaded .back-link {
+            opacity: 1;
+            transform: translateX(0);
+            transition-delay: 4.8s;
+        }
+
+        /* Enhanced responsive design */
+        @media (max-width: 1024px) {
+            nav li {
+                margin: 0 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                padding: 15px;
+            }
+            
+            nav li {
+                margin: 8px 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            nav a {
+                display: block;
+                padding: 12px 20px;
+                font-size: 16px;
+                background-color: rgba(255, 255, 255, 0.05);
+                border-radius: 8px;
+                border: 1px solid #333;
+            }
+            
+            nav a:hover {
+                background-color: rgba(255, 40, 0, 0.2);
+                border-color: #FF2800;
+            }
+
+            .monaco-image.left,
+            .monaco-image.right {
+                float: none;
+                display: block;
+                margin: 20px auto;
+                width: 280px;
+                height: 180px;
+            }
+
+            .copyright.left,
+            .copyright.right {
+                float: none;
+                margin: 5px auto 20px;
+                width: 280px;
+            }
+            
+            h1 {
+                font-size: 40px;
+            }
+            
+            body {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-link">
+        <a href="drsdrama.html">← Back to DRS & Drama</a>
+    </div>
+
+    <h1>🏎️ Monaco GP 2025: The Slowest Ballet on Earth, Now With More Papaya and Pettiness</h1>
+    <br>
+
+    <!-- First Content Section with Monaco 1 Image (Right) -->
+    <div class="content-section">
+        <img src="Monaco1.jpeg" alt="Monaco GP 2025 Race Action" class="monaco-image right">
+        <div class="copyright right">Copyright © 2025 Autocar India.</div>
+        <p>In the gilded streets of Monte Carlo, where yachts line the harbor like bored influencers and champagne flows faster than most of the cars, the 2025 Monaco Grand Prix unfolded exactly as expected: beautiful, dramatic, painfully processional — and just fast enough to keep you from changing the channel.<br>
+
+        But amidst the glitz, drama, and race strategy that would confuse even the most hardened F1 nerds, this year's Monaco GP delivered one clear message:</p>
+
+        <p>"Street racing isn't always about overtakes — sometimes it's about passive-aggressively holding up your rivals while sipping espresso in the cockpit."</p>
+    </div>
+
+    <!-- Second Content Section with Monaco 2 Image (Left) -->
+    <div class="content-section">
+        <img src="Monaco2.jepg.avif" alt="Lando Norris Monaco Victory" class="monaco-image left">
+        <div class="copyright left">Copyright © 2025 Autocar India.</div>
+        
+        <h2>The King of the Croissant Kingdom: Lando Norris</h2>
+
+        <p><span class="highlight-text">Lando Norris</span>, everyone's favorite former Twitch streamer turned Ferrari-slayer, absolutely dominated the weekend. He secured <span class="highlight-text">pole position</span> with a lap that was more a flex than a time attack (1:09.954, in case you're into foreplay), and then led the race with the kind of effortless control that made the rest of the grid look like they'd shown up for a go-kart birthday party.
+
+        His race pace was a masterclass in restraint — short-shifting through the hairpins, braking like he had feelings, and deploying ERS like he was saving it for a wedding night. The telemetry showed him lifting and coasting through sectors 1 and 3 like he'd memorized the Monaco city planner's nightmares. And yet, he still dropped the fastest lap on the <span class="highlight-text">last lap of the race</span> — pure McLaren sauce.</p>
+    </div>
+
+    <div class="content-section">
+        <h2>Ferrari and Leclerc: The Annual Tragedy</h2>
+
+        <p>Homeboy <span class="highlight-text">Charles Leclerc</span>, once again playing the tortured prince of Monaco, started second and finished second — which, let's be real, is probably a win by Ferrari standards. Despite running on fresh softs and a pit crew that, for once, didn't fumble like a wet papad, Leclerc simply couldn't match Norris's clean air supremacy.
+
+        Telemetry revealed that while Charles was faster on corner exits, he was losing precious milliseconds in the narrow middle sector — possibly because he could feel the collective weight of an entire nation's expectation crushing his rear suspension.</p>
+
+        <h2>Oscar Piastri: The Silent Assassin</h2>
+
+        <p>The quietest man in F1 nearly made the loudest noise. <span class="highlight-text">Oscar Piastri</span>, who gives off "school prefect but builds illegal street bikes on weekends" energy, came within 0.1 seconds of stealing second place from Leclerc. Had there been a few more laps, a mild tailwind, or a small prayer circle, we'd have witnessed the most polite overtake in Monaco history.
+
+        His telemetry told the story of clinical cornering, hitting every apex like a surgeon with caffeine withdrawal. He didn't win, but boy, did he send a message.</p>
+
+        <h2>Max Verstappen and the Curious Case of the Dead Strategy</h2>
+        
+        <p>Let's talk about <span class="highlight-text">Max Verstappen</span>, who spent most of the race sounding like a guy who booked a Ferrari experience package and got a Fiat Punto. Red Bull's "bold" (read: doomed) strategy of leaving Max out longer than an awkward goodbye hug at an Indian wedding didn't pay off. When he finally pitted, the traffic jam was already sponsored by Netflix.<br>
+        
+        Max's radio summed it up:<br>
+        > "These shifts feel like I'm back in '73. What are we doing?"<br>
+        Answer: Not overtaking. Not winning. Not smiling.</p>
+    </div>
+
+    <!-- Third Content Section with Monaco 3 Image (Right) -->
+    <div class="content-section">
+        <img src="monaco3.jpg" alt="George Russell Monaco Incident" class="monaco-image right">
+        <div class="copyright right">© 2003-2025 Formula One World Championship Limited</div>
+        
+        <h2>Russell, Albon & The Chicane That Broke F1</h2>
+        <p>Midfield drama peaked when <span class="highlight-text">George Russell</span> yeeted through the Nouvelle Chicane like it owed him money and casually refused to give the position back to Alex Albon.<br>
+        Russell, over radio, declared:<br>
+        > "I'll take the penalty. He was driving like a school bus."<br>
+
+        That's the Monaco energy. Drive through someone's soul, smile for the cameras, and take the penalty like it's an Uber surcharge.
+
+        Albon, for his part, responded with the energy of a man who's run out of synonyms for "idiot." The FIA, meanwhile, issued a drive-through penalty, proving once again that if you break the rules hard enough in Monaco, they actually do something about it.</p>
+
+        <h2>Yuki Tsunoda: The Unfiltered Legend</h2>
+
+        <p>No Monaco race is complete without a <span class="highlight-text">Tsunoda meltdown</span>, and 2025 did not disappoint. After Gasly's bold but doomed dive bomb into Rascasse, Yuki asked:<br>
+        > "Is he drunk or just stupid?"<br>
+        We may never know. But what we do know is that Tsunoda on team radio is the best reality TV you're not paying for.</p>
+
+        <p>Strategy or Sabotage? You Decide.
+
+        With overtaking practically illegal in Monaco, teams resorted to tactics straight out of a Mafia playbook. Mercedes, Williams, and Racing Bulls all played the "hold them up" game to help their teammates pit safely — turning the race into an exercise in psychological warfare and blue flag denial.
+
+        The real winners? Anyone who pitted early and had the mental fortitude to drive clean air laps for 40 minutes straight without losing their mind.</p>
+    </div>
+
+    <!-- Fourth Content Section with Monaco 4 Image (Left) -->
+    <div class="content-section">
+        <img src="monaco 4.jpg" alt="Monaco Podium Celebration" class="monaco-image left">
+        <div class="copyright left">© 2025 Motorsport Network</div>
+        
+        <h2>Final Classification</h2>
+
+        <p>1. Lando Norris - Fastest lap, driest humor<br>
+        2. Charles Leclerc - Cursed by postcode<br>
+        3. Oscar Piastri - No vocals, the Silent Assassin</p>
+        <p><strong>Verdict: Monaco 2025</strong></p>
+
+        <p>Glamour? ✔️<br>
+        Drama? ✔️<br>
+        Overtakes? Oh there were a lot of 'em!<br>
+        Memes? Abundant.<br>
+        Race relevance? Who cares. It's <strong>Monaco</strong>, baby.</p>
+
+        <p>In a world obsessed with speed, Monaco remains the one race where it's not about how fast you go — it's about how <strong>fabulously petty</strong> you can be while crawling at 140 km/h in a $15 million car.</p>
+    </div>
+
+    <div class="back-link">
+        <a href="drsdrama.html">← Back to DRS & Drama</a>
+    </div>
+    <br>
+    <div class="back-link">
+        <a href="index.html">← Back to Paddock</a>
+    </div>
+
+    <script>
+        // Smooth fade in page on load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 300);
+        });
+
+        // Smooth fade out on navigation click
+        document.querySelectorAll('nav a, .back-link a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                
+                document.body.style.transition = 'all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                document.body.classList.remove('loaded');
+                
+                setTimeout(function() {
+                    window.location.href = href;
+                }, 1200);
+            });
+        });
+
+        // Enhanced browser navigation handling
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                setTimeout(function() {
+                    document.body.classList.add('loaded');
+                }, 200);
+            }
+        });
+    </script>
+</body>
+</html>

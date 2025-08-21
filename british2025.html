@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desi Downshift</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            color: white;
+        }
+        h1 {
+            color: #FF2800;
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+            line-height: 1;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        h2 {
+            color: #FF2800;
+            text-align: left;
+            font-size: 24px;
+            margin: 30px 0 15px 0;
+            padding-top: 0px;
+            line-height: 1.2;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+        p {
+            color: white;
+            font-size: 18px;
+            line-height: 2;
+            text-align: justify;
+            max-width: none;
+            margin: 0 0 20px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+        }
+        .back-link {
+            text-align: left;
+            margin: 10px 100;
+            opacity: 0;
+            transform: translateX(-15px);
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .back-link a {
+            color: #FF2800;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            transition: all 0.4s ease;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+        .image-container {
+            display: inline-block;
+            margin: 20px;
+            opacity: 0;
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .image-container.right {
+            float: right;
+            margin-left: 25px;
+            margin-right: 0;
+            transform: translateX(50px) scale(0.9);
+        }
+        .image-container.left {
+            float: left;
+            margin-right: 25px;
+            margin-left: 0;
+            transform: translateX(-50px) scale(0.9);
+        }
+        .monaco-image {
+            width: 300px;
+            height: 200px;
+            border-radius: 8px;
+            border: 3px solid #FF2800;
+            box-shadow: 0 4px 15px rgba(255, 40, 0, 0.3);
+            object-fit: cover;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        .monaco-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 40, 0, 0.5);
+            border-color: #FF2800;
+        }
+        .content-section {
+            overflow: auto;
+            margin-bottom: 30px;
+        }
+        .content-section:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .copyright {
+            font-size: 10px;
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            width: 300px;
+            display: block;
+        }
+        .highlight-text {
+            color: #FF2800;
+            font-weight: 600;
+        }
+        body.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        body.loaded h1 {
+            opacity: 1;
+            transform: scale(1);
+            transition-delay: 0.2s;
+        }
+        body.loaded h2 {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.4s;
+        }
+        body.loaded p:nth-of-type(1) { opacity: 1; transform: translateY(0); transition-delay: 0.5s; }
+        body.loaded p:nth-of-type(2) { opacity: 1; transform: translateY(0); transition-delay: 0.6s; }
+        body.loaded p:nth-of-type(3) { opacity: 1; transform: translateY(0); transition-delay: 0.9s; }
+        body.loaded p:nth-of-type(4) { opacity: 1; transform: translateY(0); transition-delay: 1.2s; }
+        body.loaded p:nth-of-type(5) { opacity: 1; transform: translateY(0); transition-delay: 1.6s; }
+        body.loaded p:nth-of-type(6) { opacity: 1; transform: translateY(0); transition-delay: 2.0s; }
+        body.loaded p:nth-of-type(7) { opacity: 1; transform: translateY(0); transition-delay: 2.4s; }
+        body.loaded p:nth-of-type(8) { opacity: 1; transform: translateY(0); transition-delay: 2.8s; }
+        body.loaded p:nth-of-type(9) { opacity: 1; transform: translateY(0); transition-delay: 3.2s; }
+        body.loaded p:nth-of-type(10) { opacity: 1; transform: translateY(0); transition-delay: 3.6s; }
+        body.loaded .image-container.right:nth-of-type(1) { opacity: 1; transform: translateX(0) scale(1); transition-delay: 0.7s; }
+        body.loaded .image-container.left:nth-of-type(1) { opacity: 1; transform: translateX(0) scale(1); transition-delay: 1.3s; }
+        body.loaded .image-container.right:nth-of-type(2) { opacity: 1; transform: translateX(0) scale(1); transition-delay: 2.7s; }
+        body.loaded .image-container.left:nth-of-type(2) { opacity: 1; transform: translateX(0) scale(1); transition-delay: 4.2s; }
+        body.loaded .back-link {
+            opacity: 1;
+            transform: translateX(0);
+            transition-delay: 4.8s;
+        }
+        @media (max-width: 1024px) {
+            nav li {
+                margin: 0 15px;
+            }
+        }
+        @media (max-width: 768px) {
+            .image-container.left, .image-container.right {
+                float: none;
+                display: block;
+                margin: 20px auto;
+            }
+            .monaco-image { width: 280px; height: 180px; }
+            .copyright { width: 280px; }
+            h1 { font-size: 40px; }
+            body { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+<div class="back-link">
+  <a href="drsdrama.html">← Back to DRS & Drama</a>
+</div>
+<h1>Rain, Spins, and Surprises: The 2025 British Grand Prix at Silverstone</h1>
+<br>
+<div class="content-section">
+  <div class="image-container right">
+    <img src="british1.jpg" alt="Silverstone Race Action" class="monaco-image">
+    <div class="copyright">© 2025 F1 Media</div>
+  </div>
+  <h2>The Storm Hits Silverstone</h2>
+  <p>
+The 2025 British Grand Prix was promised to be unpredictable, but the British weather delivered a race that was pure Formula 1 chaos from lights out to checkered flag. Heavy rain swept through Silverstone, forcing drivers to walk the tightrope between daring aggression and disaster, and everyone—fans and teams alike—knew they were witnessing something special.</p>
+  <h2>Slick Start, Wet Nightmare for Ferrari and Russell</h2>
+  <p>
+Charles Leclerc and George Russell both gambled by starting on slick tires as the rain began to fall, a strategy that backfired badly. The slicks offered no grip in the wet conditions, costing them valuable time and ultimately the race. Leclerc’s day especially turned into a nightmare. Struggling for traction and pace, his woes were compounded by a tumultuous pit stop where mistakes piled up. On track, his disastrous race collided painfully with teammate Carlos Sainz: Leclerc crashed into Sainz, who himself spun multiple times throughout the race, further destroying Ferrari’s hopes.</p>
+</div>
+<div class="content-section">
+  <div class="image-container left">
+    <img src="british2.webp" alt="Haas Duo Spin" class="monaco-image">
+    <div class="copyright">© Haas F1 2025</div>
+  </div>
+  <p>Meanwhile, the Haas duo seemed to be caught in a bizarre dance of spins, locking wheels and losing control together in the same corners, exemplifying how the rain made the track a trap even for the most experienced.</p>
+  <h2>Hamilton’s Rain Masterclass—But a Costly Blind Spot</h2>
+  <p>
+Lewis Hamilton’s homecoming as a Ferrari driver was built up as a dream scenario, and for much of the race, he delivered a performance worthy of his “rain master” reputation. While others hesitated or faltered, Hamilton braved the slick track with exquisite car control and daring overtakes. Yet in a heartbreaking twist, he did it while flying blind: Ferrari’s pit wall completely lost GPS data from his car mid-race, leaving both team and driver to rely only on old-school instinct and patchy radio updates. Hamilton powered on, slicing through the field, but critical strategy calls suffered, and the agony deepened as he crossed the line fourth—ending his legendary Silverstone podium streak. Even with the streak broken, Hamilton’s relentless push through the chaos was a testament to his greatness.</p>
+</div>
+<div class="content-section">
+  <div class="image-container right">
+    <img src="british3.jpg" alt="Verstappen Spin" class="monaco-image">
+    <div class="copyright">© Red Bull Racing 2025</div>
+  </div>
+  <h2>Spinning Stars and Shocking Drama</h2>
+  <p>
+If the rain made heroes, it also humbled stars. Besides Leclerc and Sainz, George Russell’s slick tire gamble caused him to spin and lose pace. Max Verstappen, usually a master in damp conditions, met his downfall not by his own miscalculation, but from relentless pressure at the front. As the field bunched up for a safety car restart and Oscar Piastri launched a gutsy late-braking maneuver into Turn 1, Verstappen overcorrected and spun away from second place, tumbling down the order. The mistake left fans stunned—Silverstone’s soaking tarmac had claimed even the best.</p>
+  <h2>Hülkenberg’s Cinderella Podium</h2>
+  <p>
+Through the storm emerged one of the season’s most heartwarming stories. Nico Hülkenberg, after more than a decade in F1 and 239 starts without a rostrum finish, stayed clear of the worst of the chaos. Starting 19th, he calmly and clinically picked off rivals and took full advantage as those ahead faltered. Crossing the line in third, Hülkenberg celebrated his—and Sauber’s—first podium in more than a decade, a moment met with cheers and tears across the paddock.</p>
+</div>
+<div class="content-section">
+  <div class="image-container left">
+    <img src="british4.jpg" alt="Race Results" class="monaco-image">
+    <div class="copyright">© 2025 Motorsport Network</div>
+  </div>
+  <h2>The Takeaway</h2>
+  <p>
+The 2025 British Grand Prix will live long in memory for its nonstop drama: a rainmaster class from Hamilton amid technical adversity, Ferrari’s strategic and on-track miseries with Leclerc and Sainz, the Haas duo’s almost choreographed spin-outs, Verstappen’s rare error under pressure, and a long-awaited fairytale podium for Hülkenberg. On a day when luck and daring were as vital as speed, Silverstone proved, once again, why it’s hallowed ground for Formula 1.</p>
+</div>
+<div class="back-link">
+  <a href="drsdrama.html">← Back to DRS & Drama</a>
+</div>
+<br>
+<div class="back-link">
+  <a href="index.html">← Back to Paddock</a>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            document.body.classList.add('loaded');
+        }, 300);
+    });
+    document.querySelectorAll('nav a, .back-link a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const href = this.getAttribute('href');
+            document.body.style.transition = 'all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            document.body.classList.remove('loaded');
+            setTimeout(function() {
+                window.location.href = href;
+            }, 1200);
+        });
+    });
+    window.addEventListener('pageshow', function(event) {
+        if (event.persisted) {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 200);
+        }
+    });
+</script>
+</body>
+</html>

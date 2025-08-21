@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desi Downshift</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            color: white;
+        }
+        h1 {
+            color: #FF2800;
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+            line-height: 1;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        h2 {
+            color: #FF2800;
+            text-align: left;
+            font-size: 24px;
+            margin: 30px 0 15px 0;
+            padding-top: 0px;
+            line-height: 1.2;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+        p {
+            color: white;
+            font-size: 18px;
+            line-height: 2;
+            text-align: justify;
+            max-width: none;
+            margin: 0 0 20px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+        }
+        .back-link {
+            text-align: left;
+            margin: 10px 100;
+            opacity: 0;
+            transform: translateX(-15px);
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .back-link a {
+            color: #FF2800;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            transition: all 0.4s ease;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+        .image-container {
+            display: inline-block;
+            margin: 20px;
+            opacity: 0;
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .image-container.right {
+            float: right;
+            margin-left: 25px;
+            margin-right: 0;
+            transform: translateX(50px) scale(0.9);
+        }
+        .image-container.left {
+            float: left;
+            margin-right: 25px;
+            margin-left: 0;
+            transform: translateX(-50px) scale(0.9);
+        }
+        .austria-image {
+            width: 300px;
+            height: 200px;
+            border-radius: 8px;
+            border: 3px solid #FF2800;
+            box-shadow: 0 4px 15px rgba(255, 40, 0, 0.3);
+            object-fit: cover;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        .austria-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 40, 0, 0.5);
+            border-color: #FF2800;
+        }
+        .content-section {
+            overflow: auto;
+            margin-bottom: 30px;
+        }
+        .content-section:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .copyright {
+            font-size: 10px;
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            width: 300px;
+            display: block;
+        }
+        .highlight-text {
+            color: #FF2800;
+            font-weight: 600;
+        }
+        body.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        body.loaded h1 {
+            opacity: 1;
+            transform: scale(1);
+            transition-delay: 0.2s;
+        }
+        body.loaded h2 {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.4s;
+        }
+        body.loaded p:nth-of-type(1) { opacity: 1; transform: translateY(0); transition-delay: 0.5s; }
+        body.loaded p:nth-of-type(2) { opacity: 1; transform: translateY(0); transition-delay: 0.7s; }
+        body.loaded p:nth-of-type(3) { opacity: 1; transform: translateY(0); transition-delay: 0.9s; }
+        body.loaded p:nth-of-type(4) { opacity: 1; transform: translateY(0); transition-delay: 1.1s; }
+        body.loaded p:nth-of-type(5) { opacity: 1; transform: translateY(0); transition-delay: 1.3s; }
+        body.loaded p:nth-of-type(6) { opacity: 1; transform: translateY(0); transition-delay: 1.5s; }
+        body.loaded p:nth-of-type(7) { opacity: 1; transform: translateY(0); transition-delay: 1.7s; }
+        body.loaded p:nth-of-type(8) { opacity: 1; transform: translateY(0); transition-delay: 1.9s; }
+        body.loaded .image-container.right { opacity: 1; transform: translateX(0) scale(1); transition-delay: 0.8s; }
+        body.loaded .image-container.left { opacity: 1; transform: translateX(0) scale(1); transition-delay: 1.4s; }
+        body.loaded .back-link {
+            opacity: 1;
+            transform: translateX(0);
+            transition-delay: 2.2s;
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 40px; }
+            p { text-align: left; font-size: 16px; }
+            .back-link { margin: 10px 20px; }
+            body { padding: 15px; }
+            .image-container.left, .image-container.right { float: none; display: block; margin: 20px auto; }
+            .monaco-image { width: 280px; height: 180px; }
+            .copyright { width: 280px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-link">
+        <a href="drsdrama.html">← Back to DRS & Drama</a>
+    </div>
+
+    <h1>Austrian GP 2025: McLaren’s Kinky Dominance Left No One Overtaken (& Most of Us Sleeping)</h1>
+    <br>
+
+    <div class="content-section">
+        <div class="image-container right">
+            <img src="austria1.webp" alt="McLaren 1-2 at Austrian GP" class="austria-image">
+            <div class="copyright">© 2025 F1 Media. All rights reserved.</div>
+        </div>
+        <p><strong>Location:</strong> Spielberg, Austria<br>
+        <strong>Result:</strong> McLaren 1–2, Leclerc sighing in Italian, Hamilton’s Ferrari in P4, overtakes as rare as a sober podium celebration.</p>
+
+        <h2>Free Practice: Anticipation Without Action</h2>
+        <p>You know the kind of foreplay where everyone talks about getting wild but ends up just checking their phones? That was Friday and Saturday at the Red Bull Ring. FPs were so low on drama, the most action was tire blankets being flirtatiously removed. Drivers practiced long runs studiously — not a single wild slide, no heroic saves, just “data gathering” so dry you’d wish for a sudden sprinkler malfunction. Half the grid looked ready for a nap; the only rising tension was everyone’s caffeine intake.</p>
+    </div>
+
+    <div class="content-section">
+        <div class="image-container left">
+            <img src="austria2.webp" alt="Austrian GP Qualifying Action" class="austria-image">
+            <div class="copyright">Sky Sports F1 2025</div>
+        </div>
+        <h2>Qualifying: A Quick Tease, Then DRS (Disappointing Racing Session)</h2>
+        <p>Lando Norris slung his McLaren onto pole with a 1:03.971, just ahead of Leclerc’s Ferrari and Oscar Piastri. Lewis Hamilton was there as always—in fourth, smooth, unphased, and probably already planning his post-race fashion shoot. We almost got a spark when Hamilton’s titanium plank sent up a shower (and some grass burning) in Q2, but even that sizzle fizzled too quickly. Everyone else? Just queued up their runs, slapping in purples like safe words at a party that never gets going.</p>
+    </div>
+
+    <div class="content-section">
+        <div class="image-container right">
+            <img src="austria3.jpg" alt="Max" class="austria-image">
+            <div class="copyright">© 2025 Motorsport Images</div>
+        </div>
+        <h2>The Race: Sixty-Two Laps of Mutual Respect (aka, Yawns & Yearning)</h2>
+        <p>There was a brief flash of drama: rookie Andrea Kimi Antonelli got a little too frisky off the start, brake-checking Max Verstappen and popping him right into early retirement, which meant the home crowd had to go look for the nearest therapist (or bartender). After that? DRS trains that would make a Delhi Metro blush, and overtakes so rare the TV director missed half of them because they were ordering more coffee. Norris and Piastri swapped leads in the pits and with DRS, but it all felt a bit… planned. In the midfield, drivers followed each other for so long it started looking like a travelling circus act—where nobody wanted the solo.</p>
+    </div>
+
+    <div class="content-section">
+        <div class="image-container left">
+            <img src="austria4.jpg" alt="Leclerc and Hamilton in battle" class="austria-image">
+            <div class="copyright">The Race 2025</div>
+        </div>
+        <h2>Leclerc & Hamilton: Stuck in the Friendzone (again)</h2>
+        <p><span class="highlight-text">Charles Leclerc</span> tried everything: undercuts, late braking, positive affirmations… but third was as good as it got. He finished a gloomy P3, another step on a podium that’s starting to feel more like a therapist’s couch. <br>
+        <span class="highlight-text">Lewis Hamilton</span>, meanwhile, was the ultimate wingman: cool, collected, giving no quarter and taking none in return. He brought his Ferrari home a very proper P4, making no mistakes, not threatening Leclerc, and not even featuring in the few “overtakes” shown to the bored audience. He’s the F1 equivalent of a chaperone at an underwhelming party: essential, unflappable, but hardly the one you remember in the morning.
+        </p>
+    </div>
+
+    <div class="content-section">
+        <h2>Final Standings & Kinks Denied</h2>
+        <p>
+            <strong>1.</strong> Lando Norris (McLaren) – the one who made it climax<br>
+            <strong>2.</strong> Oscar Piastri (McLaren) – left wanting more, again<br>
+            <strong>3.</strong> Charles Leclerc (Ferrari) – sighed through it<br>
+            <strong>4.</strong> Lewis Hamilton (Ferrari) – smooth but strictly above-board<br>
+            <strong>5.</strong> George Russell (Mercedes) – more guard dog than party animal<br>
+            <strong>... </strong> <br>
+            <span style='color:#FF2800'><em>Retirements:</em></span> Verstappen (first-lap kink crash, not the fun kind), Antonelli (suffering consequences of youthful excitement), Sainz (didn’t even start, mechanical mood killer).
+        </p>
+        <h2>Verdict: Not Even a Whip-Crack</h2>
+        <p>If you like your GPs with kink, drama, and a bit of slipstream passion, Austria 2025 just offered a (very safe) cuddle under a heavy blanket. McLaren got their first 1-2 at the Red Bull Ring in forever, Norris snatched a win, and the rest? Well, let’s just turn the lights off quietly and hope the next Grand Prix brings a little more action—because this one was vanilla with extra marshmallow.</p>
+    </div>
+
+    <div class="back-link">
+        <a href="drsdrama.html">← Back to DRS & Drama</a>
+    </div>
+    <br>
+    <div class="back-link">
+        <a href="index.html">← Back to Paddock</a>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 300);
+        });
+        document.querySelectorAll('nav a, .back-link a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                document.body.style.transition = 'all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                document.body.classList.remove('loaded');
+                setTimeout(function() {
+                    window.location.href = href;
+                }, 1200);
+            });
+        });
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                setTimeout(function() {
+                    document.body.classList.add('loaded');
+                }, 200);
+            }
+        });
+    </script>
+</body>
+</html>

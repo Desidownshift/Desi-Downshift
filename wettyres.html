@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desi Downshift</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            color: white;
+        }
+
+        h1 {
+            color: #FF2800;
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+            line-height: 1;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        h2 {
+            color: #FF2800;
+            text-align: center;
+            font-size: 24px;
+            margin: 30px 0 15px 0;
+            padding-top: 0px;
+            line-height: 1.2;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        h3 {
+            color: #FF2800;
+            text-align: left;
+            font-size: 22px;
+            margin: 30px 0 15px 0;
+            padding-top: 0px;
+            line-height: 1.2;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        p {
+            color: white;
+            font-size: 18px;
+            line-height: 2;
+            text-align: justify;
+            max-width: none;
+            margin: 0 0 20px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .back-link {
+            text-align: left;
+            margin: 10px 100;
+            opacity: 0;
+            transform: translateX(-15px);
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .back-link a {
+            color: #FF2800;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            transition: all 0.4s ease;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        .image-container {
+            display: inline-block;
+            margin: 20px;
+            opacity: 0;
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .image-container.right {
+            float: right;
+            margin-left: 25px;
+            margin-right: 0;
+            transform: translateX(50px) scale(0.9);
+        }
+
+        .image-container.left {
+            float: left;
+            margin-right: 25px;
+            margin-left: 0;
+            transform: translateX(-50px) scale(0.9);
+        }
+
+        .tyre-image {
+            width: 320px;
+            height: 220px;
+            border-radius: 8px;
+            border: 3px solid #FF2800;
+            box-shadow: 0 4px 15px rgba(255, 40, 0, 0.3);
+            object-fit: cover;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .tyre-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 40, 0, 0.5);
+            border-color: #FF2800;
+        }
+
+        .content-section {
+            overflow: auto;
+            margin-bottom: 30px;
+        }
+
+        .content-section:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .copyright {
+            font-size: 10px;
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            width: 320px;
+            display: block;
+        }
+
+        .highlight-text {
+            color: #FF2800;
+            font-weight: 600;
+        }
+
+        body.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        body.loaded h1 {
+            opacity: 1;
+            transform: scale(1);
+            transition-delay: 0.2s;
+        }
+
+        body.loaded h2 {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.4s;
+        }
+
+        body.loaded h3:nth-of-type(1) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.8s;
+        }
+
+        body.loaded h3:nth-of-type(2) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.4s;
+        }
+
+        body.loaded h3:nth-of-type(3) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.0s;
+        }
+
+        body.loaded p:nth-of-type(1) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.5s;
+        }
+
+        body.loaded p:nth-of-type(2) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.6s;
+        }
+
+        body.loaded p:nth-of-type(3) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.9s;
+        }
+
+        body.loaded p:nth-of-type(4) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.0s;
+        }
+
+        body.loaded p:nth-of-type(5) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.1s;
+        }
+
+        body.loaded p:nth-of-type(6) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.5s;
+        }
+
+        body.loaded p:nth-of-type(7) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.6s;
+        }
+
+        body.loaded p:nth-of-type(8) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.7s;
+        }
+
+        body.loaded p:nth-of-type(9) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.1s;
+        }
+
+        body.loaded p:nth-of-type(10) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.2s;
+        }
+
+        body.loaded p:nth-of-type(11) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.3s;
+        }
+
+        body.loaded p:nth-of-type(12) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.7s;
+        }
+
+        body.loaded p:nth-of-type(13) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.8s;
+        }
+
+        body.loaded .image-container.right {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 1.2s;
+        }
+
+        body.loaded .image-container.left {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 1.8s;
+        }
+
+        body.loaded .back-link {
+            opacity: 1;
+            transform: translateX(0);
+            transition-delay: 3.0s;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 40px;
+            }
+            
+            p {
+                text-align: left;
+                font-size: 16px;
+            }
+            
+            .back-link {
+                margin: 10px 20px;
+            }
+            
+            body {
+                padding: 15px;
+            }
+
+            .image-container.left,
+            .image-container.right {
+                float: none;
+                display: block;
+                margin: 20px auto;
+            }
+            
+            .tyre-image {
+                width: 300px;
+                height: 200px;
+            }
+            
+            .copyright {
+                width: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="back-link">
+        <a href="apexanatomy.html">← Back to Apex Anatomy</a>
+    </div>
+
+    <h1>🛞 "Grip or Slip" — The Rain Tyres That Rewrite Everything</h1>
+    <h2>Where tyre choice is either divine timing or a full-blown horror story.</h2>
+    
+    <p>Rain in F1 doesn't just mean umbrellas and tension. It's drama, it's chaos, and it's a multi-million dollar gamble on green or blue. When the skies open, the stopwatch stops mattering — and rubber becomes religion. The pitlane sweats even when its cold and raining!</p>
+
+    <p>Intermediates: The finesse tyres. They're the whisper between wet and dry, sliding into that perfect "almost dry but not quite" zone.</p>
+
+    <p>Like Turkey 2020 — when Lewis Hamilton massaged one set of inters into becoming slicks by the end of the race and still won the damn thing. That wasn't driving; that was sorcery.</p>
+
+    <p>Or Silverstone 2008, where a teenage Lewis on inters made veterans look like toddlers on ice. He lapped half the grid. In the rain. On tyres that flirted with hydroplaning. (Guilty: I'm a Lewis paglu, but that drive was pure magic.)</p>
+
+    <div class="content-section">
+        <div class="image-container right">
+            <img src="wettyres1.jpg" alt="Rain Tyres Intermediates" class="tyre-image">
+            <div class="copyright">Copyright © 2025 Pirelli & C. S.p.A.</div>
+        </div>
+
+        <h3>Full Wets: The angry paddlers.</h3>
+        <p>They're useless 90% of the time, but the other 10%? Literal lifesavers. Built to displace 85 litres of water per tyre per second, these things could drain a bathtub mid-lap.</p>
+
+        <p>Except... they hate dry tracks. Treat them wrong, and they'll overheat, melt, and scream betrayal.</p>
+
+        <p>Like Spa 2021 — where the "race" was three laps behind the Safety Car on wets, just so FIA could legally call it a race. An entire Grand Prix... on cruise control. F1 fans still haven't recovered.</p>
+    </div>
+
+    <div class="content-section">
+        <div class="image-container left">
+            <img src="wettyres2.jpg" alt="Rain Tyres Full Wets" class="tyre-image">
+            <div class="copyright">© 2025 Motorsport Network All rights reserved.</div>
+        </div>
+
+        <h3>Timing > Tyre</h3>
+
+        <p>This is where it gets spicy. It's not about choosing inters or wets. It's about when. One lap too early? You're drifting. One lap too late? You're aquaplaning like a shopping cart on a water slide. Not everyone can "stay-out" like Lance Stroll, can they?</p>
+
+        <p>Canada 2023 flashback — George Russell slid into a wall the moment the track changed its mood.</p>
+
+        <p>Hungary 2021 restart — Lewis Hamilton was the only car on inters after the red flag restart while the rest started from the pit lane on slicks. The memes wrote themselves.</p>
+
+        <p>Australia 2025 — Alex Albon delivered a wet-weather masterclass. Others boxed early, panicked mid-stint, and threw positions out the window. Meanwhile, Albon tiptoed his inters past drying patches like he was walking on eggshells, and landed a podium. Quiet. Clinical. Ruthless.</p>
+
+        <p>And then there was Lewis who gambling in mediums in the semi-wet chaos. Only to get mugged by the mid-fielders on the right tyres.</p>
+
+        <p>Rain tyres don't just grip.</p>
+
+        <p>They rewrite the grid.</p>
+
+        <p>They expose nerves, reward instinct, and gift-wrap podiums to the brave and bold.</p>
+
+        <p>The forecast might say showers. But in Formula 1, it means showtime.</p>
+    </div>
+
+    <div class="back-link">
+        <a href="apexanatomy.html">← Back to Apex Anatomy</a>
+    </div>
+    <br>
+    <div class="back-link">
+        <a href="formula1.html">← Back to Formula 1</a>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 300);
+        });
+
+        document.querySelectorAll('.back-link a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                
+                document.body.style.transition = 'all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                document.body.classList.remove('loaded');
+                
+                setTimeout(function() {
+                    window.location.href = href;
+                }, 1200);
+            });
+        });
+
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                setTimeout(function() {
+                    document.body.classList.add('loaded');
+                }, 200);
+            }
+        });
+    </script>
+</body>
+</html>

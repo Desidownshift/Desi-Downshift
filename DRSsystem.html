@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desi Downshift</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            color: white;
+        }
+
+        h1 {
+            color: #FF2800; /* Ferrari Red */
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+            line-height: 1;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        h2 {
+            color: #FF2800; 
+            text-align: left; /* Changed from center to left */
+            font-size: 24px;
+            margin: 30px 0 15px 0;
+            padding-top: 0px;
+            line-height: 1.2;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        p {
+            color: white;
+            font-size: 18px;
+            line-height: 2;
+            text-align: justify;
+            max-width: 2000px;
+            margin: 0 auto 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .back-link {
+            text-align: left;
+            margin: 10px 100;
+            opacity: 0;
+            transform: translateX(-15px);
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .back-link a {
+            color: #FF2800;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            transition: all 0.4s ease;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        .highlight-text {
+            color: #FF2800;
+            font-weight: 600;
+        }
+
+        body.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        body.loaded h1 {
+            opacity: 1;
+            transform: scale(1);
+            transition-delay: 0.2s;
+        }
+
+        body.loaded h2 {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.4s;
+        }
+
+        body.loaded p:nth-of-type(1) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.5s;
+        }
+
+        body.loaded p:nth-of-type(2) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.7s;
+        }
+
+        body.loaded p:nth-of-type(3) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.9s;
+        }
+
+        body.loaded p:nth-of-type(4) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.1s;
+        }
+
+        body.loaded p:nth-of-type(5) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.3s;
+        }
+
+        body.loaded p:nth-of-type(6) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.5s;
+        }
+
+        body.loaded p:nth-of-type(7) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.7s;
+        }
+
+        body.loaded p:nth-of-type(8) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.9s;
+        }
+
+        body.loaded .back-link {
+            opacity: 1;
+            transform: translateX(0);
+            transition-delay: 2.1s;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 40px;
+            }
+            
+            p {
+                text-align: left;
+                font-size: 16px;
+            }
+            
+            .back-link {
+                margin: 10px 20px;
+            }
+            
+            body {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="back-link">
+        <a href="apexanatomy.html">← Back to Apex Anatomy</a>
+    </div>
+
+    <h1>DRS: Drag Reduction System</h1>
+    <h2>The Secret to High-Speed Overtakes in F1</h2>
+    
+    <p>One of the most exciting moments in a Formula 1 race is watching a car close in on another and make a daring overtake. A key technology that makes these on-track battles possible is the Drag Reduction System, better known simply as DRS.</p>
+
+    <h2>What is DRS?</h2>
+    <p>DRS is a mechanical device on the rear wing of each F1 car that, when activated, opens a flap to reduce aerodynamic drag. By doing so, it lessens the air resistance the car faces, allowing it to achieve higher straight-line speeds. This boost typically results in an increase of around 10 to 12 kilometers per hour compared to a normal, closed wing.</p>
+    
+    <h2>Why is DRS Important?</h2>
+    <p>Modern F1 cars generate enormous downforce to take corners at incredible speeds. However, this downforce comes at the cost of creating turbulent air behind the car. When a second car tries to follow closely, the dirty air disturbs its aerodynamic balance, making it harder to stay close and attempt overtakes. DRS was introduced to address this very challenge.</p>
+
+    <p>By reducing drag, DRS helps the chasing driver close the gap on the straight sections of the track, making overtaking more achievable. Without DRS, many races could be processional, with limited passing opportunities.</p>
+
+    <h2>How Does DRS Work?</h2>
+    <p>DRS can only be used during certain parts of the race and in specific zones of the circuit called “DRS zones.” A driver must be within one second of the car ahead at a designated detection point to trigger the system. This limitation ensures that DRS isn’t overused or abused, keeping racing fair and competitive.</p>
+
+    <p>When activated, the rear wing flap opens, reducing rear downforce and drag. While this gives a speed advantage, it also reduces the car’s grip, especially in corners, so drivers need to deactivate DRS before braking or turning to maintain control.</p>
+
+    <h2>The Skill Behind Using DRS</h2>
+    <p>Though it might sound simple—just press a button—the strategic use of DRS requires skill and timing. Drivers consider track layout, car balance, and tire conditions before deploying the system. Use it too early, and you might run out of straight to overtake; use it too late, and you risk losing momentum.</p>
+
+    <h2>Looking Ahead: MOM System</h2>
+    <p>In the complex world of F1 technology, DRS is just one piece of the puzzle. Another fascinating system contributing to the car’s performance is the <span class="highlight-text">MOM system</span>, which plays a crucial role in managing various car dynamics and improving race strategy. I’ll be diving deep into how the MOM system works and why it’s vital for modern F1 teams in upcoming articles. Stay tuned!</p>
+
+    <div class="back-link">
+        <a href="apexanatomy.html">← Back to Apex Anatomy</a>
+    </div>
+
+    <div class="back-link">
+        <a href="formula1.html">← Back to Formula 1</a>
+    </div>
+    <br>
+
+
+    <script>
+        // Smooth fade in page on load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 300);
+        });
+
+        // Smooth fade out on navigation click
+        document.querySelectorAll('.back-link a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                
+                document.body.style.transition = 'all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                document.body.classList.remove('loaded');
+                
+                setTimeout(function() {
+                    window.location.href = href;
+                }, 1200);
+            });
+        });
+
+        // Enhanced browser navigation handling
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                setTimeout(function() {
+                    document.body.classList.add('loaded');
+                }, 200);
+            }
+        });
+    </script>
+
+</body>
+</html>

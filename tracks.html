@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desi Downshift</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            color: white;
+        }
+        h1 {
+            color: #FF2800; /* Ferrari Red */
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            line-height: 1;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-weight: 700;
+        }
+        h2 {
+            color: #FF2800;
+            text-align: left;
+            font-size: 24px;
+            margin: 30px 0 15px 0;
+            line-height: 1.2;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-weight: 600;
+        }
+        p {
+            color: white;
+            font-size: 18px;
+            line-height: 2;
+            text-align: justify;
+            max-width: 2000px;
+            margin: 0 auto 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .back-link {
+            text-align: left;
+            margin: 10px 100px;
+            opacity: 0;
+            transform: translateX(-15px);
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .back-link a {
+            color: #FF2800;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.4s ease;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+        body.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        body.loaded h1 {
+            opacity: 1;
+            transform: scale(1);
+            transition-delay: 0.2s;
+        }
+        body.loaded h2 {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.4s;
+        }
+        body.loaded p {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.7s;
+        }
+        body.loaded .back-link {
+            opacity: 1;
+            transform: translateX(0);
+            transition-delay: 2.1s;
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 40px;
+            }
+            p {
+                font-size: 16px;
+                text-align: left;
+            }
+            .back-link {
+                margin: 10px 20px;
+            }
+            body {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-link">
+        <a href="apexanatomy.html">← Back to Apex Anatomy</a>
+    </div>
+
+    <h1>Racing Lines, Track Surfaces & Cornering</h1>
+    <h2>The Invisible Battle on Track</h2>
+
+    <p>If you think Formula 1 is just about pressing the pedal and going fast, think again. It’s way more like a game of inches played on asphalt—where the exact path you take, how you handle corners, and even how hot the track is can make or break your whole lap.</p>
+
+    <h2>What exactly do we mean by the ‘racing line’?</h2>
+    <p>It’s basically the magic route drivers carve through a circuit to cover the shortest distance as fast as possible. The classic recipe? Go wide at the start of the corner, zoom through the close inside point (called the apex), then drift back wide on exit. This lets you keep your speed up and set yourself up for the next straight.</p>
+    <p>Sometimes you take the shortest “inside” line to shave off meters. Other times, you swing wide on the outside to carry more speed—depending on the corner, tires, or if you’re fighting for position.</p>
+
+    <h2>Why is hitting the apex so much of a big deal?</h2>
+    <p>Think of the apex as the sweet spot of a turn. Nail it, and you’re in the prime spot to floor it coming out, zipping straight and fast onto the next part of the track. If you stray from the apex, you risk running wide or losing precious momentum.</p>
+
+    <h2>Cornering – more than just steering and braking</h2>
+    <p>Cornering means balancing on a knife’s edge. You’re constantly juggling throttle, steering, and brakes while fighting the car's natural urge to slide outwards thanks to physics. Tire grip, aerodynamics, and weight shift all play big roles—get it right, and you’re flying; mess it up, and you’re spinning.</p>
+
+    <h2>What role does the track itself play?</h2>
+    <p>Not all tracks are created equal. The asphalt’s texture, how old or fresh it is, and the rubber cars have laid down all affect grip levels. And it’s not just about how rough or smooth the tarmac is—the temperature matters hugely. Hot tracks soften tires, which can give you grip but also cause them to wear out faster. Cold tracks are the opposite: tires last longer but don’t grip as well.</p>
+
+    <h2>So how does all this impact the race?</h2>
+    <p>Perfect your racing lines and manage your tires well, and you can gain seconds each lap. Understand the track temperature swings throughout a race—maybe the sun peeks out or a cloud moves in—and you can avoid tire disasters that cost positions. It’s a constant dance of adjusting, reacting, and pushing just right.</p>
+
+    <p>In the end, racing isn’t just about who has the most horsepower. It’s about mastering the track’s quirks and playing a high-stakes game with physics. Get it right, and it’s pure adrenaline and beauty on wheels.</p>
+
+    <div class="back-link">
+        <a href="apexanatomy.html">← Back to Apex Anatomy</a>
+    </div>
+    <div class="back-link">
+        <a href="formula1.html">← Back to Formula 1</a>
+    </div>
+    <br>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 300);
+        });
+
+        document.querySelectorAll('.back-link a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                document.body.style.transition = 'all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                document.body.classList.remove('loaded');
+                setTimeout(function() {
+                    window.location.href = href;
+                }, 1200);
+            });
+        });
+
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                setTimeout(function() {
+                    document.body.classList.add('loaded');
+                }, 200);
+            }
+        });
+    </script>
+</body>
+</html>

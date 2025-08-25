@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desi Downshift</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: white;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        h1 {
+            color: #FF2800;
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 0;
+            font-weight: 700;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        h2 {
+            color: #FF2800;
+            text-align: left;
+            font-size: 24px;
+            margin: 30px 0 15px 0;
+            line-height: 1.2;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        p {
+            color: white;
+            font-size: 18px;
+            line-height: 2;
+            text-align: justify;
+            max-width: 900px;
+            margin: 0 auto 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        body.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        body.loaded h1 {
+            opacity: 1;
+            transform: scale(1);
+            transition-delay: 0.2s;
+        }
+        body.loaded h2 {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.4s;
+        }
+        body.loaded p {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.6s;
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 40px;
+            }
+            p {
+                font-size: 16px;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>The Undercut vs Overcut Battle: Pit Stop Game-Changers in F1</h1>
+    <p>If Formula 1 were only about who drives the fastest, everyone would breeze past pit stops without a second thought. But the real magic—and madness—comes from strategy, especially the infamous undercut and overcut moves. These pit stop tactics have helped drivers snatch track positions and win races without overtaking on the tarmac.</p>
+
+    <h2>So, what’s the undercut all about?</h2>
+    <p>The undercut is like a sneaky surprise attack. A driver pits earlier than the rival ahead, grabs fresh rubber, and uses those new tires to blast out faster laps. Meanwhile, the rival is still lumbering along on worn tires, losing precious seconds. By the time the rival finally pits, the driver who undercut may have gained enough time to jump ahead. It’s a popular tactic, especially at tracks where overtaking on track is tough.</p>
+
+    <h2>And the overcut? What makes it different?</h2>
+    <p>The overcut flips the script. Instead of pitting early, the driver sticks it out longer, banking on clean air and a lighter fuel load (because the car burns off fuel each lap). If they can push hard on worn tires and keep quick lap times, they might pull ahead of the competitor who pitted earlier—especially if that rival struggles to get their fresh tires up to optimal temp or hits traffic out of the pits.</p>
+
+    <h2>Which is better?</h2>
+    <p>There’s no one-size-fits-all answer. Undercuts usually win at circuits with high tire wear or where fresh rubber brings a big speed boost. Overcuts shine on tracks where tire management is key, or the driver can carve out flying laps without traffic. Sometimes, the timing of the opponent’s pit stop and track position also swing the balance.</p>
+
+    <h2>Real-world drama</h2>
+    <p>Take the Monaco Grand Prix, for example — where overtaking is nearly impossible. Teams rely heavily on undercuts to leapfrog rivals. But if the overcut is timed just right, staying out longer can catch competitors slipping, especially on fresher tires after their stop.</p>
+
+    <p>In the end, these pit stop strategies are like a high-stakes chess match played at blistering speed. Whether it’s undercut or overcut, the driver and team who get it perfectly timed often walk away with priceless track position—and sometimes, the checkered flag.</p>
+
+    <script>
+        // Animate fade-in on load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 300);
+        });
+    </script>
+</body>
+</html>

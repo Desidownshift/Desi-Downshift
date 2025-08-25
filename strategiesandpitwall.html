@@ -18,12 +18,13 @@
             color: #FF2800;
             text-align: center;
             font-size: 50px;
-            margin-bottom: 0;
-            padding-bottom: 0;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
             line-height: 1;
             opacity: 0;
             transform: scale(0.9);
             transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
             font-weight: 700;
         }
         h2 {
@@ -31,10 +32,12 @@
             text-align: left;
             font-size: 24px;
             margin: 30px 0 15px 0;
+            padding-top: 0px;
             line-height: 1.2;
             opacity: 0;
             transform: translateY(15px);
             transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
             font-weight: 600;
         }
         p {
@@ -47,10 +50,11 @@
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
         }
         .back-link {
             text-align: left;
-            margin: 10px 100px;
+            margin: 10px 100;
             opacity: 0;
             transform: translateX(-15px);
             transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -59,11 +63,16 @@
             color: #FF2800;
             text-decoration: none;
             font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 500;
             transition: all 0.4s ease;
         }
         .back-link a:hover {
             text-decoration: underline;
+        }
+        .highlight-text {
+            color: #FF2800;
+            font-weight: 600;
         }
         body.loaded {
             opacity: 1;
@@ -94,8 +103,8 @@
                 font-size: 40px;
             }
             p {
-                font-size: 16px;
                 text-align: left;
+                font-size: 16px;
             }
             .back-link {
                 margin: 10px 20px;
@@ -112,25 +121,22 @@
     </div>
 
     <h1>Strategy & The Pit Wall</h1>
+    
     <h2>The Brain Behind Every Race</h2>
-
     <p>When you watch Formula 1, it might look like all the action happens on the track, but the real battles often play out hundreds of meters away—on the pit wall. This is where a tight-knit group of strategists, engineers, and team leaders make split-second decisions that can change the entire race.</p>
 
     <h2>What is the pit wall?</h2>
-    <p>It’s the nerve center during a race weekend. Picture a row of seats packed with people glued to screens showing every bit of data imaginable—from real-time car telemetry to weather radars and competitor times. The pit wall’s job: monitor, analyze, communicate, and act fast.</p>
+    <p>It's the nerve center during a race weekend. Picture a row of seats packed with people glued to screens showing every bit of data imaginable—from real-time car telemetry to weather radars and competitor times. The pit wall's job: monitor, analyze, communicate, and act fast.</p>
 
-    <h2>Who’s on the pit wall?</h2>
+    <h2>What & who on pit wall?</h2>
     <p>Teams usually have the race engineer, head of strategy, team principal, data analysts, and other key figures sitting together. Each person focuses on different parts of the puzzle—some monitor tire wear, others watch fuel consumption or track conditions, and some keep an eye on rival tactics.</p>
-
-    <h2>How do they make race-changing decisions?</h2>
     <p>Communication is king. Using radios and intercoms, the pit wall team keeps in constant contact with their driver and each other. When to pit, what tires to use, or how aggressively the driver should push—these calls come from careful data crunching and gut feel, all in real time.</p>
-
-    <h2>Why timing is everything</h2>
     <p>A well-timed pit stop can vault a driver ahead, avoiding traffic or capitalizing on unexpected weather changes. A poorly timed stop? Critical seconds lost and positions surrendered.</p>
 
-    <p>The pit wall must juggle countless moving parts—sudden rain showers, safety cars, tire degradation—and adjust the game plan instantly. It’s a pressure cooker where calm heads and quick decisions make champions.</p>
+    <h2>The pressure of split-second decisions</h2>
+    <p>The pit wall must juggle countless moving parts—sudden rain showers, safety cars, tire degradation—and adjust the game plan instantly. It's a pressure cooker where calm heads and quick decisions make champions.</p>
 
-    <p>The pit wall may be far from the screeching tires, but it’s where races are truly won or lost. Behind every thrilling pass and getaway is a team quietly fighting a different kind of battle—one of strategy, nerves, and split-second brilliance.</p>
+    <p>The pit wall may be far from the screeching tires, but it's where races are truly won or lost. Behind every thrilling pass and getaway is a team quietly fighting a different kind of battle—one of strategy, nerves, and split-second brilliance.</p>
 
     <div class="back-link">
         <a href="apexanatomy.html">← Back to Apex Anatomy</a>
@@ -146,7 +152,6 @@
                 document.body.classList.add('loaded');
             }, 300);
         });
-
         document.querySelectorAll('.back-link a').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -158,7 +163,6 @@
                 }, 1200);
             });
         });
-
         window.addEventListener('pageshow', function(event) {
             if (event.persisted) {
                 setTimeout(function() {

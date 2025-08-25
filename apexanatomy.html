@@ -29,47 +29,6 @@
             margin: 0 auto;
         }
 
-        nav {
-            background-color: #1a1a1a;
-            padding: 15px 0;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #FF2800;
-            opacity: 0;
-            transform: translateY(-10px);
-            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        nav li {
-            display: inline-block;
-            margin: 0 30px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 500;
-            transition: all 0.4s ease;
-            padding: 10px 15px;
-            border-radius: 5px;
-        }
-
-        nav a:hover {
-            color: #FF2800;
-            background-color: rgba(255, 40, 0, 0.1);
-        }
-
         h1 {
             color: #FF2800;
             text-align: center;
@@ -306,6 +265,9 @@
             margin: 30px 0;
             color: #FF2800;
             font-size: 18px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .loading::after {
@@ -330,9 +292,9 @@
             transform: translateY(0);
         }
 
-        body.loaded nav {
+        body.loaded .back-link {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateX(0);
             transition-delay: 0.1s;
         }
 
@@ -372,45 +334,21 @@
             transition-delay: 1.0s;
         }
 
+        body.loaded .loading {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.0s;
+        }
+
         /* Enhanced responsive design */
         @media (max-width: 1024px) {
             .article-grid {
                 grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
                 gap: 18px;
             }
-            
-            nav li {
-                margin: 0 15px;
-            }
         }
 
         @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-                padding: 15px;
-            }
-            
-            nav li {
-                margin: 8px 0;
-                width: 100%;
-                text-align: center;
-            }
-            
-            nav a {
-                display: block;
-                padding: 12px 20px;
-                font-size: 16px;
-                background-color: rgba(255, 255, 255, 0.05);
-                border-radius: 8px;
-                border: 1px solid #333;
-            }
-            
-            nav a:hover {
-                background-color: rgba(255, 40, 0, 0.2);
-                border-color: #FF2800;
-            }
-
             .article-grid {
                 grid-template-columns: 1fr;
                 gap: 15px;
@@ -438,7 +376,6 @@
 
         <h1>Apex Anatomy</h1>
         <div class="tagline">The engineering sanctum of Desi Downshift</div>
-        <br>
         
         <p>This isn't just another pit garage — Apex Anatomy is where the soul of speed gets dissected. It's the high-octane lab of Desi Downshift, where we break down the brilliant, brutal, and beautiful science behind Formula 1 machinery.
 
@@ -465,7 +402,6 @@
         <div class="back-link">
             <a href="formula1.html">← Back to Formula 1</a>
         </div>
-        <br>
         <div class="back-link">
             <a href="index.html">← Back to Paddock</a>
         </div>
@@ -474,40 +410,45 @@
     <script>
         // Article data - in a real scenario, this would come from a database or API
         const allArticles = [
-
+            {
+                title: "Undercut vs Overcut: The Pit Stop Chess Game in Formula 1",
+                description: "Mastering the art of pitting early to gain fresh-tire speed or staying out longer to exploit clean air—these rival strategies often decide races before the first corner.",
+                date: "August 17, 2025",
+                link: "undercutandovercut.html"
+            },
+            {
+                title: "Halo: From Doubt to Lifesaver—How F1's Most Controversial Safety Device Proved Its Worth",
+                description: "Once dismissed as an eyesore, the Halo's steel shield has now saved drivers like Romain Grosjean and Lewis Hamilton, forever changing the face of F1 safety.",
+                date: "August 7, 2025",
+                link: "halo.html"
+            },
             {
                 title: "Pit Wall Playbook: The Masterminds Behind Every Winning Call",
                 description: "Inside the chaotic, data-driven world where split-second strategy calls and flawless teamwork turn curiosity into race-day glory.",
                 date: "August 1, 2025",
-                link: "undercutandovercut.html"
-            },
-            {
-                title: "Pit Wall Playbook: The Masterminds Behind Every Winning Call",
-                description: "Inside the chaotic, data-driven world where split-second strategy calls and flawless teamwork turn curiosity into race-day glory.",
-                date: "July 26, 2025",
-                link: "gforces.html"
+                link: "strategiesandpitwall.html"
             },
             {
                 title: "Surviving the Invisible Beatdown: G-Forces in Formula 1",
                 description: "How F1 drivers battle forces that push six times their body weight every lap—and why it takes the strength of an athlete to keep their heads in the race.",
-                date: "July 20, 2025",
+                date: "July 22, 2025",
                 link: "gforces.html"
             },
             {
                 title: "Racing Lines & Track Secrets: Mastering Every Turn and Temperature",
-                description: "How choosing the perfect path, handling corners, and reading the track’s mood can turn seconds into victories on the F1 circuit.",
-                date: "July 22, 2025",
+                description: "How choosing the perfect path, handling corners, and reading the track's mood can turn seconds into victories on the F1 circuit.",
+                date: "July 20, 2025",
                 link: "tracks.html"
             },
             {
-                title: "Tailgate Turbo — The Speed Boost You Can’t See",
-                description: "How sneaking into a rival’s slipstream can rocket an F1 car forward — until that messy air makes you wish you backed off sooner.",
+                title: "Tailgate Turbo — The Speed Boost You Can't See",
+                description: "How sneaking into a rival's slipstream can rocket an F1 car forward — until that messy air makes you wish you backed off sooner.",
                 date: "July 15, 2025",
                 link: "slipstream.html"
             },
             {
-                title: "“Swipe to Pass” — The DRS Revolution That Changed F1 Forever",
-                description: "How Formula 1’s Drag Reduction System turned overtaking into a tactical, high-speed chess match.",
+                title: "Swipe to Pass — The DRS Revolution That Changed F1 Forever",
+                description: "How Formula 1's Drag Reduction System turned overtaking into a tactical, high-speed chess match.",
                 date: "July 8, 2025",
                 link: "DRSsystem.html"
             },
@@ -524,13 +465,13 @@
                 link: "aero.html"
             },
             {
-                title: "Blink and You’ll Miss It — The Art and Science of F1 Pit Stops",
+                title: "Blink and You'll Miss It — The Art and Science of F1 Pit Stops",
                 description: "A fascinating look at how teams perform lightning-fast tire changes, refueling strategies, and mechanical tweaks in just seconds to keep their drivers in the race-winning fight.",
                 date: "June 20, 2025",
-                link: "DRSsystem.html"
+                link: "pitstops.html"
             },
             {
-                title: "“Tyred Yet?” — The Rubber That Runs the Grid",
+                title: "Tyred Yet? — The Rubber That Runs the Grid",
                 description: "How the Pirelli rubbers are used every weekend.",
                 date: "June 18, 2025",
                 link: "tyres.html"
@@ -540,9 +481,7 @@
                 description: "Inside the hybrid marvel that doesn't just roar but thinks, reacts, and adapts. A deep dive into the millisecond precision of modern F1 power units.",
                 date: "June 15, 2025",
                 link: "torquewhisperers.html"
-            },
-            // Add more articles here as you create them
-            // The system will automatically handle pagination
+            }
         ];
 
         // Configuration
@@ -656,7 +595,7 @@
         }
 
         // Smooth fade out on navigation click
-        document.querySelectorAll('nav a, .back-link a').forEach(link => {
+        document.querySelectorAll('.back-link a, .article-box a').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const href = this.getAttribute('href');

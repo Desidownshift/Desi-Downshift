@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DRS & Drama - Desi Downshift</title>
+    <title>Apex Anatomy - Desi Downshift</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -27,47 +27,6 @@
         .container {
             max-width: 1800px;
             margin: 0 auto;
-        }
-
-        nav {
-            background-color: #1a1a1a;
-            padding: 15px 0;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #FF2800;
-            opacity: 0;
-            transform: translateY(-10px);
-            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        nav li {
-            display: inline-block;
-            margin: 0 30px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 500;
-            transition: all 0.4s ease;
-            padding: 10px 15px;
-            border-radius: 5px;
-        }
-
-        nav a:hover {
-            color: #FF2800;
-            background-color: rgba(255, 40, 0, 0.1);
         }
 
         h1 {
@@ -306,6 +265,9 @@
             margin: 30px 0;
             color: #FF2800;
             font-size: 18px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .loading::after {
@@ -330,9 +292,9 @@
             transform: translateY(0);
         }
 
-        body.loaded nav {
+        body.loaded .back-link {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateX(0);
             transition-delay: 0.1s;
         }
 
@@ -372,45 +334,21 @@
             transition-delay: 1.0s;
         }
 
+        body.loaded .loading {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.0s;
+        }
+
         /* Enhanced responsive design */
         @media (max-width: 1024px) {
             .article-grid {
                 grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
                 gap: 18px;
             }
-            
-            nav li {
-                margin: 0 15px;
-            }
         }
 
         @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-                padding: 15px;
-            }
-            
-            nav li {
-                margin: 8px 0;
-                width: 100%;
-                text-align: center;
-            }
-            
-            nav a {
-                display: block;
-                padding: 12px 20px;
-                font-size: 16px;
-                background-color: rgba(255, 255, 255, 0.05);
-                border-radius: 8px;
-                border: 1px solid #333;
-            }
-            
-            nav a:hover {
-                background-color: rgba(255, 40, 0, 0.2);
-                border-color: #FF2800;
-            }
-
             .article-grid {
                 grid-template-columns: 1fr;
                 gap: 15px;
@@ -436,7 +374,7 @@
             <a href="formula1.html">← Back to Formula 1</a>
         </div>
 
-        <h1>DRS & Drama</h1>
+         <h1>DRS & Drama</h1>
         <div class="tagline">Where wings open, tempers flare, and I serve the tea — hot and with extra sambar</div>
         <br>
         
@@ -519,12 +457,10 @@
                 date: "Soon",
                 link: "thermal-analysis.html"
             },
-            // Add more articles here as you create them
-            // The system will automatically handle pagination
         ];
 
         // Configuration
-        const ARTICLES_PER_PAGE = 6;
+        const ARTICLES_PER_PAGE = 9;
         let currentPage = 1;
         const totalPages = Math.ceil(allArticles.length / ARTICLES_PER_PAGE);
 
@@ -634,7 +570,7 @@
         }
 
         // Smooth fade out on navigation click
-        document.querySelectorAll('nav a, .back-link a').forEach(link => {
+        document.querySelectorAll('.back-link a, .article-box a').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const href = this.getAttribute('href');

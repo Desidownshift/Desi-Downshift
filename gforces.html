@@ -18,12 +18,13 @@
             color: #FF2800;
             text-align: center;
             font-size: 50px;
-            margin-bottom: 0;
-            padding-bottom: 0;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
             line-height: 1;
             opacity: 0;
             transform: scale(0.9);
             transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
             font-weight: 700;
         }
         h2 {
@@ -31,10 +32,12 @@
             text-align: left;
             font-size: 24px;
             margin: 30px 0 15px 0;
+            padding-top: 0px;
             line-height: 1.2;
             opacity: 0;
             transform: translateY(15px);
             transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
             font-weight: 600;
         }
         p {
@@ -47,10 +50,11 @@
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
         }
         .back-link {
             text-align: left;
-            margin: 10px 100px;
+            margin: 10px 100;
             opacity: 0;
             transform: translateX(-15px);
             transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -59,11 +63,16 @@
             color: #FF2800;
             text-decoration: none;
             font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 500;
             transition: all 0.4s ease;
         }
         .back-link a:hover {
             text-decoration: underline;
+        }
+        .highlight-text {
+            color: #FF2800;
+            font-weight: 600;
         }
         body.loaded {
             opacity: 1;
@@ -94,8 +103,8 @@
                 font-size: 40px;
             }
             p {
-                font-size: 16px;
                 text-align: left;
+                font-size: 16px;
             }
             .back-link {
                 margin: 10px 20px;
@@ -111,26 +120,18 @@
         <a href="apexanatomy.html">← Back to Apex Anatomy</a>
     </div>
 
-    <h1>G-Forces: The Invisible Opponent in Every F1 Turn</h1>
+    <h1>G-Forces in Formula 1: The Hidden Physical Challenge</h1>
+    
+    <p>In the high-speed world of Formula 1, G-forces represent one of the most intense physical challenges drivers face. These forces, measured as multiples of gravity's pull ("G" units), come into play not only during dramatic crashes but constantly—through every braking zone, high-speed corner, and rapid acceleration.</p>
 
-    <p>When you watch Formula 1, you see cars zooming around corners at mind-blowing speeds, but something you don’t see is the monster force those drivers are fighting off every lap—G-forces.</p>
+    <h2>The Physical Toll of G-Forces</h2>
+    <p>At circuits like Spa-Francorchamps, drivers routinely experience lateral forces above 5 Gs, particularly in corners like Pouhon where entry speeds approach 300 km/h. Under these conditions, a driver's body is subjected to loads five or six times their own weight, sustained lap after lap. Maintaining control, focus, and precision requires exceptional physical conditioning: robust neck, core, and shoulder muscles are essential to stabilize vision and prevent fatigue.</p>
 
-    <h2>So, what exactly are G-forces?</h2>
-    <p>Think of G-forces as the invisible push or pull your body feels due to acceleration. One “G” is basically the force of Earth’s gravity. In an F1 car, drivers can feel up to 6 Gs in some corners—that’s like having six times their own body weight pushing on them at once!</p>
+    <h2>Impact on Car Performance</h2>
+    <p>Beyond the pure physical toll, G-forces can also impact car performance and setup. Brake balance, suspension geometry, and tire pressure choices are all influenced by the expected loads through fast corners and heavy braking zones. Teams rely on telemetry data to optimize for maximum stability and grip, ensuring that even as drivers combat powerful Gs, the car remains predictable and competitive.</p>
 
-    <h2>How do these forces hit drivers on track?</h2>
-    <p>When the car whips around a fast bend, the driver’s body is pushed sideways with insane force. On acceleration or braking, G-forces act forward or backward, pinning drivers into their seats or pushing against the harness like a human pretzel.</p>
-
-    <h2>Does it hurt?</h2>
-    <p>Not exactly pain in the usual sense, but it’s exhausting. The neck, arms, and core muscles have to fight the push constantly to keep the head and eyes steady on the track. Many drivers train specifically to build the strength needed to handle the punishment lap after lap.</p>
-
-    <h2>What’s the highest G-force ever recorded in F1?</h2>
-    <p>Some corners, like the famous Eau Rouge at Spa or the high-speed turns at Monaco, can push drivers up to 6 or even 6.5 Gs. It’s a brutal workout—and at those extremes, staying sharp becomes as tough as anything else on the car.</p>
-
-    <h2>Are G-forces dangerous?</h2>
-    <p>They can be, if a driver isn’t prepared. Crashes can spike forces well beyond what the body usually handles, which is why safety gear like the HANS device and carbon fiber cockpits are lifesavers.</p>
-
-    <p>The next time you see a driver nail a corner or fight back from the wall, remember: they aren’t just steering fast cars; they’re wrestlers going one-on-one with invisible forces—forces that would flatten most of us flat in a heartbeat.</p>
+    <h2>Safety and Adaptation</h2>
+    <p>While advances in safety—like the Halo device—have helped to mitigate the risks from sudden trauma, the daily challenge of G-forces remains a key differentiator in the sport. Those who best endure and adapt to these punishing forces are among the few who can consistently extract the most from both machine and circuit.</p>
 
     <div class="back-link">
         <a href="apexanatomy.html">← Back to Apex Anatomy</a>
@@ -146,7 +147,6 @@
                 document.body.classList.add('loaded');
             }, 300);
         });
-
         document.querySelectorAll('.back-link a').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -158,7 +158,6 @@
                 }, 1200);
             });
         });
-
         window.addEventListener('pageshow', function(event) {
             if (event.persisted) {
                 setTimeout(function() {

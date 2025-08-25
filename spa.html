@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Belgian GP 2025 - Apex Anatomy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            margin: 0;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1.2s cubic-bezier(0.25,0.46,0.45,0.94);
+        }
+
+        h1, h2 {
+            color: #FF2800;
+            margin-top: 0;
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.25,0.46,0.45,0.94);
+        }
+
+        h1.belgian {
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 20px;
+            transform: scale(0.9);
+            font-weight: 700;
+        }
+
+        h2.belgian {
+            font-size: 22px;
+            margin: 25px 0 10px;
+            text-align: center;
+            font-weight: 600;
+            transform: translateY(15px);
+        }
+
+        p.belgian {
+            max-width: 900px;
+            margin: 16px auto;
+            font-size: 18px;
+            line-height: 1.8;
+            text-align: justify;
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.25,0.46,0.45,0.94);
+            transform: translateY(20px);
+        }
+
+        .belgian-image {
+            display: block;
+            max-width: 900px;
+            width: 100%;
+            margin: 30px auto;
+            border-radius: 10px;
+            opacity: 0;
+            transition: all 1s ease;
+        }
+
+        body.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        body.loaded h1.belgian {
+            opacity: 1;
+            transform: scale(1);
+            transition-delay: 0.2s;
+        }
+
+        body.loaded h2.belgian {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.4s;
+        }
+
+        body.loaded p.belgian {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.6s;
+        }
+
+        body.loaded .belgian-image {
+            opacity: 1;
+            transition-delay: 0.8s;
+        }
+
+        @media (max-width: 768px) {
+            h1.belgian { font-size: 36px; }
+            h2.belgian { font-size: 20px; }
+            p.belgian { font-size: 16px; max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="belgian">Belgian GP 2025: FIA’s Famous Snooze, Piastri’s Win Party & Hamilton’s Setup Headache</h1>
+
+    <p class="belgian">The FIA’s big move this weekend? Starting the race nearly 80 minutes late—because apparently, watching rain puddles is the new sport etiquette. Visibility was so bad behind the safety car, race control decided it was bedtime rather than go-time. George Russell might have called it sensible, but let’s be honest, most fans were wondering if Santa was coming instead of a green flag.</p>
+
+    <h2 class="belgian">Oscar Piastri & Lando Norris: McLaren’s Dynamic Duo</h2>
+    <p class="belgian">Once the race finally kicked off, Oscar Piastri wasted no time. The McLaren rookie glued himself to the front and took his sixth win with almost casual confidence. Lando Norris, meanwhile, led the loyal second-place charge, making the team’s perfect weekend at Spa a reality.</p>
+
+    <h2 class="belgian">Charles Leclerc’s Slick Setup & Max’s Close Pursuit</h2>
+    <p class="belgian">Charlie was the crafty one with a low-downforce setup, perfect for Spa’s long straights. That made him faster on the straights, but also a bit more vulnerable in the twisty bits. Max Verstappen, on the other hand, was loaded with higher downforce to tackle the corners better, but that meant he struggled to make up ground on those faster stretches.</p>
+    <p class="belgian">Charles had to work hard to keep Max behind him; the Dutchman pressured like a wolf stalking prey but couldn’t quite make a clean pass. Charles played the defensive big brother perfectly—blocking, weaving, and protecting his heels.</p>
+
+    <h2 class="belgian">Hamilton’s Epic Climb... Stuck Behind Albon</h2>
+    <p class="belgian">Lewis Hamilton started that day last on the grid (because, why not spice things up?). He blazed through the field up to P7, but then found himself stuck behind Alex Albon. The problem? Hamilton’s car was juiced with more downforce to handle the corners, but that made him slower on Spa’s long straights. Add low fuel (meaning he had to play the infamous “lift and coast” game to save tires and fuel), and overtaking was as tricky as juggling chainsaws blindfolded.</p>
+
+    <h2 class="belgian">Li-Co Tech Dimming Ferrari’s Flames</h2>
+    <p class="belgian">Ferrari was fighting an uphill battle against the advanced lithium cobalt batteries powering hybrids this year. The normally fiery Scuderia was noticeably muted, and their pace dipped while McLaren surged ahead.</p>
+
+    <h2 class="belgian">Other Notable Mentions</h2>
+    <p class="belgian">Fernando Alonso was showing no signs of slowing down, mixing wisdom with bold moves. Up-and-comer Gabriel Bortoleto snagged a solid P9, proving rookies can bring the heat. And Kimi Antonelli picked up the DHL fastest lap in mixed weather, masters of tricky conditions.</p>
+
+    <p class="belgian">So there you have it. The 2025 Belgian GP was part strategy, part weather lottery, part setup chess—an epic mix underscored by FIA’s cautionary late start and some seriously dance-floor-worthy racing moves once the show finally got going.</p>
+
+    <img src="belgian1.jpeg" alt="Belgian GP 2025 Racing" class="belgian-image" />
+
+    <script>
+        document.addEventListener('DOMContentLoaded',() => {
+            setTimeout(() => document.body.classList.add('loaded'), 300);
+        });
+    </script>
+</body>
+</html>

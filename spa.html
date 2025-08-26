@@ -1,127 +1,549 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Belgian GP 2025 - Apex Anatomy</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <title>Desi Downshift</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: black;
             font-family: 'Montserrat', sans-serif;
-            color: white;
             margin: 0;
             padding: 20px;
             opacity: 0;
             transform: translateY(20px);
-            transition: all 1.2s cubic-bezier(0.25,0.46,0.45,0.94);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            color: white;
         }
 
-        h1, h2 {
-            color: #FF2800;
-            margin-top: 0;
+        nav {
+            background-color: #1a1a1a;
+            padding: 15px 0;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #FF2800;
             opacity: 0;
-            transition: all 0.8s cubic-bezier(0.25,0.46,0.45,0.94);
+            transform: translateY(-10px);
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        h1.belgian {
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            display: inline-block;
+            margin: 0 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            transition: all 0.4s ease;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            color: #FF2800;
+            background-color: rgba(255, 40, 0, 0.1);
+        }
+
+        h1 {
+            color: #FF2800;
             text-align: center;
             font-size: 50px;
-            margin-bottom: 20px;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+            line-height: 1;
+            opacity: 0;
             transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
             font-weight: 700;
         }
 
-        h2.belgian {
-            font-size: 22px;
-            margin: 25px 0 10px;
-            text-align: center;
-            font-weight: 600;
+        h2 {
+            color: #FF2800;
+            text-align: left;
+            font-size: 24px;
+            margin: 30px 0 15px 0;
+            padding-top: 0px;
+            line-height: 1.2;
+            opacity: 0;
             transform: translateY(15px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
         }
 
-        p.belgian {
-            max-width: 900px;
-            margin: 16px auto;
+        p {
+            color: white;
             font-size: 18px;
-            line-height: 1.8;
+            line-height: 2;
             text-align: justify;
+            max-width: none;
+            margin: 0 0 20px 0;
             opacity: 0;
-            transition: all 0.8s cubic-bezier(0.25,0.46,0.45,0.94);
             transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
         }
 
-        .belgian-image {
-            display: block;
-            max-width: 900px;
-            width: 100%;
-            margin: 30px auto;
-            border-radius: 10px;
+        .back-link {
+            text-align: left;
+            margin: 10px 100;
             opacity: 0;
-            transition: all 1s ease;
+            transform: translateX(-15px);
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
+        .back-link a {
+            color: #FF2800;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            transition: all 0.4s ease;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Image container to keep image and copyright together */
+        .image-container {
+            display: inline-block;
+            margin: 20px;
+            opacity: 0;
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .image-container.right {
+            float: right;
+            margin-left: 25px;
+            margin-right: 0;
+            transform: translateX(50px) scale(0.9);
+        }
+
+        .image-container.left {
+            float: left;
+            margin-right: 25px;
+            margin-left: 0;
+            transform: translateX(-50px) scale(0.9);
+        }
+
+        /* Spa Images Styling with Alternating Positions */
+        .spa-image {
+            width: 300px;
+            height: 200px;
+            border-radius: 8px;
+            border: 3px solid #FF2800;
+            box-shadow: 0 4px 15px rgba(255, 40, 0, 0.3);
+            object-fit: cover;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .spa-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 40, 0, 0.5);
+            border-color: #FF2800;
+        }
+
+        /* Content sections for proper text flow */
+        .content-section {
+            overflow: auto;
+            margin-bottom: 30px;
+        }
+
+        .content-section:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .highlight-text {
+            color: #FF2800;
+            font-weight: 600;
+        }
+
+        .section-divider {
+            border-top: 2px solid #FF2800;
+            margin: 50px 0;
+            opacity: 0.3;
+        }
+
+        /* Copyright positioning - directly under image */
+        .copyright {
+            font-size: 10px;
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            width: 300px; /* Match image width */
+            display: block;
+        }
+
+        /* Loaded state with extended timing for all content */
         body.loaded {
             opacity: 1;
             transform: translateY(0);
         }
 
-        body.loaded h1.belgian {
+        body.loaded nav {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.1s;
+        }
+
+        body.loaded h1 {
             opacity: 1;
             transform: scale(1);
             transition-delay: 0.2s;
         }
 
-        body.loaded h2.belgian {
-            opacity: 1;
-            transform: translateY(0);
-            transition-delay: 0.4s;
-        }
-
-        body.loaded p.belgian {
+        body.loaded h2:nth-of-type(1) {
             opacity: 1;
             transform: translateY(0);
             transition-delay: 0.6s;
         }
 
-        body.loaded .belgian-image {
+        body.loaded h2:nth-of-type(2) {
             opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.0s;
+        }
+
+        body.loaded h2:nth-of-type(3) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.4s;
+        }
+
+        body.loaded h2:nth-of-type(4) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.8s;
+        }
+
+        body.loaded h2:nth-of-type(5) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.2s;
+        }
+
+        body.loaded h2:nth-of-type(6) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.6s;
+        }
+
+        body.loaded h2:nth-of-type(7) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 3.0s;
+        }
+
+        body.loaded h2:nth-of-type(8) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 3.4s;
+        }
+
+        body.loaded p:nth-of-type(1) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.4s;
+        }
+
+        body.loaded p:nth-of-type(2) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.5s;
+        }
+
+        body.loaded p:nth-of-type(3) {
+            opacity: 1;
+            transform: translateY(0);
             transition-delay: 0.8s;
         }
 
+        body.loaded p:nth-of-type(4) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.2s;
+        }
+
+        body.loaded p:nth-of-type(5) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.6s;
+        }
+
+        body.loaded p:nth-of-type(6) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.0s;
+        }
+
+        body.loaded p:nth-of-type(7) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.4s;
+        }
+
+        body.loaded p:nth-of-type(8) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.8s;
+        }
+
+        body.loaded p:nth-of-type(9) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 3.2s;
+        }
+
+        body.loaded p:nth-of-type(10) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 3.6s;
+        }
+
+        body.loaded p:nth-of-type(11) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 4.0s;
+        }
+
+        body.loaded p:nth-of-type(12) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 4.4s;
+        }
+
+        /* Image container animations */
+        body.loaded .image-container.right:nth-of-type(1) {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 0.7s;
+        }
+
+        body.loaded .image-container.left:nth-of-type(1) {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 1.3s;
+        }
+
+        body.loaded .image-container.right:nth-of-type(2) {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 2.7s;
+        }
+
+        body.loaded .image-container.left:nth-of-type(2) {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 4.2s;
+        }
+
+        body.loaded .back-link {
+            opacity: 1;
+            transform: translateX(0);
+            transition-delay: 4.8s;
+        }
+
+        /* Enhanced responsive design */
+        @media (max-width: 1024px) {
+            nav li {
+                margin: 0 15px;
+            }
+        }
+
         @media (max-width: 768px) {
-            h1.belgian { font-size: 36px; }
-            h2.belgian { font-size: 20px; }
-            p.belgian { font-size: 16px; max-width: 100%; }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                padding: 15px;
+            }
+            
+            nav li {
+                margin: 8px 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            nav a {
+                display: block;
+                padding: 12px 20px;
+                font-size: 16px;
+                background-color: rgba(255, 255, 255, 0.05);
+                border-radius: 8px;
+                border: 1px solid #333;
+            }
+            
+            nav a:hover {
+                background-color: rgba(255, 40, 0, 0.2);
+                border-color: #FF2800;
+            }
+
+            .image-container.left,
+            .image-container.right {
+                float: none;
+                display: block;
+                margin: 20px auto;
+            }
+            
+            .spa-image {
+                width: 280px;
+                height: 180px;
+            }
+            
+            .copyright {
+                width: 280px;
+            }
+            
+            h1 {
+                font-size: 40px;
+            }
+            
+            body {
+                padding: 15px;
+            }
         }
     </style>
 </head>
 <body>
-    <h1 class="belgian">Belgian GP 2025: FIA’s Famous Snooze, Piastri’s Win Party & Hamilton’s Setup Headache</h1>
+    <div class="back-link">
+        <a href="drsdrama.html">← Back to DRS & Drama</a>
+    </div>
 
-    <p class="belgian">The FIA’s big move this weekend? Starting the race nearly 80 minutes late—because apparently, watching rain puddles is the new sport etiquette. Visibility was so bad behind the safety car, race control decided it was bedtime rather than go-time. George Russell might have called it sensible, but let’s be honest, most fans were wondering if Santa was coming instead of a green flag.</p>
+    <h1>🇧🇪 Belgian GP 2025: FIA's Famous Snooze, Piastri's Win Party & Hamilton's Setup Headache</h1>
+    <br>
 
-    <h2 class="belgian">Oscar Piastri & Lando Norris: McLaren’s Dynamic Duo</h2>
-    <p class="belgian">Once the race finally kicked off, Oscar Piastri wasted no time. The McLaren rookie glued himself to the front and took his sixth win with almost casual confidence. Lando Norris, meanwhile, led the loyal second-place charge, making the team’s perfect weekend at Spa a reality.</p>
+    <!-- First Belgian GP Content Section with Image (Right) -->
+    <div class="content-section">
+        <div class="image-container right">
+            <img src="spa1.jpeg" alt="Spa Francorchamps Circuit" class="spa-image">
+            <div class="copyright">© 2025 Formula1.com. All rights reserved.</div>
+        </div>
+        
+        <p><strong>Location:</strong> Spa-Francorchamps, Belgium<br>
+        <strong>Result:</strong> McLaren 1–2, Ferrari struggling with battery tech, Red Bull playing catch-up.</p>
 
-    <h2 class="belgian">Charles Leclerc’s Slick Setup & Max’s Close Pursuit</h2>
-    <p class="belgian">Charlie was the crafty one with a low-downforce setup, perfect for Spa’s long straights. That made him faster on the straights, but also a bit more vulnerable in the twisty bits. Max Verstappen, on the other hand, was loaded with higher downforce to tackle the corners better, but that meant he struggled to make up ground on those faster stretches.</p>
-    <p class="belgian">Charles had to work hard to keep Max behind him; the Dutchman pressured like a wolf stalking prey but couldn’t quite make a clean pass. Charles played the defensive big brother perfectly—blocking, weaving, and protecting his heels.</p>
+        <p>The FIA's big move this weekend? Starting the race nearly 80 minutes late—because apparently, watching rain puddles is the new sport etiquette. Visibility was so bad behind the safety car, race control decided it was bedtime rather than go-time. George Russell might have called it sensible, but let's be honest, most fans were wondering if Santa was coming instead of a green flag.</p>
+    </div>
 
-    <h2 class="belgian">Hamilton’s Epic Climb... Stuck Behind Albon</h2>
-    <p class="belgian">Lewis Hamilton started that day last on the grid (because, why not spice things up?). He blazed through the field up to P7, but then found himself stuck behind Alex Albon. The problem? Hamilton’s car was juiced with more downforce to handle the corners, but that made him slower on Spa’s long straights. Add low fuel (meaning he had to play the infamous “lift and coast” game to save tires and fuel), and overtaking was as tricky as juggling chainsaws blindfolded.</p>
+    <!-- Second Belgian GP Content Section with Image (Left) -->
+    <div class="content-section">
+        <div class="image-container left">
+            <img src="spa2.webp" alt="McLaren Team Celebration at Spa" class="spa-image">
+            <div class="copyright">McLAREN Racing ©2025</div>
+        </div>
+        
+        <h2>Oscar Piastri & Lando Norris: McLaren's Dynamic Duo</h2>
 
-    <h2 class="belgian">Li-Co Tech Dimming Ferrari’s Flames</h2>
-    <p class="belgian">Ferrari was fighting an uphill battle against the advanced lithium cobalt batteries powering hybrids this year. The normally fiery Scuderia was noticeably muted, and their pace dipped while McLaren surged ahead.</p>
+        <p>Once the race finally kicked off, Oscar Piastri wasted no time. The McLaren rookie glued himself to the front and took his sixth win with almost casual confidence. Lando Norris, meanwhile, led the loyal second-place charge, making the team's perfect weekend at Spa a reality.</p>
 
-    <h2 class="belgian">Other Notable Mentions</h2>
-    <p class="belgian">Fernando Alonso was showing no signs of slowing down, mixing wisdom with bold moves. Up-and-comer Gabriel Bortoleto snagged a solid P9, proving rookies can bring the heat. And Kimi Antonelli picked up the DHL fastest lap in mixed weather, masters of tricky conditions.</p>
+        <h2>Charles Leclerc's Slick Setup & Max's Close Pursuit</h2>
 
-    <p class="belgian">So there you have it. The 2025 Belgian GP was part strategy, part weather lottery, part setup chess—an epic mix underscored by FIA’s cautionary late start and some seriously dance-floor-worthy racing moves once the show finally got going.</p>
+        <p>Charlie was the crafty one with a low-downforce setup, perfect for Spa's long straights. That made him faster on the straights, but also a bit more vulnerable in the twisty bits. Max Verstappen, on the other hand, was loaded with higher downforce to tackle the corners better, but that meant he struggled to make up ground on those faster stretches.</p>
 
-    <img src="belgian1.jpeg" alt="Belgian GP 2025 Racing" class="belgian-image" />
+        <p>Charles had to work hard to keep Max behind him; the Dutchman pressured like a wolf stalking prey but couldn't quite make a clean pass. Charles played the defensive big brother perfectly—blocking, weaving, and protecting his heels.</p>
+    </div>
+
+    <!-- Third Belgian GP Content Section with Image (Right) -->
+    <div class="content-section">
+        <div class="image-container right">
+            <img src="spa3.jpg" alt="Lewis Hamilton at Spa" class="spa-image">
+            <div class="copyright">© Planet Sport Limited 2025</div>
+        </div>
+        
+        <h2>Hamilton's Epic Climb... Stuck Behind Albon</h2>
+
+        <p><span class="highlight-text">Lewis Hamilton</span> started that day last on the grid (because, why not spice things up?). He blazed through the field up to P7, but then found himself stuck behind Alex Albon. The problem? Hamilton's car was juiced with more downforce to handle the corners, but that made him slower on Spa's long straights. Add low fuel (meaning he had to play the infamous "lift and coast" game to save tires and fuel), and overtaking was as tricky as juggling chainsaws blindfolded.</p>
+
+        <p>Ferrari’s “Li-Co tech” isn’t some flashy new battery upgrade—it’s just their fancy name for the old-school “lift and coast” technique. During Spa 2025, radio messages revealed the team’s constant calls for Charles to lift off early and coast into braking zones to manage fuel and keep the hybrid systems happy. While this cautious approach saved hardware, it absolutely choked the usual Ferrari aggressiveness, forcing them to settle for damage limitation as rivals like McLaren surged ahead. It’s clear Ferrari needs to fix this dependency fast if they want to get back to fighting at the front rather than quietly limping through races.</p>
+    </div>
+
+    <!-- Fourth Belgian GP Content Section with Image (Left) -->
+    <div class="content-section">
+        <div class="image-container left">
+            <img src="spa4.webp" alt="Belgian GP Race Action" class="spa-image">
+            <div class="copyright">© Planet Sport Limited 2025</div>
+        </div>
+        
+        <h2>Other Notable Mentions</h2>
+
+        <p><span class="highlight-text">Fernando Alonso</span> was showing no signs of slowing down, mixing wisdom with bold moves. Up-and-comer Gabriel Bortoleto snagged a solid P9, proving rookies can bring the heat. And Kimi Antonelli picked up the DHL fastest lap in mixed weather, masters of tricky conditions.</p>
+<br>
+<br>
+
+        <h2>🏁 Final Classification</h2>
+
+        <p>1. Oscar Piastri — Cool as the Ardennes mist<br>
+        2. Lando Norris — The perfect wingman<br>
+        3. Charles Leclerc — Strategic master with defense masterclass<br>
+        4. Max Verstappen — Relentless but setup-limited<br>
+        5. George Russell — Sensible in the rain, speedy in the dry<br>
+        6. Albon — Steady but battery-hampered<br>
+        7. Lewis Hamilton — Epic climb, frustrating finish<br>
+        9. Gabriel Bortoleto — Rookie making waves</p>
+
+        <h2>Verdict:</h2>
+
+        <p>So there you have it. The 2025 Belgian GP was part strategy, part weather lottery, part setup chess—an epic mix underscored by FIA's cautionary late start and some seriously dance-floor-worthy racing moves once the show finally got going.</p>
+
+        <p>Next up: Hungary. Temple of speed, here we come!</p>
+    </div>
+
+    <div class="back-link">
+        <a href="drsdrama.html">← Back to DRS & Drama</a>
+    </div>
+    <br>
+    <div class="back-link">
+        <a href="index.html">← Back to Paddock</a>
+    </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded',() => {
-            setTimeout(() => document.body.classList.add('loaded'), 300);
+        // Smooth fade in page on load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 300);
+        });
+
+        // Smooth fade out on navigation click
+        document.querySelectorAll('nav a, .back-link a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                
+                document.body.style.transition = 'all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                document.body.classList.remove('loaded');
+                
+                setTimeout(function() {
+                    window.location.href = href;
+                }, 1200);
+            });
+        });
+
+        // Enhanced browser navigation handling
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                setTimeout(function() {
+                    document.body.classList.add('loaded');
+                }, 200);
+            }
         });
     </script>
 </body>

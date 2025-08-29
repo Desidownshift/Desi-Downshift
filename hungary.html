@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desi Downshift</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            color: white;
+        }
+        nav {
+            background-color: #1a1a1a;
+            padding: 15px 0;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #FF2800;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav li {
+            display: inline-block;
+            margin: 0 30px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            transition: all 0.4s ease;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            color: #FF2800;
+            background-color: rgba(255, 40, 0, 0.1);
+        }
+        h1 {
+            color: #FF2800;
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+            line-height: 1;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        h2 {
+            color: #FF2800;
+            text-align: left;
+            font-size: 24px;
+            margin: 30px 0 15px 0;
+            padding-top: 0px;
+            line-height: 1.2;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+        p {
+            color: white;
+            font-size: 18px;
+            line-height: 2;
+            text-align: justify;
+            max-width: none;
+            margin: 0 0 20px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Montserrat', sans-serif;
+        }
+        .back-link {
+            text-align: left;
+            margin: 10px 100;
+            opacity: 0;
+            transform: translateX(-15px);
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .back-link a {
+            color: #FF2800;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            transition: all 0.4s ease;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+        /* Image container to keep image and copyright together */
+        .image-container {
+            display: inline-block;
+            margin-bottom: 10px; /* fixed: only margin-bottom */
+            opacity: 0;
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .image-container.right {
+            float: right;
+            margin-left: 18px; /* fixed: smaller left gap */
+            margin-right: 0;
+            transform: translateX(50px) scale(0.9);
+        }
+        .image-container.left {
+            float: left;
+            margin-right: 18px; /* fixed: smaller right gap */
+            margin-left: 0;
+            transform: translateX(-50px) scale(0.9);
+        }
+        /* Hungary Images Styling with Alternating Positions */
+        .hungary-image {
+            width: 300px;
+            height: 200px;
+            border-radius: 8px;
+            border: 3px solid #FF2800;
+            box-shadow: 0 4px 15px rgba(255, 40, 0, 0.3);
+            object-fit: cover;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        .hungary-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 40, 0, 0.5);
+            border-color: #FF2800;
+        }
+        /* Content sections for proper text flow */
+        .content-section {
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        .content-section:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .highlight-text {
+            color: #FF2800;
+            font-weight: 600;
+        }
+        .section-divider {
+            border-top: 2px solid #FF2800;
+            margin: 50px 0;
+            opacity: 0.3;
+        }
+        /* Copyright positioning - directly under image */
+        .copyright {
+            font-size: 10px;
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            width: 300px;
+            display: block;
+        }
+        body.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        body.loaded nav {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.1s;
+        }
+        body.loaded h1 {
+            opacity: 1;
+            transform: scale(1);
+            transition-delay: 0.2s;
+        }
+        body.loaded h2:nth-of-type(1) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.6s;
+        }
+        body.loaded h2:nth-of-type(2) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.0s;
+        }
+        body.loaded h2:nth-of-type(3) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.4s;
+        }
+        body.loaded h2:nth-of-type(4) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.8s;
+        }
+        body.loaded h2:nth-of-type(5) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.2s;
+        }
+        body.loaded h2:nth-of-type(6) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.6s;
+        }
+        body.loaded h2:nth-of-type(7) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 3.0s;
+        }
+        body.loaded h2:nth-of-type(8) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 3.4s;
+        }
+        body.loaded p:nth-of-type(1) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.4s;
+        }
+        body.loaded p:nth-of-type(2) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.5s;
+        }
+        body.loaded p:nth-of-type(3) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.8s;
+        }
+        body.loaded p:nth-of-type(4) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.2s;
+        }
+        body.loaded p:nth-of-type(5) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.6s;
+        }
+        body.loaded p:nth-of-type(6) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.0s;
+        }
+        body.loaded p:nth-of-type(7) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.4s;
+        }
+        body.loaded p:nth-of-type(8) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.8s;
+        }
+        body.loaded p:nth-of-type(9) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 3.2s;
+        }
+        body.loaded p:nth-of-type(10) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 3.6s;
+        }
+        body.loaded p:nth-of-type(11) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 4.0s;
+        }
+        body.loaded p:nth-of-type(12) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 4.4s;
+        }
+        body.loaded .image-container.right:nth-of-type(1) {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 0.7s;
+        }
+        body.loaded .image-container.left:nth-of-type(1) {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 1.3s;
+        }
+        body.loaded .image-container.right:nth-of-type(2) {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 2.7s;
+        }
+        body.loaded .image-container.left:nth-of-type(2) {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 4.2s;
+        }
+        body.loaded .back-link {
+            opacity: 1;
+            transform: translateX(0);
+            transition-delay: 4.8s;
+        }
+        @media (max-width: 1024px) {
+            nav li {
+                margin: 0 15px;
+            }
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                padding: 15px;
+            }
+            nav li {
+                margin: 8px 0;
+                width: 100%;
+                text-align: center;
+            }
+            nav a {
+                display: block;
+                padding: 12px 20px;
+                font-size: 16px;
+                background-color: rgba(255, 255, 255, 0.05);
+                border-radius: 8px;
+                border: 1px solid #333;
+            }
+            nav a:hover {
+                background-color: rgba(255, 40, 0, 0.2);
+                border-color: #FF2800;
+            }
+            .image-container.left,
+            .image-container.right {
+                float: none;
+                display: block;
+                margin: 18px auto; /* fixed: for snug gap on mobile */
+            }
+            .hungary-image {
+                width: 280px;
+                height: 180px;
+            }
+            .copyright {
+                width: 280px;
+            }
+            h1 {
+                font-size: 40px;
+            }
+            body {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-link">
+        <a href="drsdrama.html">← Back to DRS & Drama</a>
+    </div>
+    <h1>🇭🇺 Hungarian GP 2025: McLaren's Tactical Thriller, Leclerc's Frustration & Chacha's DRS Blockade</h1>
+    <br>
+    <!-- First Hungarian GP Content Section with Image (Right) -->
+    <div class="content-section">
+        <div class="image-container right">
+            <img src="hungary1.avif" alt="Hungaroring Circuit" class="hungary-image">
+            <div class="copyright">© 2025 Formula1.com. All rights reserved.</div>
+        </div>
+        <p><strong>Location:</strong> Hungaroring, Hungary<br>
+        <strong>Result:</strong> McLaren 1–2, Ferrari hiding behind "chassis failure," Verstappen struggles, Alonso Chacha holds up the DRS train.</p>
+        <p>The 2025 Hungarian Grand Prix served up everything fans crave: strategy gambles, fierce battles, and a pinch of raw emotion that rattled the paddocks. Charles Leclerc stole pole with a crisp lap, but the race quickly morphed into McLaren's playground, with Lando Norris and Oscar Piastri pulling off an epic 1–2 that shook the usual order.</p>
+    </div>
+    <!-- Second Hungarian GP Content Section with Image (Left) -->
+    <div class="content-section">
+        <div class="image-container left">
+            <img src="hungary2.jpg" alt="McLaren Team Celebration at Hungary" class="hungary-image">
+            <div class="copyright">2025 Kym Illman</div>
+        </div>
+        <h2>Lando Norris & Oscar Piastri: McLaren's Dynamic Duo</h2>
+        <p>The drama kicked off early when Norris, after losing two places in the opening volley, switched to a bold one-stop strategy that would eventually crown him race winner. The team's flawless pit work combined with his masterful tire management kept the pressure high on Piastri, who pushed relentlessly but couldn't quite snatch the lead. Meanwhile, the Aussie fans fired up the keyboards questioning if Piastri got a raw deal, joking that McLaren might have accidentally handed Norris the strategy playbook—and Piastri's was lost in the post. But in the heat of the battle, it was Norris's gamble that paid off, proving sometimes in racing, fortune really does favor the bold... or at least the one who manages their tires better!</p>
+    </div>
+    <!-- Third Hungarian GP Content Section with Image (Right) -->
+    <div class="content-section">
+        <div class="image-container right">
+            <img src="hungary3.jpg" alt="Max Verstappen Struggles" class="hungary-image">
+            <div class="copyright">© Planet Sport Limited 2025</div>
+        </div>
+        <h2>Ferrari's "Chassis Failure" & Lewis Hamilton's Frustration</h2>
+        <p>Ferrari's official line blamed a mysterious "failure in the chassis" for their sudden drop in pace; fans and insiders knew better—McLaren had simply outpowered them. "This is so incredibly frustrating. We've lost all competitiveness. You just have to listen to me, I would have found a different way of managing those issues. Now it's just undrivable. Undrivable. It's a miracle if we finish on the podium."
+Leclerc expressed this frustration after struggling with major handling issues during the race, especially in the latter stint where his car's balance and grip deteriorated significantly. This made defending his position and maintaining pace extremely difficult, allowing rivals like McLaren's Oscar Piastri and Mercedes' George Russell to overtake him. Lewis Hamilton, who had come in to drive alongside Leclerc, aired his frustration publicly, calling himself "useless" post-qualifying—an admission that resonated with fans who could sense a Ferrari in crisis beneath the polished PR.</p>
+        <h2>Alonso Chacha's DRS Blockade</h2>
+        <p>Meanwhile, the midfield was buzzing with Alonso Chacha masterfully holding up the DRS train and frustrating faster rivals trying to slice through the pack. His old-school savvy showed veteran brilliance, turning the race into a strategic chessboard. Alonso's ability to control pace and manage his car under immense pressure demonstrated that experience and racecraft remain invaluable even as new talent storms the grid. Gabriel Bortoleto, the rookie sensation from Sauber, impressed by nabbing points in the hotly contested pack, signaling the arrival of a new generation ready to shake things up.Battery tech limitations and car setups favored cornering over straight-line speed, making overtaking at the Hungaroring a nerve-wracking challenge. This stalemate echoed the struggles many midfield drivers faced: the delicate balance between defending positions and preserving tire life in a race that rewarded strategic intelligence as much as outright pace.</p>
+        <h2>Verstappen's Struggles & Norris's Triumph</h2>
+        <p>Verstappen struggled to breach the top ranks, a rare sight for the championship hopeful, finishing well off the podium and raising questions about Red Bull's race setup.</p>
+        <p>As the laps ticked down, pit strategies and tire conservation became the deciding factors. Norris's gamble paid off with a tense but triumphant defense against Piastri's late charge, sealing McLaren's 200th F1 victory in style.</p>
+    </div>
+    <!-- Fourth Hungarian GP Content Section with Image (Left) -->
+    <div class="content-section">
+        <div class="image-container left">
+            <img src="hungary4.avif" alt="Hungarian GP Race Action" class="hungary-image">
+            <div class="copyright">© Planet Sport Limited 2025</div>
+        </div>
+        <h2>Race Summary & Final Classification</h2>
+        <p>For fans, the 2025 Hungarian GP was a showcase of heart, grit, and team brilliance. The rollercoaster of emotions—Hamilton's self-criticism, Ferrari's thin excuses, Alonso's tactical mastery, and McLaren's rise—made it a perfect storm of drama and racing glory. Now all eyes turn to the next battleground, with stakes higher than ever.</p>
+        <br>
+        <br>
+        <h2>🏁 Final Classification</h2>
+        <p>Lando Norris — Master of strategy and composure<br>
+        Oscar Piastri — Relentless rookie pressure<br>
+        George Russell — Solid podium for Mercedes<br>
+        Charles Leclerc — Pole sitter with fading grip<br>
+        Fernando Alonso "Chacha" — DRS disruptor extraordinaire<br>
+        Max Verstappen — Struggled to match pace<br>
+        Lewis Hamilton — Frank admission, tough race</p>
+        <h2>Verdict:</h2>
+        <p>Hungaroring 2025 was an adrenaline-pumping blend of smart strategy, emotional highs, and tactical battles. McLaren's triumph rattled established giants while Alonso reminded everyone why experience counts. Lewis's brutally honest self-assessment and Ferrari's "chassis failure" story added flavor to a race that will be dissected for months to come.<br>
+        Bring on the next chapter!</p>
+    </div>
+    <div class="back-link">
+        <a href="drsdrama.html">← Back to DRS & Drama</a>
+    </div>
+    <br>
+    <div class="back-link">
+        <a href="index.html">← Back to Paddock</a>
+    </div>
+    <script>
+        // Smooth fade in page on load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 300);
+        });
+        // Smooth fade out on navigation click
+        document.querySelectorAll('nav a, .back-link a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                document.body.style.transition = 'all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                document.body.classList.remove('loaded');
+                setTimeout(function() {
+                    window.location.href = href;
+                }, 1200);
+            });
+        });
+        // Enhanced browser navigation handling
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                setTimeout(function() {
+                    document.body.classList.add('loaded');
+                }, 200);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desi Downshift — Dutch GP 2025 Drama</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: black;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 24px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        h1 {
+            color: #FF2800;
+            font-size: 48px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 10px;
+            margin-top: 8px;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        h2 {
+            color: #FF2800;
+            font-size: 26px;
+            font-weight: 600;
+            margin-top: 36px;
+            margin-bottom: 14px;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        p {
+            font-size: 18px;
+            line-height: 2;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: justify;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .content-section {
+            overflow: auto;
+            margin-bottom: 38px;
+        }
+        /* Enhanced image container styling from second page */
+        .image-container {
+            display: inline-block;
+            margin: 20px;
+            opacity: 0;
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .image-container.right {
+            float: right;
+            margin-left: 25px;
+            margin-right: 0;
+            transform: translateX(50px) scale(0.9);
+        }
+        .image-container.left {
+            float: left;
+            margin-right: 25px;
+            margin-left: 0;
+            transform: translateX(-50px) scale(0.9);
+        }
+        .spa-image {
+            width: 300px;
+            height: 200px;
+            border-radius: 8px;
+            border: 3px solid #FF2800;
+            box-shadow: 0 4px 15px rgba(255, 40, 0, 0.3);
+            object-fit: cover;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        .spa-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 40, 0, 0.5);
+            border-color: #FF2800;
+        }
+        .copyright {
+            font-size: 10px;
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            width: 300px;
+            display: block;
+        }
+        .back-link {
+            text-align: left;
+            margin: 10px 0;
+            opacity: 0;
+            transform: translateX(-15px);
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .back-link a {
+            color: #FF2800;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            transition: all 0.4s ease;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+        /* Enhanced responsive design from second page */
+        @media (max-width: 768px) {
+            .image-container.left,
+            .image-container.right {
+                float: none;
+                display: block;
+                margin: 20px auto;
+            }
+            
+            .spa-image {
+                width: 280px;
+                height: 180px;
+            }
+            
+            .copyright {
+                width: 280px;
+            }
+            
+            h1 {
+                font-size: 40px;
+            }
+            
+            body {
+                padding: 15px;
+            }
+        }
+        /* Enhanced loaded state animations from second page */
+        body.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        body.loaded h1 {
+            opacity: 1;
+            transform: scale(1);
+            transition-delay: 0.2s;
+        }
+        body.loaded h2:nth-of-type(1) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.6s;
+        }
+        body.loaded h2:nth-of-type(2) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.0s;
+        }
+        body.loaded h2:nth-of-type(3) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.4s;
+        }
+        body.loaded h2:nth-of-type(4) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.8s;
+        }
+        body.loaded p:nth-of-type(1) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.4s;
+        }
+        body.loaded p:nth-of-type(2) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.5s;
+        }
+        body.loaded p:nth-of-type(3) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.8s;
+        }
+        body.loaded p:nth-of-type(4) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.2s;
+        }
+        body.loaded p:nth-of-type(5) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.6s;
+        }
+        body.loaded p:nth-of-type(6) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.0s;
+        }
+        body.loaded p:nth-of-type(7) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.4s;
+        }
+        body.loaded p:nth-of-type(8) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.8s;
+        }
+        body.loaded p:nth-of-type(9) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 3.2s;
+        }
+        /* Image container animations */
+        body.loaded .image-container.right:nth-of-type(1) {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 0.7s;
+        }
+        body.loaded .image-container.left:nth-of-type(1) {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 1.3s;
+        }
+        body.loaded .image-container.right:nth-of-type(2) {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 2.7s;
+        }
+        body.loaded .image-container.left:nth-of-type(2) {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 4.2s;
+        }
+        body.loaded .back-link {
+            opacity: 1;
+            transform: translateX(0);
+            transition-delay: 4.8s;
+        }
+    </style>
+</head>
+<body>
+    <div class="back-link">
+        <a href="drsdrama.html">← Back to DRS & Drama</a>
+    </div>
+    <h1>🏁 Dutch GP 2025: Bollywood Drama, Dutch Edition!</h1>
+    <div class="content-section">
+        <div class="image-container right">
+            <img src="dutch5.jpg" alt="Dutch GP Starting Grid" class="spa-image">
+            <div class="copyright">© 2025 Dutch GP Media</div>
+        </div>
+        <h2>Starting Grid Drama at Zandvoort</h2>
+        <p>Oscar Piastri grabbed pole for the Dutch Grand Prix, with his McLaren buddy Lando Norris right next to him, ready to tango. Max Verstappen, the local favorite, started third, looking to have a say in this party, while Isack Hadjar joined the fun in fourth. The midfield buffet included George Russell, Charles Leclerc, Lewis Hamilton, Liam Lawson, Carlos Sainz, and Fernando Alonso. Gabriel Bortoleto began in 13th but, like the Mumbai local train in peak hours, got pushed back to 19th early on. Albon was chilling in 15th, ready to make some noise.</p>
+    </div>
+    <div class="content-section">
+        <div class="image-container left">
+            <img src="dutch2.jpg" alt="Dutch GP Race Chaos" class="spa-image">
+            <div class="copyright">© 2025 Formula1.com</div>
+        </div>
+        <h2>Race Chaos and Key Moments</h2>
+        <p>Max on soft tires looked like he'd won the lottery at first, muscling into P2 despite taking an unintended sand bath worthy of a Bollywood desert scene. But Norris, sneaky as a Mumbai auto-wala taking the shortest route, zipped past Max on the outside, showing moves so slick they could give Nawazuddin Siddiqui a run for his money. Albon made a solid climb from 15th to 10th, while poor Bortoleto was playing catch-up after his early drop.</p>
+        <p>Then drama struck! Lewis Hamilton met his Waterloo on a few drops of water—like slipping on a banana peel in a Tamil movie fight scene, no chance to save it. Just before this, Leclerc pitted and lost time, classic bad luck! The Virtual Safety Car came out, and when the green flag waved, Piastri led the pack like a boss. Meanwhile, in the midfield, a spicy wheel-to-wheel battle between Carlos Sainz and Liam Lawson turned into a Bollywood-style tangle. Lawson gave space, but Carlos clipped his wing—both pitted a lap down and Sainz showed his skills by overtaking Lawson cleanly. The stewards weren't impressed though, slapped Carlos with a 10-second penalty, and his radio exploded: "ARE YOU JOKING? YOU'RE JOKING. I MEAN, IT'S THE MOST RIDICULOUS THING I'VE HEARD IN MY LIFE." Perfect drama for the desi soap opera fans!</p>
+    </div>
+    <div class="content-section">
+        <div class="image-container right">
+            <img src="dutch3.jpg" alt="Leclerc Crash Dutch GP" class="spa-image">
+            <div class="copyright">© Zandvoort Circuit 2025</div>
+        </div>
+        <p>Up front, Leclerc pulled off a gritty move through the gravel like a street racer. George got a bit miffed and asked his engineer to check if his overtake outside track limits was legit. The stewards barely cared but noted their little collision. All that effort, though, went down the drain on lap 53 at turn 3. Leclerc had just pitted for fresh softs, which hadn't warmed up yet, when rookie Kimi Antonelli, on fired-up three-lap-old softs, dived inside and clipped Leclerc's rear-left sidepod. The impact sent Leclerc spinning violently into the barrier, ending his race. Meanwhile, Kimi punctured his tire but managed to limp back to the pits. Leclerc didn't explode but shot a sharp jab at Ferrari, saying, "Bhai, you pitted me when my old hard tires were still working fine!"</p>
+        <p>But the real twist? Norris lost power on lap 62. His engineer tried to cheer him up, but with just 9 points between them and only 9 races left, it was like someone stole the last samosa at a family gathering—"bad luck boys," came the radio message.</p>
+    </div>
+    <div class="content-section">
+        <div class="image-container left">
+            <img src="dutch1.jpg" alt="Dutch GP Rookie Podium" class="spa-image">
+            <div class="copyright">© 2025 Dutch GP Media</div>
+        </div>
+        <h2>Podium Drama & Final Thoughts</h2>
+        <p>This opened the door for the young French rookie to make history—youngest French driver on the podium! Max couldn't capitalize thanks to his tricky car and finished just behind Oscar. Hadjar rounded out the top three.</p>
+        <p>Honestly, with such a narrow track and few overtaking spots, I thought this race would be as exciting as waiting in line at the RTO, but it turned out to be edge-of-the-seat stuff worthy of a Bollywood climax—full drama, tension, and unexpected twists till the very last lap!</p>
+    </div>
+    <div class="back-link">
+        <a href="drsdrama.html">← Back to DRS & Drama</a>
+    </div>
+    <br>
+    <div class="back-link">
+        <a href="index.html">← Back to Paddock</a>
+    </div>
+
+    <script>
+        // Smooth fade in page on load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 300);
+        });
+        // Smooth fade out on navigation and back links
+        document.querySelectorAll('.back-link a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                document.body.style.transition = 'all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                document.body.classList.remove('loaded');
+                setTimeout(function() {
+                    window.location.href = href;
+                }, 1200);
+            });
+        });
+        // Handle browser back cache for animation
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                setTimeout(function() {
+                    document.body.classList.add('loaded');
+                }, 200);
+            }
+        });
+    </script>
+</body>
+</html>

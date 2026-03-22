@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desi Downshift — Las Vegas GP 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: black;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 24px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        h1 {
+            color: #FF2800;
+            font-size: 48px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 10px;
+            margin-top: 8px;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        h2 {
+            color: #FF2800;
+            font-size: 26px;
+            font-weight: 600;
+            margin-top: 36px;
+            margin-bottom: 14px;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        p {
+            font-size: 18px;
+            line-height: 2;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: justify;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .content-section {
+            overflow: auto;
+            margin-bottom: 38px;
+        }
+        .image-container {
+            display: inline-block;
+            margin: 20px;
+            opacity: 0;
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .image-container.right {
+            float: right;
+            margin-left: 25px;
+            margin-right: 0;
+            transform: translateX(50px) scale(0.9);
+        }
+        .image-container.left {
+            float: left;
+            margin-right: 25px;
+            margin-left: 0;
+            transform: translateX(-50px) scale(0.9);
+        }
+        .spa-image {
+            width: 300px;
+            height: 200px;
+            border-radius: 8px;
+            border: 3px solid #FF2800;
+            box-shadow: 0 4px 15px rgba(255, 40, 0, 0.3);
+            object-fit: cover;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        .spa-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 40, 0, 0.5);
+            border-color: #FF2800;
+        }
+        .copyright {
+            font-size: 10px;
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            width: 300px;
+            display: block;
+        }
+        .back-link {
+            text-align: left;
+            margin: 10px 0;
+            opacity: 0;
+            transform: translateX(-15px);
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .back-link a {
+            color: #FF2800;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            transition: all 0.4s ease;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .image-container.left,
+            .image-container.right {
+                float: none;
+                display: block;
+                margin: 20px auto;
+            }
+            .spa-image {
+                width: 280px;
+                height: 180px;
+            }
+            .copyright {
+                width: 280px;
+            }
+            h1 {
+                font-size: 40px;
+            }
+            body {
+                padding: 15px;
+            }
+        }
+        body.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        body.loaded h1 {
+            opacity: 1;
+            transform: scale(1);
+            transition-delay: 0.2s;
+        }
+        body.loaded h2:nth-of-type(1) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.6s;
+        }
+        body.loaded h2:nth-of-type(2) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.0s;
+        }
+        body.loaded h2:nth-of-type(3) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.4s;
+        }
+        body.loaded h2:nth-of-type(4) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.8s;
+        }
+        body.loaded h2:nth-of-type(5) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.2s;
+        }
+        body.loaded p:nth-of-type(1) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.4s;
+        }
+        body.loaded p:nth-of-type(2) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.5s;
+        }
+        body.loaded p:nth-of-type(3) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.8s;
+        }
+        body.loaded p:nth-of-type(4) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.2s;
+        }
+        body.loaded p:nth-of-type(5) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.6s;
+        }
+        body.loaded p:nth-of-type(6) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.0s;
+        }
+        body.loaded p:nth-of-type(7) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.4s;
+        }
+        body.loaded p:nth-of-type(8) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.8s;
+        }
+        body.loaded p:nth-of-type(9) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 3.2s;
+        }
+        body.loaded .image-container.right:nth-of-type(1) {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 0.7s;
+        }
+        body.loaded .image-container.left:nth-of-type(1) {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 1.3s;
+        }
+        body.loaded .image-container.right:nth-of-type(2) {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 2.7s;
+        }
+        body.loaded .image-container.left:nth-of-type(2) {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            transition-delay: 4.2s;
+        }
+        body.loaded .back-link {
+            opacity: 1;
+            transform: translateX(0);
+            transition-delay: 4.8s;
+        }
+    </style>
+</head>
+<body>
+    <div class="back-link">
+        <a href="drsdrama.html">← Back to DRS & Drama</a>
+    </div>
+    <h1>🏁 Las Vegas GP 2025: Neon Chaos on the Strip!</h1>
+
+    <div class="content-section">
+        <div class="image-container right">
+            <img src="Vegas1.jpg" alt="Las Vegas GP Qualifying" class="spa-image">
+            <div class="copyright">© Formula1.com 2025</div>
+        </div>
+        <h2>Qualifying Drama Under the Neon Lights</h2>
+        <p>Round 22, Las Vegas. Qualifying was wet and a bit all over the place, which honestly made it more interesting. Norris took pole, Verstappen P2 in the RB22, and somehow Carlos Sainz put the Williams in P3 which nobody really had on their bingo card. Piastri P4, Russell P5, Leclerc P6. Ferrari were going round in circles all weekend trying to fix the car and getting nowhere with it. Hamilton had a nightmare session and wound up starting dead last, P20. Long night ahead for him.</p>
+    </div>
+
+    <div class="content-section">
+        <div class="image-container left">
+            <img src="Vegas2.jpg" alt="Las Vegas GP Start" class="spa-image">
+            <div class="copyright">© Formula1.com 2025</div>
+        </div>
+        <h2>Lights Out: Norris Goes Wide, Max Pounces!</h2>
+        <p>Norris tried to chop across Verstappen into Turn 1 off the line, typical pole sitter stuff. But he over-accelerated going in, locked up hard, ran wide and bled all his momentum. Max just calmly went around him and took the lead. Simple as that. Russell meanwhile had a great start from P5 and picked up two spots in the first few corners to slot into P2. So Norris started on pole and was already P3 by Turn 5. Further back things got messy fast. Bortoleto piled into Stroll and took them both out on the spot. Gasly got caught up in the same incident. Lawson then clipped Piastri and picked up damage, and the Virtual Safety Car was out before Lap 2 was even done.</p>
+    </div>
+
+    <div class="content-section">
+        <div class="image-container right">
+            <img src="Vegas3.jpg" alt="Lewis Hamilton Ferrari Las Vegas" class="spa-image">
+            <div class="copyright">© Formula1.com 2025</div>
+        </div>
+        <h2>Hamilton's Recovery... Until Hulkenberg Happened</h2>
+        <p>Lewis was doing what he does from the back. Six positions gained on the opening lap just by reading the chaos right and staying out of trouble. By Lap 12 he was up to 14th and still climbing, running a long hard tyre strategy and picking people off one by one. Got himself into the points around Lap 20 after getting past Ocon. Then he hit the Hulkenberg wall. Nico was sitting in the Sauber, not doing anything wrong, but using every bit of the straight to keep Lewis behind. The Vegas layout with its long straights just made it almost impossible to get a run on him. Lewis spent lap after lap right on his gearbox and could not find a way through. He finally got past late on when Hulkenberg's tyres went off, but by then the damage to his race was already done.</p>
+    </div>
+
+    <div class="content-section">
+        <h2>Verstappen Just... Won</h2>
+        <p>Max was in a completely different race to everyone else up front. Built the gap early, managed the tyres, never looked stressed on the radio. Russell was solid in P2 but had nothing for the RB22 on this track. Norris eventually got past Russell around Lap 34 and started chasing Max but the gap was already too big by then. Then on Lap 48 Lando reported a car issue and was told to bring it home carefully. That was that. Verstappen crossed the line 21 seconds up the road, sixth win of the season, job done.</p>
+    </div>
+
+    <div class="content-section">
+        <div class="image-container left">
+            <img src="Vegas4.jpg" alt="Ferrari Las Vegas GP" class="spa-image">
+            <div class="copyright">© Formula1.com 2025</div>
+        </div>
+        <h2>Ferrari's Long Night of Suffering</h2>
+        <p>Leclerc tried everything, Ferrari tried everything, nothing worked. They pitted him early, changed the strategy twice, kept talking him through switch adjustments, and the car just was not responding around this circuit. He got P4 on the road which at least was something. Hamilton came home P8 after the Hulkenberg delay cost him any chance of a genuinely good result. Both drivers were pretty flat on the radio by the end of it. Not much to say when the car is just off the pace like that.</p>
+        <p>And then after the race it got even wilder. Both McLarens got disqualified in the technical checks. Skid blocks worn through past the legal limit on both Norris and Piastri's cars. Russell moved up to P2, Antonelli to P3 after his earlier 5 second penalty, Leclerc to P4. Hamilton went up to P8, Ocon and Bearman both sneaked into the points. The championship is now Norris and Verstappen level on points, Piastri 24 back with two rounds left. Absolute scenes, and none of it happened on track.</p>
+    </div>
+
+    <div class="back-link">
+        <a href="drsdrama.html">← Back to DRS & Drama</a>
+    </div>
+    <br>
+    <div class="back-link">
+        <a href="index.html">← Back to Paddock</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 300);
+        });
+        document.querySelectorAll('.back-link a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                document.body.style.transition = 'all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                document.body.classList.remove('loaded');
+                setTimeout(function() {
+                    window.location.href = href;
+                }, 1200);
+            });
+        });
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                setTimeout(function() {
+                    document.body.classList.add('loaded');
+                }, 200);
+            }
+        });
+    </script>
+</body>
+</html>

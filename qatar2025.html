@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desi Downshift — Qatar GP 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: black;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 24px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        h1 {
+            color: #FF2800;
+            font-size: 48px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 10px;
+            margin-top: 8px;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        h2 {
+            color: #FF2800;
+            font-size: 26px;
+            font-weight: 600;
+            margin-top: 36px;
+            margin-bottom: 14px;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        p {
+            font-size: 18px;
+            line-height: 2;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: justify;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .content-section {
+            overflow: auto;
+            margin-bottom: 38px;
+        }
+        .image-container {
+            display: inline-block;
+            margin: 20px;
+            opacity: 0;
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .image-container.right {
+            float: right;
+            margin-left: 25px;
+            margin-right: 0;
+            transform: translateX(50px) scale(0.9);
+        }
+        .image-container.left {
+            float: left;
+            margin-right: 25px;
+            margin-left: 0;
+            transform: translateX(-50px) scale(0.9);
+        }
+        .spa-image {
+            width: 300px;
+            height: 200px;
+            border-radius: 8px;
+            border: 3px solid #FF2800;
+            box-shadow: 0 4px 15px rgba(255, 40, 0, 0.3);
+            object-fit: cover;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        .spa-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 40, 0, 0.5);
+            border-color: #FF2800;
+        }
+        .copyright {
+            font-size: 10px;
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            width: 300px;
+            display: block;
+        }
+        .back-link {
+            text-align: left;
+            margin: 10px 0;
+            opacity: 0;
+            transform: translateX(-15px);
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .back-link a {
+            color: #FF2800;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            transition: all 0.4s ease;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .image-container.left,
+            .image-container.right {
+                float: none;
+                display: block;
+                margin: 20px auto;
+            }
+            .spa-image { width: 280px; height: 180px; }
+            .copyright { width: 280px; }
+            h1 { font-size: 40px; }
+            body { padding: 15px; }
+        }
+        body.loaded { opacity: 1; transform: translateY(0); }
+        body.loaded h1 { opacity: 1; transform: scale(1); transition-delay: 0.2s; }
+        body.loaded h2:nth-of-type(1) { opacity: 1; transform: translateY(0); transition-delay: 0.6s; }
+        body.loaded h2:nth-of-type(2) { opacity: 1; transform: translateY(0); transition-delay: 1.0s; }
+        body.loaded h2:nth-of-type(3) { opacity: 1; transform: translateY(0); transition-delay: 1.4s; }
+        body.loaded h2:nth-of-type(4) { opacity: 1; transform: translateY(0); transition-delay: 1.8s; }
+        body.loaded h2:nth-of-type(5) { opacity: 1; transform: translateY(0); transition-delay: 2.2s; }
+        body.loaded p:nth-of-type(1) { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
+        body.loaded p:nth-of-type(2) { opacity: 1; transform: translateY(0); transition-delay: 0.5s; }
+        body.loaded p:nth-of-type(3) { opacity: 1; transform: translateY(0); transition-delay: 0.8s; }
+        body.loaded p:nth-of-type(4) { opacity: 1; transform: translateY(0); transition-delay: 1.2s; }
+        body.loaded p:nth-of-type(5) { opacity: 1; transform: translateY(0); transition-delay: 1.6s; }
+        body.loaded p:nth-of-type(6) { opacity: 1; transform: translateY(0); transition-delay: 2.0s; }
+        body.loaded p:nth-of-type(7) { opacity: 1; transform: translateY(0); transition-delay: 2.4s; }
+        body.loaded p:nth-of-type(8) { opacity: 1; transform: translateY(0); transition-delay: 2.8s; }
+        body.loaded p:nth-of-type(9) { opacity: 1; transform: translateY(0); transition-delay: 3.2s; }
+        body.loaded .image-container.right:nth-of-type(1) { opacity: 1; transform: translateX(0) scale(1); transition-delay: 0.7s; }
+        body.loaded .image-container.left:nth-of-type(1) { opacity: 1; transform: translateX(0) scale(1); transition-delay: 1.3s; }
+        body.loaded .image-container.right:nth-of-type(2) { opacity: 1; transform: translateX(0) scale(1); transition-delay: 2.7s; }
+        body.loaded .image-container.left:nth-of-type(2) { opacity: 1; transform: translateX(0) scale(1); transition-delay: 4.2s; }
+        body.loaded .back-link { opacity: 1; transform: translateX(0); transition-delay: 4.8s; }
+    </style>
+</head>
+<body>
+    <div class="back-link">
+        <a href="drsdrama.html">← Back to DRS & Drama</a>
+    </div>
+    <h1>🏁 Qatar GP 2025: McLaren Fumbles the Title!</h1>
+
+    <div class="content-section">
+        <div class="image-container right">
+            <img src="Qatar1.jpg" alt="Qatar GP 2025 Qualifying" class="spa-image">
+            <div class="copyright">© Formula1.com 2025</div>
+        </div>
+        <h2>Sprint Weekend, Title on the Line</h2>
+        <p>Round 23, Lusail. Sprint weekend, which always adds a bit of extra chaos to everything. Piastri was flying all weekend and took pole for both the sprint and the main race. He won the sprint too, which only added to the tension going into Sunday. Norris came in with a real chance to wrap up the title here, needing a solid result to put it beyond doubt. Max was third on the grid and quietly confident. Bortoleto was carrying a five place grid penalty from the Las Vegas Stroll incident, and Colapinto had to start from the pit lane after his car was changed under parc ferme. Messy before it even started.</p>
+    </div>
+
+    <div class="content-section">
+        <div class="image-container left">
+            <img src="Qatar2.jpg" alt="Qatar GP Safety Car" class="spa-image">
+            <div class="copyright">© Formula1.com 2025</div>
+        </div>
+        <h2>The Safety Car That Changed Everything</h2>
+        <p>Piastri covered Norris into Turn 1 off the line and kept P1, while Verstappen immediately jumped Norris at the first corner to go P2. Then on Lap 7, Hulkenberg and Gasly collided and the Safety Car came out. Every single team pitted under it. Except McLaren. They left both Norris and Piastri out, gambling on a different strategy. It backfired completely. Everyone else came out on fresh rubber and McLaren suddenly had a massive problem on their hands. Pirelli had enforced a 25 lap tyre limit at this race, so both McLarens were going to have to pit anyway on Lap 25, and by then Verstappen was already comfortably ahead and building his lead on fresh tyres. McLaren themselves admitted after the race they got the strategy completely wrong.</p>
+    </div>
+
+    <div class="content-section">
+        <div class="image-container right">
+            <img src="Qatar3.jpg" alt="Verstappen Qatar GP Win" class="spa-image">
+            <div class="copyright">© Formula1.com 2025</div>
+        </div>
+        <h2>Verstappen Takes His Seventh Win</h2>
+        <p>Max was just clean all race. Got the free pitstop under the Safety Car, came out on fresh rubber, and never really looked back. Piastri was pushing hard in the second stint but could not close the gap down enough. Norris was stuck in no man's land, fighting through traffic and trying to make the strategy work when it clearly was not going to. Sainz in the Williams had a brilliant race and came home P3, his second podium of the season. Norris could only manage P4, losing seven points to Verstappen and six to Piastri in one afternoon. His championship lead, which had been 24 points after Vegas, was now down to just 12 over Max and 16 over Piastri. All three drivers went into Abu Dhabi with a genuine shot at the title. First time that had happened since 2010.</p>
+    </div>
+
+    <div class="content-section">
+        <h2>Midfield Drama and Penalties Everywhere</h2>
+        <p>It was not just the top of the field having a busy afternoon. Bearman got a 10 second stop-go penalty for an unsafe release and retired from the race shortly after. Stroll got a 5 second penalty for speeding in the pit lane. Antonelli came home P5 in a quietly solid drive. Russell P6, Alonso P7. Leclerc managed P8 for Ferrari on a difficult weekend. Down the back, Hadjar picked up a puncture near the end and retired, and Stroll also retired in the closing laps. Meanwhile, the papaya rules debate was raging in the McLaren garage. There was a growing feeling that the team had managed the race more around protecting Norris than letting Piastri race freely, and Piastri paid for it by losing a potential race win. The mood inside McLaren was complicated going into the final weekend.</p>
+    </div>
+
+    <div class="content-section">
+        <div class="image-container left">
+            <img src="Qatar4.jpg" alt="Qatar GP Championship Standings" class="spa-image">
+            <div class="copyright">© Formula1.com 2025</div>
+        </div>
+        <h2>Abu Dhabi, Here We Come</h2>
+        <p>Norris 408 points. Verstappen 396. Piastri 392. Three drivers, one race, winner takes the title. Norris needed a podium to guarantee it regardless of what the others did. Verstappen needed the win and Norris outside the top three, which felt unlikely given McLaren's pace all season. Piastri's path was the narrowest of all. What was supposed to be a coronation in Qatar had turned into a straight shootout at Yas Marina. McLaren had handed Verstappen a lifeline with that strategy call, and Max was going to Abu Dhabi with real belief. The whole paddock knew it. The whole world was watching.</p>
+    </div>
+
+    <div class="back-link">
+        <a href="drsdrama.html">← Back to DRS & Drama</a>
+    </div>
+    <br>
+    <div class="back-link">
+        <a href="index.html">← Back to Paddock</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 300);
+        });
+        document.querySelectorAll('.back-link a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                document.body.style.transition = 'all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                document.body.classList.remove('loaded');
+                setTimeout(function() {
+                    window.location.href = href;
+                }, 1200);
+            });
+        });
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                setTimeout(function() {
+                    document.body.classList.add('loaded');
+                }, 200);
+            }
+        });
+    </script>
+</body>
+</html>

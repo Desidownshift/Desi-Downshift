@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desi Downshift — Abu Dhabi GP 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: black;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 24px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        h1 {
+            color: #FF2800;
+            font-size: 48px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 10px;
+            margin-top: 8px;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        h2 {
+            color: #FF2800;
+            font-size: 26px;
+            font-weight: 600;
+            margin-top: 36px;
+            margin-bottom: 14px;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        p {
+            font-size: 18px;
+            line-height: 2;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: justify;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .content-section {
+            overflow: auto;
+            margin-bottom: 38px;
+        }
+        .image-container {
+            display: inline-block;
+            margin: 20px;
+            opacity: 0;
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .image-container.right {
+            float: right;
+            margin-left: 25px;
+            margin-right: 0;
+            transform: translateX(50px) scale(0.9);
+        }
+        .image-container.left {
+            float: left;
+            margin-right: 25px;
+            margin-left: 0;
+            transform: translateX(-50px) scale(0.9);
+        }
+        .spa-image {
+            width: 300px;
+            height: 200px;
+            border-radius: 8px;
+            border: 3px solid #FF2800;
+            box-shadow: 0 4px 15px rgba(255, 40, 0, 0.3);
+            object-fit: cover;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        .spa-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 40, 0, 0.5);
+            border-color: #FF2800;
+        }
+        .copyright {
+            font-size: 10px;
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            width: 300px;
+            display: block;
+        }
+        .back-link {
+            text-align: left;
+            margin: 10px 0;
+            opacity: 0;
+            transform: translateX(-15px);
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .back-link a {
+            color: #FF2800;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            transition: all 0.4s ease;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .image-container.left,
+            .image-container.right {
+                float: none;
+                display: block;
+                margin: 20px auto;
+            }
+            .spa-image { width: 280px; height: 180px; }
+            .copyright { width: 280px; }
+            h1 { font-size: 40px; }
+            body { padding: 15px; }
+        }
+        body.loaded { opacity: 1; transform: translateY(0); }
+        body.loaded h1 { opacity: 1; transform: scale(1); transition-delay: 0.2s; }
+        body.loaded h2:nth-of-type(1) { opacity: 1; transform: translateY(0); transition-delay: 0.6s; }
+        body.loaded h2:nth-of-type(2) { opacity: 1; transform: translateY(0); transition-delay: 1.0s; }
+        body.loaded h2:nth-of-type(3) { opacity: 1; transform: translateY(0); transition-delay: 1.4s; }
+        body.loaded h2:nth-of-type(4) { opacity: 1; transform: translateY(0); transition-delay: 1.8s; }
+        body.loaded h2:nth-of-type(5) { opacity: 1; transform: translateY(0); transition-delay: 2.2s; }
+        body.loaded p:nth-of-type(1) { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
+        body.loaded p:nth-of-type(2) { opacity: 1; transform: translateY(0); transition-delay: 0.5s; }
+        body.loaded p:nth-of-type(3) { opacity: 1; transform: translateY(0); transition-delay: 0.8s; }
+        body.loaded p:nth-of-type(4) { opacity: 1; transform: translateY(0); transition-delay: 1.2s; }
+        body.loaded p:nth-of-type(5) { opacity: 1; transform: translateY(0); transition-delay: 1.6s; }
+        body.loaded p:nth-of-type(6) { opacity: 1; transform: translateY(0); transition-delay: 2.0s; }
+        body.loaded p:nth-of-type(7) { opacity: 1; transform: translateY(0); transition-delay: 2.4s; }
+        body.loaded p:nth-of-type(8) { opacity: 1; transform: translateY(0); transition-delay: 2.8s; }
+        body.loaded p:nth-of-type(9) { opacity: 1; transform: translateY(0); transition-delay: 3.2s; }
+        body.loaded .image-container.right:nth-of-type(1) { opacity: 1; transform: translateX(0) scale(1); transition-delay: 0.7s; }
+        body.loaded .image-container.left:nth-of-type(1) { opacity: 1; transform: translateX(0) scale(1); transition-delay: 1.3s; }
+        body.loaded .image-container.right:nth-of-type(2) { opacity: 1; transform: translateX(0) scale(1); transition-delay: 2.7s; }
+        body.loaded .image-container.left:nth-of-type(2) { opacity: 1; transform: translateX(0) scale(1); transition-delay: 4.2s; }
+        body.loaded .back-link { opacity: 1; transform: translateX(0); transition-delay: 4.8s; }
+    </style>
+</head>
+<body>
+    <div class="back-link">
+        <a href="drsdrama.html">← Back to DRS & Drama</a>
+    </div>
+    <h1>🏁 Abu Dhabi GP 2025: Lando Norris, World Champion!</h1>
+
+    <div class="content-section">
+        <div class="image-container right">
+            <img src="AbuDhabi1.jpg" alt="Abu Dhabi GP 2025 Qualifying" class="spa-image">
+            <div class="copyright">© Formula1.com 2025</div>
+        </div>
+        <h2>The Biggest Qualifying of the Season</h2>
+        <p>Round 24, Yas Marina. Last race of the season. Three drivers still in it. Norris 408 points, Verstappen 396, Piastri 392. A podium for Norris and it was done regardless of what anyone else did. Max took pole, which was exactly what he needed, squeezing out Norris by two tenths in a qualifying session that had the whole paddock on edge. Piastri P3. Russell P4, Leclerc P5. Hamilton had a crash in FP3 and then got knocked out in Q1, starting P16. Worth noting that Tsunoda sacrificed his own flying lap in Q3 to give Max a tow. Red Bull were not leaving anything to chance.</p>
+    </div>
+
+    <div class="content-section">
+        <div class="image-container left">
+            <img src="AbuDhabi2.jpg" alt="Piastri overtakes Norris Abu Dhabi" class="spa-image">
+            <div class="copyright">© Formula1.com 2025</div>
+        </div>
+        <h2>Lights Out: Piastri Makes His Move</h2>
+        <p>Verstappen got away cleanly from pole and immediately cut across to shut the door on Norris going into Turn 1. Norris tucked in behind in P2. But then Piastri, starting on the hard tyre while almost everyone else was on mediums, went around the outside of Norris at the banked Turn 9 on the opening lap in one of the overtakes of the season. Norris suddenly found himself in P3 and needing to protect that position for 57 more laps. Behind the top three, Russell had a poor start and dropped to sixth, getting overtaken by both Leclerc and Alonso in the opening few corners. The title fight was already getting messy and we were barely into Lap 1.</p>
+    </div>
+
+    <div class="content-section">
+        <div class="image-container right">
+            <img src="AbuDhabi3.jpg" alt="Norris battling through traffic Abu Dhabi" class="spa-image">
+            <div class="copyright">© Formula1.com 2025</div>
+        </div>
+        <h2>Norris Under Fire, Leclerc and Tsunoda in the Way</h2>
+        <p>Norris pitted on Lap 16 and came out in the middle of traffic with Leclerc right behind him on fresher tyres and pressing hard. The Ferrari had real pace in that stint and Leclerc was all over Norris for several laps, close enough that the McLaren garage were clearly nervous. Norris held on, but the real drama came when he caught Tsunoda. Red Bull told Tsunoda to hold Norris up and he did exactly that, weaving across the track on the straight between Turn 5 and 6 and forcing Norris off the road. Norris still made the move stick and got past, but it was investigated by the stewards. They gave Tsunoda a five second penalty for making more than one change of direction. Once through the traffic, Norris set fastest laps and slowly began to build a buffer. You could feel the tension dropping lap by lap.</p>
+    </div>
+
+    <div class="content-section">
+        <h2>Verstappen Wins, But It Is Not Enough</h2>
+        <p>Max was just on a different level up front. Piastri led briefly when Verstappen pitted on Lap 24, then pitted himself on Lap 41 and came out in P2. Verstappen crossed the line 12 seconds clear of Piastri, his eighth win of the season and his 71st career victory. He did everything he possibly could. But Norris came home P3 and that was that. 423 points to 421. Two points. McLaren's first Drivers' title since 2008. Lando Norris, World Champion. Leclerc finished P4 in a race he had no real stake in. Russell P5, Alonso P6. Hamilton recovered from P16 all the way to P8, his last race of the season ending on a decent note at least.</p>
+    </div>
+
+    <div class="content-section">
+        <div class="image-container left">
+            <img src="AbuDhabi4.jpg" alt="Lando Norris World Champion celebration" class="spa-image">
+            <div class="copyright">© Formula1.com 2025</div>
+        </div>
+        <h2>Lando Norris, the 35th World Champion</h2>
+        <p>When the chequered flag dropped and it sank in, Norris broke down on the radio. The team were going absolutely mad on the pit wall. McLaren had not won the Drivers' title since Lewis Hamilton in 2008 and here they were, 17 years later, doing it again with a different British driver who had waited his whole career for this moment. Verstappen took it right to the very last lap and lost by two points, the narrowest margin since the current points system came in. Piastri finished 13 points back, and despite never winning a race in the second half of the season, pushed both his teammates right to the end. An absolutely extraordinary season, and one of the greatest title fights the sport has seen in years.</p>
+        <p>Final standings: Norris 423. Verstappen 421. Piastri 410. That's it for 2025. See you in Melbourne.</p>
+    </div>
+
+    <div class="back-link">
+        <a href="drsdrama.html">← Back to DRS & Drama</a>
+    </div>
+    <br>
+    <div class="back-link">
+        <a href="index.html">← Back to Paddock</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 300);
+        });
+        document.querySelectorAll('.back-link a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                document.body.style.transition = 'all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                document.body.classList.remove('loaded');
+                setTimeout(function() {
+                    window.location.href = href;
+                }, 1200);
+            });
+        });
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                setTimeout(function() {
+                    document.body.classList.add('loaded');
+                }, 200);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DRS & Drama - Desi Downshift</title>
+    <title>Apex Anatomy - Desi Downshift</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -111,8 +111,8 @@
             font-family: 'Montserrat', sans-serif;
         }
 
-        /* Season toggle tabs */
-        .season-tabs {
+        /* Era toggle tabs */
+        .era-tabs {
             display: flex;
             justify-content: center;
             gap: 16px;
@@ -122,7 +122,7 @@
             transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        .season-tab {
+        .era-tab {
             background-color: #1a1a1a;
             border: 2px solid #333;
             color: white;
@@ -135,12 +135,12 @@
             transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        .season-tab:hover {
+        .era-tab:hover {
             border-color: #FF2800;
             background-color: #2a2a2a;
         }
 
-        .season-tab.active {
+        .era-tab.active {
             background-color: #FF2800;
             border-color: #FF2800;
             color: white;
@@ -274,19 +274,9 @@
             border-color: #FF2800;
         }
 
-        .pagination button.active {
-            background-color: #FF2800;
-            border-color: #FF2800;
-        }
-
         .pagination button:disabled {
             opacity: 0.5;
             cursor: not-allowed;
-        }
-
-        .pagination button:disabled:hover {
-            background-color: #1a1a1a;
-            border-color: #333;
         }
 
         .loading {
@@ -313,7 +303,6 @@
             to { transform: rotate(360deg); }
         }
 
-        /* Empty state */
         .empty-state {
             text-align: center;
             color: #666;
@@ -322,13 +311,14 @@
             font-style: italic;
         }
 
+        /* Animation States */
         body.loaded { opacity: 1; transform: translateY(0); }
         body.loaded .back-link { opacity: 1; transform: translateX(0); transition-delay: 0.1s; }
         body.loaded h1 { opacity: 1; transform: scale(1); transition-delay: 0.2s; }
         body.loaded .tagline { opacity: 1; transform: translateY(0); transition-delay: 0.3s; }
         body.loaded h2 { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
         body.loaded p { opacity: 1; transform: translateY(0); transition-delay: 0.6s; }
-        body.loaded .season-tabs { opacity: 1; transform: translateY(0); transition-delay: 0.7s; }
+        body.loaded .era-tabs { opacity: 1; transform: translateY(0); transition-delay: 0.7s; }
         body.loaded .articles-section { opacity: 1; transform: translateY(0); transition-delay: 0.8s; }
         body.loaded .pagination { opacity: 1; transform: translateY(0); transition-delay: 1.0s; }
 
@@ -341,7 +331,7 @@
             .article-box { min-height: 200px; }
             h1 { font-size: 40px; }
             body { padding: 15px; }
-            .season-tab { font-size: 15px; padding: 10px 24px; }
+            .era-tab { font-size: 15px; padding: 10px 24px; }
         }
     </style>
 </head>
@@ -351,19 +341,17 @@
             <a href="formula1.html">← Back to Formula 1</a>
         </div>
 
-        <h1>DRS & Drama</h1>
-        <div class="tagline">Where wings open, tempers flare, and I serve the tea — hot and with extra sambar</div>
+        <h1>Apex Anatomy</h1>
+        <div class="tagline">The engineering sanctum of Desi Downshift</div>
         <br>
+        
+        <p>This isn't just another pit garage — Apex Anatomy is where the soul of speed gets dissected. It's the high-octane lab of Desi Downshift, where we break down the brilliant, brutal, and beautiful science behind Formula 1 machinery.
 
-        <p>This is DRS & Drama, the part of Desi Downshift where the engineering takes a backseat and the masala hits full throttle. It's just me here — one curious soul with a keyboard and way too many opinions — dishing out the race weekends with all the spice of a well-balanced rasam.
-        Forget tire degradation charts (for now). This is where I talk about the juicy overtakes, the pit stop disasters, the team radios that sound like badly dubbed soap operas, and the strategies that go from genius to ayyyo in one lap.
-        Whether it's a late-brake divebomb, a paddock cold war, or a classic "don't talk to me while I'm driving" meltdown — I'm here to narrate it all. And no, I don't serve cold takes — just piping hot breakdowns with idli-soft humour and filter coffee-grade energy.
-        So sit back, grab a banana leaf full of drama, and let's debrief Desi-style.</p>
+        From the wizardry of aerodynamics to the mind-bending intricacies of energy recovery systems, we explore the inner mechanics of the world's fastest sport — and explain them in a way your chai-loving brain will love.</p>
 
-        <!-- Season Tabs -->
-        <div class="season-tabs">
-            <button class="season-tab" onclick="switchSeason(2025, this)">2025 Season</button>
-            <button class="season-tab active" onclick="switchSeason(2026, this)">2026 Season</button>
+        <div class="era-tabs">
+            <button class="era-tab active" onclick="switchEra('ge', this)">GE Era</button>
+            <button class="era-tab" onclick="switchEra('active', this)">Active Aero Era</button>
         </div>
 
         <div class="articles-section">
@@ -386,94 +374,92 @@
     </div>
 
     <script>
-
-        const articles2026 = [
+        const articlesGE = [
             {
-                title: "Suzuka 2026",
-                description: "The 2026 Monaco GP delivered everything: questionable strategies, radio rants, and enough drama to fuel a Netflix series for three seasons.",
-                date: "29 March, 2026",
-                link: "Suzuka2026.html"
-            }
-                    ];
-        const articles2025 = [
-            {
-                title: "Abu Dhabi GP 2025: Lando Norris, World Champion!",
-                description: "Piastri's stunning Lap 1 move, Tsunoda's dirty defending, and Norris surviving 58 laps of pure pressure to become World Champion by just two points made Yas Marina the greatest finale in years.",
-                date: "7 December, 2025",
-                link: "abudhabi2025.html"
+                title: "Taming the Bounce: Porpoising & the Red Bull Masterclass",
+                description: "How Formula 1's ground effect revolution unleashed an aero-induced bouncing crisis—and how it was solved.",
+                date: "September 5, 2025",
+                link: "propoising.html"
             },
             {
-                title: "Qatar GP 2025: McLaren Fumbles the Title!",
-                description: "McLaren's baffling Safety Car strategy handing Verstappen a free win, Norris losing 12 points in one afternoon, and a three-way title shootout heading to Abu Dhabi made Lusail unforgettable.",
-                date: "30 November, 2025",
-                link: "qatar2025.html"
+                title: "Undercut vs Overcut: The Pit Stop Chess Game",
+                description: "Mastering the art of pitting early to gain fresh-tire speed or staying out longer to exploit clean air.",
+                date: "August 17, 2025",
+                link: "undercutandovercut.html"
             },
             {
-                title: "Las Vegas GP 2025: Neon Chaos on the Strip!",
-                description: "Verstappen dominant from lights out, Ferrari in agony, and a post-race McLaren DSQ turning the championship on its head made Las Vegas unforgettable.",
-                date: "23 November, 2025",
-                link: "lasvegas2025.html"
+                title: "Halo: From Doubt to Lifesaver",
+                description: "The steel shield that forever changed the face of F1 safety.",
+                date: "August 7, 2025",
+                link: "halo.html"
             },
             {
-                title: "Brazilian GP 2025: Pit Lane Drama, Podium Chaos & Norris Extends His Crown",
-                description: "First-lap chaos, Heartbreak for Tifosis, Verstappen's pit-lane-to-podium rampage, and Norris extending his title lead to 24 points made São Paulo unforgettable.",
-                date: "12 November, 2025",
-                link: "BrazilGP.html"
+                title: "Pit Wall Playbook: Winning Calls",
+                description: "Inside the data-driven world where strategy calls turn curiosity into glory.",
+                date: "August 1, 2025",
+                link: "strategiesandpitwall.html"
             },
             {
-                title: "Dutch GP 2025: When Ferrari Paglus Wail, Norris Crashes the Party & Hadjar Races to Glory",
-                description: "Ferrari's drama queen moment, Norris' tough break, and Hadjar's surprising rise made Zandvoort 2025 unforgettable.",
-                date: "31 August, 2025",
-                link: "dutch.html"
+                title: "Surviving G-Forces in Formula 1",
+                description: "How F1 drivers battle forces that push six times their body weight every lap.",
+                date: "July 22, 2025",
+                link: "gforces.html"
             },
             {
-                title: "Hungarian GP 2025: McLaren's Thriller, Leclerc's Frustration & Chacha's DRS Blockade",
-                description: "Lando Norris's daring one-stop strategy and flawless tire management earned him a narrow victory at Hungary, marking McLaren's 200th F1 win and shaking up the championship battle.",
-                date: "4 August, 2025",
-                link: "hungary.html"
+                title: "Racing Lines & Track Secrets",
+                description: "How choosing the perfect path can turn seconds into victories.",
+                date: "July 20, 2025",
+                link: "tracks.html"
             },
             {
-                title: "Spa 2025: Piastri's Dominance, Ferrari's Fight, and a Rain-Delayed Race Drama",
-                description: "Oscar Piastri surged to victory while Ferrari's Charles Leclerc held off Max Verstappen for the final podium spot in a rain-soaked Belgian Grand Prix that tested drivers and teams alike.",
-                date: "27 July, 2025",
-                link: "spa.html"
+                title: "Tailgate Turbo — The Speed Boost You Can't See",
+                description: "How sneaking into a rival's slipstream can rocket an F1 car forward.",
+                date: "July 15, 2025",
+                link: "slipstream.html"
             },
             {
-                title: "Mayhem at Silverstone: Papayas still on the top. Hulkenberg heaves a sigh of relief",
-                description: "Silverstone 2025 was a rain-soaked circus of spins, heartbreaks, and a fairytale Hülkenberg podium.",
-                date: "6 July, 2025",
-                link: "british2025.html"
+                title: "Swipe to Pass — The DRS Revolution",
+                description: "How the Drag Reduction System turned overtaking into a tactical chess match.",
+                date: "July 8, 2025",
+                link: "DRSsystem.html"
             },
             {
-                title: "Austrian GP 2025: Papayas on the top. A lullaby for the racing fans",
-                description: "McLaren's Kinky Dominance Left No One Overtaken (& Most of Us Sleeping)",
-                date: "30 June, 2025",
-                link: "austria2025.html"
+                title: "🛞 Grip or Slip — Rain Tyres",
+                description: "How rain tyres turn F1 into a high-stakes gamble of grip and guts.",
+                date: "June 29, 2025",
+                link: "wettyres.html"
             },
             {
-                title: "Canadian GP 2025: One Calm Canadian, Two Broken Papayas & A Groundhog Named Regret",
-                description: "Canada 2025: The race was calm — unlike McLaren's engines. Russell cruised, rain teased, and both papayas folded like wet napkins.",
-                date: "16 June, 2025",
-                link: "canada.html"
+                title: "The Story of F1 Aerodynamics",
+                description: "A deep dive into how air, speed, and design shape racecars.",
+                date: "June 24, 2025",
+                link: "aero.html"
             },
             {
-                title: "Spanish GP 2025: Siesta? Not Today. Piastri Woke the Whole Grid Up.",
-                description: "The one where the Papayas ruled and Mad Max was back on to attack his favourite driver on the grid! Forza Ferrari.",
-                date: "1 June, 2025",
-                link: "spanish.html"
+                title: "The Art and Science of F1 Pit Stops",
+                description: "Lightning-fast tire changes and mechanical tweaks in just seconds.",
+                date: "June 20, 2025",
+                link: "pitstop.html"
             },
             {
-                title: "Monaco Mayhem: When Strategy Met Chaos",
-                description: "The 2025 Monaco GP delivered everything: questionable strategies, radio rants, and enough drama to fuel a Netflix series for three seasons.",
-                date: "25 May, 2025",
-                link: "Monaco.html"
+                title: "Tyred Yet? — The Pirelli Rubber",
+                description: "How the Pirelli rubbers are utilized every weekend.",
+                date: "June 18, 2025",
+                link: "tyres.html"
+            },
+            {
+                title: "Torque Whisperers: F1 Power Units",
+                description: "Inside the hybrid marvel that thinks, reacts, and adapts.",
+                date: "June 15, 2025",
+                link: "torquewhisperers.html"
             }
         ];
 
+        const articlesActive = []; // Future 2026/Active Aero Era articles
+
         const ARTICLES_PER_PAGE = 9;
         let currentPage = 1;
-        let activeSeason = 2026;
-        let activeArticles = articles2026;
+        let activeArticles = articlesGE;
 
         const articleGrid = document.getElementById('article-grid');
         const loadingElement = document.getElementById('loading');
@@ -481,12 +467,11 @@
         const nextButton = document.getElementById('next-btn');
         const pageInfo = document.getElementById('page-info');
 
-        function switchSeason(year, tabEl) {
-            activeSeason = year;
-            activeArticles = year === 2025 ? articles2025 : articles2026;
+        function switchEra(era, tabEl) {
+            activeArticles = era === 'ge' ? articlesGE : articlesActive;
             currentPage = 1;
 
-            document.querySelectorAll('.season-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.era-tab').forEach(t => t.classList.remove('active'));
             tabEl.classList.add('active');
 
             renderArticles();
@@ -503,7 +488,7 @@
 
             setTimeout(() => {
                 if (articlesToShow.length === 0) {
-                    articleGrid.innerHTML = '<div class="empty-state">No articles yet for this season. Check back soon!</div>';
+                    articleGrid.innerHTML = '<div class="empty-state">No tech dissections yet for this era. Stay tuned for the Active Aero update!</div>';
                 } else {
                     articlesToShow.forEach((article, index) => {
                         const articleElement = document.createElement('div');
@@ -516,15 +501,8 @@
                             </a>
                         `;
                         articleGrid.appendChild(articleElement);
-
-                        articleElement.addEventListener('click', function(e) {
-                            if (e.target.tagName !== 'A') {
-                                window.location.href = article.link;
-                            }
-                        });
                     });
                 }
-
                 loadingElement.style.display = 'none';
                 animateArticles();
             }, 500);
@@ -566,32 +544,10 @@
             }
         });
 
-        document.querySelectorAll('.back-link a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const href = this.getAttribute('href');
-                document.body.style.transition = 'all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-                document.body.classList.remove('loaded');
-                setTimeout(function() {
-                    window.location.href = href;
-                }, 1200);
-            });
-        });
-
-        window.addEventListener('pageshow', function(event) {
-            if (event.persisted) {
-                setTimeout(function() {
-                    document.body.classList.add('loaded');
-                }, 200);
-            }
-        });
-
         document.addEventListener('DOMContentLoaded', function() {
             renderArticles();
             updatePagination();
-            setTimeout(function() {
-                document.body.classList.add('loaded');
-            }, 300);
+            setTimeout(() => document.body.classList.add('loaded'), 300);
         });
     </script>
 </body>

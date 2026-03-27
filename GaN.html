@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desi Downshift | DRDO GaN Tech</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: white;
+        }
+        body.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .back-link {
+            margin-bottom: 30px;
+        }
+        .back-link a {
+            color: #FF2800;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .back-link a:hover {
+            color: #ff5c3d;
+        }
+        h1 {
+            color: #FF2800;
+            text-align: left;
+            font-size: 50px;
+            margin-bottom: 40px;
+            padding-bottom: 0px;
+            line-height: 1.1;
+            font-weight: 700;
+        }
+        body.loaded h1 {
+            opacity: 1;
+            transform: scale(1);
+        }
+        h2 {
+            color: #FF2800;
+            font-weight: 600;
+            text-align: left;
+            font-size: 24px;
+            margin: 50px 0 25px 0;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        body.loaded h2 {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.9;
+            text-align: justify;
+            max-width: 2000px;
+            margin: 0 auto 35px;
+        }
+        body.loaded p {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Spacing for bottom links */
+        .bottom-nav {
+            margin-top: 60px;
+        }
+        .bottom-nav .back-link {
+            margin-bottom: 10px;
+        }
+                
+        /* Animation styles */
+        body {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        h1 {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        h2 {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        p {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+    </style>
+</head>
+<body>
+    <div class="back-link">
+        <a href="torquetolerance.html">← Back to Torque and Tolerance</a>
+    </div>
+
+    <h1>Beyond Silicon: DRDO’s Push for Gallium Nitride Sovereignty</h1>
+    
+    <p>
+        In the architecture of modern electronic warfare and high-frequency communication, Silicon has reached its thermal and physical limits. For India’s defense ecosystem, the transition to Gallium Nitride (GaN) is not merely an upgrade—it is a strategic necessity. GaN is a wide-bandgap semiconductor that operates at significantly higher voltages, temperatures, and frequencies than traditional silicon. The Defence Research and Development Organisation (DRDO) has identified this technology as the backbone for the next generation of radar systems, electronic countermeasures, and 5G/6G infrastructure.
+    </p>
+
+    <h2>The Foundry Breakthrough at GAETEC</h2>
+    <p>
+        The epicenter of India’s GaN revolution is the Gallium Arsenide Enabling Technology Centre (GAETEC) in Hyderabad. While the facility originally focused on GaAs, it has successfully transitioned to developing indigenous GaN-on-SiC (Gallium Nitride on Silicon Carbide) technology. This material combination is critical because Silicon Carbide acts as an efficient heat sink, allowing the GaN transistors to pump out massive amounts of power without melting. DRDO’s ability to fabricate these Monolithic Microwave Integrated Circuits (MMICs) locally means that India is no longer entirely dependent on restrictive export regimes for high-end military chips.
+    </p>
+
+    <h2>Strategic Applications: From AESA Radars to EW</h2>
+    <p>
+        The most immediate impact of DRDO’s GaN chips is seen in Active Electronically Scanned Array (AESA) radars. Conventional radars rely on a single large transmitter, but AESA systems use hundreds of small Transmit/Receive (T/R) modules. By using GaN-based T/R modules, these radars achieve a significantly higher "power-aperture" product. This translates to longer detection ranges against stealth targets and better resistance to electronic jamming. 
+    </p>
+    <p>
+        Beyond surveillance, GaN technology is a force multiplier in Electronic Warfare (EW). High-power GaN amplifiers allow for broad-spectrum jamming, effectively "blinding" enemy communications and radar over vast distances. Because GaN components are smaller and more efficient, they can be integrated into compact platforms, including Unmanned Aerial Vehicles (UAVs) and man-portable communication sets, providing tactical superiority at the edge of the battlefield.
+    </p>
+
+    <h2>The Road to Commercialization and SITAR</h2>
+    <p>
+        While GAETEC handles high-end defense requirements, the Society for Integrated Circuit Technology and Applied Research (SITAR) and the Indian Institute of Science (IISc) are working toward scaling this technology for dual-use applications. The goal is to establish a robust supply chain that feeds into both the strategic defense sector and the burgeoning domestic telecommunications market. By localizing the entire process—from substrate growth to epitaxial deposition and final packaging—DRDO is ensuring that India’s future hardware is "secure by design," free from the vulnerabilities of imported silicon.
+    </p>
+
+    <h2>Conclusion</h2>
+    <p>
+        The mastery of Gallium Nitride technology marks India’s entry into an elite club of nations capable of manufacturing high-frequency, high-power semiconductors. As DRDO continues to refine these processes and move toward smaller nanometer nodes, the GaN chips produced in Hyderabad and Bangalore will power everything from frontline fighter jets to the deep-space communication links of the future.
+    </p>
+
+    <div class="bottom-nav">
+        <div class="back-link">
+            <a href="torquetolerance.html">← Back to Torque and Tolerance</a>
+        </div>
+        <div class="back-link">
+            <a href="index.html">← Back to Paddock</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.body.classList.add('loaded');
+        });
+
+        document.querySelectorAll('.back-link a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                document.body.style.transition = 'all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                document.body.classList.remove('loaded');
+                setTimeout(function () {
+                    window.location.href = href;
+                }, 800);
+            });
+        });
+
+        window.addEventListener('pageshow', function (event) {
+            if (event.persisted) {
+                document.body.classList.add('loaded');
+            }
+        });
+    </script>
+</body>
+</html>

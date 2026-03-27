@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desi Downshift | Hydrogen Embrittlement</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: white;
+        }
+        body.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .back-link {
+            margin-bottom: 30px;
+        }
+        .back-link a {
+            color: #FF2800;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .back-link a:hover {
+            color: #ff5c3d;
+        }
+        h1 {
+            color: #FF2800;
+            text-align: left;
+            font-size: 50px;
+            margin-bottom: 40px;
+            padding-bottom: 0px;
+            line-height: 1.1;
+            font-weight: 700;
+        }
+        body.loaded h1 {
+            opacity: 1;
+            transform: scale(1);
+        }
+        h2 {
+            color: #FF2800;
+            font-weight: 600;
+            text-align: left;
+            font-size: 24px;
+            margin: 50px 0 25px 0;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        body.loaded h2 {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.9;
+            text-align: justify;
+            max-width: 2000px;
+            margin: 0 auto 35px;
+        }
+        body.loaded p {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .github-btn {
+            display: inline-block;
+            background-color: #FF2800;
+            color: white;
+            padding: 18px 35px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 4px;
+            margin-top: 15px;
+            margin-right: 15px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        .github-btn:hover {
+            background-color: #ff5c3d;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 40, 0, 0.3);
+        }
+        
+        .bottom-nav {
+            margin-top: 60px;
+        }
+        .bottom-nav .back-link {
+            margin-bottom: 10px;
+        }
+                
+        /* Animation styles */
+        body {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        h1 {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        h2 {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        p {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+    </style>
+</head>
+<body>
+    <div class="back-link">
+        <a href="torquetolerance.html">← Back to Torque and Tolerance</a>
+    </div>
+
+    <h1>The Silent Fracture: Mechanics of Hydrogen Embrittlement</h1>
+    
+    <p>
+        As the global energy landscape pivots toward a hydrogen economy, a century-old metallurgical nemesis has returned to the forefront: Hydrogen Embrittlement (HE). This phenomenon is the process by which high-strength metals, particularly steels and aluminum alloys, become brittle and fracture under significantly lower stress than their design limits after being exposed to hydrogen. It is a "silent" failure because it often occurs without visible warning, turning ductile materials—those that typically stretch before breaking—into glass-like substances that snap instantaneously.
+    </p>
+
+    <h2>Atomic Penetration and Internal Stress</h2>
+    <p>
+        The mechanics of embrittlement begin at the atomic level. Because the hydrogen atom is the smallest in the periodic table, it diffuses with ease into the metallic crystalline lattice. Hydrogen can be introduced during the manufacturing process—such as in electroplating or welding—or through environmental exposure during service in high-pressure pipelines. Once inside, these atoms migrate to areas of high tensile stress or defects like grain boundaries and dislocations. 
+    </p>
+    <p>
+        Several theories explain the subsequent loss of structural integrity. The Hydrogen-Enhanced Localized Plasticity (HELP) model suggests that hydrogen actually makes it easier for dislocations to move, leading to highly localized deformation that causes micro-voids to merge and fracture. Conversely, the Hydrogen-Enhanced Decoherece (HEDE) theory argues that the presence of hydrogen reduces the cohesive strength between metal atoms themselves, literally pulling the grain boundaries apart. Regardless of the specific pathway, the result is a catastrophic reduction in the material's fracture toughness.
+    </p>
+
+    <h2>Engineering Solutions and Infrastructure Challenges</h2>
+    <p>
+        For industries ranging from aerospace to automotive, managing HE is a matter of survival. High-strength bolts in suspension systems or turbine components in jet engines are particularly vulnerable. The current engineering approach involves "baking" components after chemical treatments to drive out absorbed hydrogen and utilizing specialized coatings that act as a barrier to atomic diffusion.
+    </p>
+    <p>
+        The challenge scales exponentially when considering the repurposing of existing natural gas pipelines for pure hydrogen transport. Most current steel infrastructure is susceptible to cracking at high pressures. Research is now pivoting toward the development of "Hydrogen-Ready" alloys and the use of inhibitors—trace gases mixed with hydrogen that compete for the metal surface, effectively blocking hydrogen atoms from entering the lattice. Mastering these material interactions is the final hurdle in making hydrogen a viable, large-scale clean energy carrier.
+    </p>
+
+    <p style="text-align: left; margin-bottom: 10px; font-weight: 500;">
+        Explore foundational research on Hydrogen Embrittlement mechanics:
+    </p>
+
+    <a href="https://doi.org/10.1016/j.pmatsci.2017.04.005" class="github-btn" target="_blank">MECHANISMS OF HE (REVIEW)</a>
+    <a href="https://doi.org/10.1016/j.actamat.2010.08.013" class="github-btn" target="_blank">HELP VS HEDE ANALYSIS</a>
+    <a href="https://doi.org/10.1016/j.ijhydene.2020.12.062" class="github-btn" target="_blank">PIPELINE INTEGRITY STUDY</a>
+
+    <div class="bottom-nav">
+        <div class="back-link">
+            <a href="torquetolerance.html">← Back to Torque and Tolerance</a>
+        </div>
+        <div class="back-link">
+            <a href="index.html">← Back to Paddock</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.body.classList.add('loaded');
+        });
+
+        document.querySelectorAll('.back-link a, .github-btn').forEach(link => {
+            link.addEventListener('click', function (e) {
+                if(this.classList.contains('github-btn') || this.target === "_blank") return;
+                
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                document.body.style.transition = 'all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                document.body.classList.remove('loaded');
+                setTimeout(function () {
+                    window.location.href = href;
+                }, 800);
+            });
+        });
+
+        window.addEventListener('pageshow', function (event) {
+            if (event.persisted) {
+                document.body.classList.add('loaded');
+            }
+        });
+    </script>
+</body>
+</html>

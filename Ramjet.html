@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desi Downshift | Ramjet Propulsion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: white;
+        }
+        body.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .back-link {
+            margin-bottom: 30px;
+        }
+        .back-link a {
+            color: #FF2800;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .back-link a:hover {
+            color: #ff5c3d;
+        }
+        h1 {
+            color: #FF2800;
+            text-align: left;
+            font-size: 50px;
+            margin-bottom: 30px;
+            padding-bottom: 0px;
+            line-height: 1.1;
+            font-weight: 700;
+        }
+        body.loaded h1 {
+            opacity: 1;
+            transform: scale(1);
+        }
+        h2 {
+            color: #FF2800;
+            font-weight: 600;
+            text-align: left;
+            font-size: 24px;
+            margin: 40px 0 20px 0;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        body.loaded h2 {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        p, ul {
+            font-size: 18px;
+            line-height: 1.8;
+            text-align: justify;
+            max-width: 2000px;
+            margin: 0 auto 25px;
+        }
+        body.loaded p, body.loaded ul {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        ul {
+            padding-left: 40px;
+        }
+        li {
+            margin-bottom: 12px;
+        }
+                
+        /* Animation styles */
+        body {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        h1 {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        h2 {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        p, ul {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+    </style>
+</head>
+<body>
+    <div class="back-link">
+        <a href="torquetolerance.html">← Back to Torque and Tolerance</a>
+    </div>
+
+    <h1>Ramjet Propulsion: DRDO and the IIT-M Breakthrough</h1>
+    
+    <p>
+        In the high-stakes world of supersonic flight, the Ramjet stands as a masterclass in aerodynamic efficiency. Unlike conventional jet engines that rely on complex, heavy rotating compressors, a Ramjet uses the vehicle's own high-speed forward motion to compress incoming air. This "ram" effect creates high-pressure combustion without moving parts, allowing vehicles to reach speeds between Mach 3 and Mach 6. Because they require a boost to supersonic speeds before the engine can ignite, they are often paired with solid-fuel rockets, creating a hybrid propulsion system that bridges the gap between traditional aviation and hypersonic travel.
+    </p>
+
+    <h2>The SFDR Milestone and National Defense</h2>
+    <p>
+        The Defence Research and Development Organisation (DRDO) has spearheaded this shift through the Solid Fuel Ducted Ramjet (SFDR) project. This technology is a critical leap for India’s missile defense, particularly for Beyond Visual Range Air-to-Air Missiles (BVRAAM) like the Astra Mk-3. By utilizing atmospheric oxygen rather than carrying a heavy oxidizer, the SFDR system allows for a significantly larger fuel load. This translates to an extended range of over 300 km and the ability to throttle thrust mid-flight, giving Indian interceptors a "no-escape zone" advantage that conventional solid-fuel rockets simply cannot match.
+    </p>
+
+    <h2>IIT Madras and the Future of Artillery</h2>
+    <p>
+        While DRDO focuses on heavy-hitting missiles, the Aerospace Engineering department at IIT Madras has achieved a global first by miniaturizing Ramjet technology for 155mm artillery shells. In collaboration with DRDO’s Research Centre Imarat (RCI), this project replaces the traditional base-bleed unit of a shell with a specialized Ramjet kit. The engineering challenge is immense: the engine must survive the massive G-forces of a barrel launch and then ignite precisely at the peak of its trajectory.
+    </p>
+    <p>
+        Recent trials at Deolali and Pokhran have demonstrated the lethal potential of this innovation. By using high-energy boron-based fuels, these shells can double their operational range—extending from 40 km to over 80 km. This synergy between academic research and industrial defense requirements ensures that "Made in India" munitions are now among the fastest and longest-reaching tactical weapons in the world, allowing ground forces to engage deep-seated targets from a safe standoff distance.
+    </p>
+
+    <h2>Conclusion</h2>
+    <p>
+        The evolution from standard rocket motors to air-breathing Ramjets marks a new era in indigenous propulsion. As these systems transition from successful flight tests to mass production, they redefine the strategic boundaries of both aerial and ground warfare, securing India's place in an elite group of nations capable of mastering high-Mach tactical technology.
+    </p>
+
+    <div class="back-link">
+        <a href="torquetolerance.html">← Back to Torque and Tolerance </a>
+    </div>
+    <br>
+    <div class="back-link">
+        <a href="index.html">← Back to Paddock</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.body.classList.add('loaded');
+        });
+
+        document.querySelectorAll('.back-link a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                document.body.style.transition = 'all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                document.body.classList.remove('loaded');
+                setTimeout(function () {
+                    window.location.href = href;
+                }, 800);
+            });
+        });
+
+        window.addEventListener('pageshow', function (event) {
+            if (event.persisted) {
+                document.body.classList.add('loaded');
+            }
+        });
+    </script>
+</body>
+</html>

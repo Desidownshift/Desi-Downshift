@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desi Downshift — Japanese GP 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: black;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 24px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        h1 {
+            color: #FF2800;
+            font-size: 48px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 10px;
+            margin-top: 8px;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        h2 {
+            color: #FF2800;
+            font-size: 26px;
+            font-weight: 600;
+            margin-top: 36px;
+            margin-bottom: 14px;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        p {
+            font-size: 18px;
+            line-height: 2;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: justify;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .content-section {
+            overflow: auto;
+            margin-bottom: 38px;
+        }
+        .image-container {
+            display: inline-block;
+            margin: 20px;
+            opacity: 0;
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .image-container.right {
+            float: right;
+            margin-left: 25px;
+            margin-right: 0;
+            transform: translateX(50px) scale(0.9);
+        }
+        .image-container.left {
+            float: left;
+            margin-right: 25px;
+            margin-left: 0;
+            transform: translateX(-50px) scale(0.9);
+        }
+        .spa-image {
+            width: 300px;
+            height: 200px;
+            border-radius: 8px;
+            border: 3px solid #FF2800;
+            box-shadow: 0 4px 15px rgba(255, 40, 0, 0.3);
+            object-fit: cover;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        .spa-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 40, 0, 0.5);
+            border-color: #FF2800;
+        }
+        .copyright {
+            font-size: 10px;
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            width: 300px;
+            display: block;
+        }
+        .back-link {
+            text-align: left;
+            margin: 10px 0;
+            opacity: 0;
+            transform: translateX(-15px);
+            transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .back-link a {
+            color: #FF2800;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            transition: all 0.4s ease;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .image-container.left,
+            .image-container.right {
+                float: none;
+                display: block;
+                margin: 20px auto;
+            }
+            .spa-image { width: 280px; height: 180px; }
+            .copyright { width: 280px; }
+            h1 { font-size: 40px; }
+            body { padding: 15px; }
+        }
+        body.loaded { opacity: 1; transform: translateY(0); }
+        body.loaded h1 { opacity: 1; transform: scale(1); transition-delay: 0.2s; }
+        body.loaded h2:nth-of-type(1) { opacity: 1; transform: translateY(0); transition-delay: 0.6s; }
+        body.loaded h2:nth-of-type(2) { opacity: 1; transform: translateY(0); transition-delay: 1.0s; }
+        body.loaded h2:nth-of-type(3) { opacity: 1; transform: translateY(0); transition-delay: 1.4s; }
+        body.loaded h2:nth-of-type(4) { opacity: 1; transform: translateY(0); transition-delay: 1.8s; }
+        body.loaded h2:nth-of-type(5) { opacity: 1; transform: translateY(0); transition-delay: 2.2s; }
+        body.loaded p:nth-of-type(1) { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
+        body.loaded p:nth-of-type(2) { opacity: 1; transform: translateY(0); transition-delay: 0.5s; }
+        body.loaded p:nth-of-type(3) { opacity: 1; transform: translateY(0); transition-delay: 0.8s; }
+        body.loaded p:nth-of-type(4) { opacity: 1; transform: translateY(0); transition-delay: 1.2s; }
+        body.loaded p:nth-of-type(5) { opacity: 1; transform: translateY(0); transition-delay: 1.6s; }
+        body.loaded p:nth-of-type(6) { opacity: 1; transform: translateY(0); transition-delay: 2.0s; }
+        body.loaded p:nth-of-type(7) { opacity: 1; transform: translateY(0); transition-delay: 2.4s; }
+        body.loaded p:nth-of-type(8) { opacity: 1; transform: translateY(0); transition-delay: 2.8s; }
+        body.loaded p:nth-of-type(9) { opacity: 1; transform: translateY(0); transition-delay: 3.2s; }
+        body.loaded .image-container.right:nth-of-type(1) { opacity: 1; transform: translateX(0) scale(1); transition-delay: 0.7s; }
+        body.loaded .image-container.left:nth-of-type(1) { opacity: 1; transform: translateX(0) scale(1); transition-delay: 1.3s; }
+        body.loaded .image-container.right:nth-of-type(2) { opacity: 1; transform: translateX(0) scale(1); transition-delay: 2.7s; }
+        body.loaded .image-container.left:nth-of-type(2) { opacity: 1; transform: translateX(0) scale(1); transition-delay: 4.2s; }
+        body.loaded .back-link { opacity: 1; transform: translateX(0); transition-delay: 4.8s; }
+    </style>
+</head>
+<body>
+    <div class="back-link">
+        <a href="drsdrama.html">← Back to DRS & Drama</a>
+    </div>
+    <h1>🏁 Japanese GP 2026: Kimi's Suzuka Masterclass!</h1>
+
+    <div class="content-section">
+        <div class="image-container right">
+            <img src="Japan1.png" alt="Japanese GP 2026 Qualifying" class="spa-image">
+            <div class="copyright">© Formula1.com 2026</div>
+        </div>
+        <h2>Qualifying: Ferrari Can't Find the Pace, Red Bull Can't Find Q3</h2>
+        <p>Suzuka qualifying told you pretty much everything you needed to know about where the pecking order stands three races into 2026. Antonelli on pole, Russell right behind him, Piastri third. Mercedes and McLaren, same as it's been. Ferrari were next best with Leclerc in P4 and Hamilton in P6, and both of them spent the whole weekend saying the same thing — they're losing too much time on the straights. Hamilton put it plainly after qualifying: "It's just we're not very quick." Not much to add to that really. Leclerc had a lairy moment on his final Q3 lap that cost him whatever gap he had to Piastri, but honestly the pace just wasn't there regardless. The bigger story though was at Red Bull. Rookie Lindblad from Racing Bulls knocked Verstappen out in Q2 in the dying seconds. Hadjar, his own teammate, also made it through ahead of him. Max said after the session he was "beyond frustrated" and didn't even know the right word in English for what he was feeling. Three races in and Red Bull look like a completely different team to what they were twelve months ago.</p>
+    </div>
+
+    <div class="content-section">
+        <div class="image-container left">
+            <img src="Japan2.png" alt="Piastri leads into Turn 1 Suzuka 2026" class="spa-image">
+            <div class="copyright">© Formula1.com 2026</div>
+        </div>
+        <h2>Lights Out: The Whole Top Six Reshuffles in Four Laps</h2>
+        <p>Antonelli wheelspin off the line from pole. Just like that, the race script changed completely. Piastri had the cleanest launch from third and was already through into the lead going into Turn 1, Leclerc slotting in behind him. Russell also lost places at the start, dropping behind Norris. Hamilton held fifth. So the top six after lap one looked nothing like the grid. What happened next was even more interesting. Antonelli, now sixth, started cutting through and got past Hamilton by lap two. Russell meanwhile had put his head down and dispatched Norris and then Leclerc within the next two laps, putting himself right on Piastri's tail. By lap four, you had Piastri and Russell fighting for the lead, Leclerc dropping to third and Hamilton stuck behind him in a queue, watching the Mercedes battle unfold ahead and unable to do anything about it. Ferrari had pace in flashes but not when it mattered. Lewis spent large parts of that first stint just following Leclerc around, the two of them effectively racing each other rather than the cars at the front. Not the afternoon the red cars were hoping for.</p>
+    </div>
+
+    <div class="content-section">
+        <div class="image-container right">
+            <img src="Japan3.png" alt="Bearman crash Suzuka 2026" class="spa-image">
+            <div class="copyright">© Formula1.com 2026</div>
+        </div>
+        <h2>Bearman's 50G Crash and the Question Nobody Wants to Answer</h2>
+        <p>On lap 22, Bearman had a massive shunt. 50G impact. He walked away with a knee contusion, which was the luckiest outcome possible given what the onboards showed. But before we talk about what the Safety Car did to the race, we need to talk about why the crash happened, because this one matters. Colapinto was on a slow outlap when Bearman came through on the full 2026 boost, over 50 km/h faster. Franco had absolutely no warning. He said after the race: "I was a little sitting duck. The speed difference is so big. He was more than 50 km/h quicker than me, and even spinning he overtook me." The stewards looked at it and cleared Colapinto immediately. He never moved on the racing line. He did nothing wrong. The speed differential that the 2026 boost system creates is just genuinely dangerous, and the drivers had been raising this concern since pre-season testing. At Suzuka there was at least runoff. At Baku or Las Vegas, that same scenario ends very differently. Bearman was fine this time. Everyone in the paddock knew it could easily not have been.</p>
+    </div>
+
+    <div class="content-section">
+        <h2>The Midfield That Never Settled Down</h2>
+        <p>The Safety Car from Bearman's crash reshuffled the midfield all over again. Hadjar was the unlucky one — he had pitted just two laps before it came out, which dropped him from a decent position all the way back to P13 on cold tyres with everyone around him on fresh rubber. He spent the rest of the race trying to undo the damage. Got past Hulkenberg on lap 30, then pulled off a nice move around the outside of Bortoleto into Turn 1 on lap 36. But Ocon ahead in the Haas had already pulled a gap and was not coming back. Then Hulkenberg reeled Hadjar back in and reclaimed his position in the closing laps. All that work for P12, which tells you how brutal the midfield has been this season. Gasly on the other hand had a quietly brilliant afternoon in the Alpine, finishing P7 and beating a Red Bull around Suzuka in a straight fight. A year ago that would have been front page news. Now it says more about Red Bull than it does about Alpine. Ocon in P10 scored points but was absolutely seething about the Safety Car timing on the team radio. And Colapinto, after everything that happened with the Bearman incident, finished P16, a full 33 seconds behind his own teammate Gasly. A second a lap slower after the restart. He had shown something in China but Suzuka was a rough one for him and people noticed.</p>
+    </div>
+
+    <div class="content-section">
+        <div class="image-container left">
+            <img src="Japan4.png" alt="Antonelli championship lead Suzuka 2026" class="spa-image">
+            <div class="copyright">© Formula1.com 2026</div>
+        </div>
+        <h2>Kimi Wins It, Ferrari Go Home With Just a Podium</h2>
+        <p>The Safety Car was the moment that decided everything at the front too. Antonelli pitted under it, came out on fresh tyres while Piastri and Russell were already on older rubber, and just drove away in the second stint. 13.7 seconds to Piastri at the flag. Clean, controlled, no drama. Piastri somehow still got Driver of the Day from the fans despite finishing second, which says a lot about how hard he worked all race to hold what he had. Leclerc came home P3, which at least gave Ferrari a podium to point to. Hamilton was P6, tidy enough but never in a position to threaten anyone ahead. He and Leclerc left Suzuka knowing they need more pace before the European swing if they want to be part of this championship conversation. Russell was P4 and genuinely quick all race, just undone by a start that cost him the clean air he needed. Back to back wins now for Antonelli, and at 19 years old he leads the Drivers' Championship, the youngest in F1 history to do so. Mercedes look like they have figured out these regulations better than anyone. The rest of the grid is still working out how to catch up.</p>
+    </div>
+
+    <div class="back-link">
+        <a href="drsdrama.html">← Back to DRS & Drama</a>
+    </div>
+    <br>
+    <div class="back-link">
+        <a href="index.html">← Back to Paddock</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 300);
+        });
+        document.querySelectorAll('.back-link a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                document.body.style.transition = 'all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                document.body.classList.remove('loaded');
+                setTimeout(function() {
+                    window.location.href = href;
+                }, 1200);
+            });
+        });
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                setTimeout(function() {
+                    document.body.classList.add('loaded');
+                }, 200);
+            }
+        });
+    </script>
+</body>
+</html>

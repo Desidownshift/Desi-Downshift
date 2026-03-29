@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 Regulations: The Active Aero Era - Desi Downshift</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: black;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            color: white;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #FF2800;
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 10px;
+            line-height: 1.1;
+            font-weight: 700;
+        }
+
+        h2 {
+            color: #FF2800;
+            text-align: left;
+            font-size: 24px;
+            margin: 40px 0 15px 0;
+            font-weight: 600;
+        }
+
+        p {
+            color: white;
+            font-size: 18px;
+            line-height: 2;
+            text-align: justify;
+            max-width: 2000px;
+            margin-bottom: 20px;
+        }
+
+        .highlight-text {
+            color: #FF2800;
+            font-weight: 600;
+        }
+
+        .back-link {
+            text-align: left;
+            margin: 10px 0;
+        }
+
+        .back-link a {
+            color: #FF2800;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.4s ease;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animation States */
+        body.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 36px; }
+            h2 { font-size: 22px; }
+            p { font-size: 16px; text-align: left; }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-link">
+        <a href="apexanatomy.html">← Back to Apex Anatomy</a>
+    </div>
+
+    <h1>The 2026 Revolution: Smaller, Smarter, and Faster</h1>
+    
+    <p>Formula 1 is standing on the edge of its most significant transformation in decades. The 2026 regulations aren't just a minor tweak to the rulebook; they represent a total rethink of how a racing car interacts with the air, the track, and its own power source. From "nimble" chassis dimensions to a complete overhaul of the hybrid philosophy, here is what the <span class="highlight-text">Active Aero Era</span> looks like.</p>
+
+    <h2>The Power Unit: 50/50 Hybrid Split</h2>
+    <p>The 1.6-liter V6 turbo remains, but the way it produces power is changing drastically. The complex MGU-H (which recovered energy from exhaust heat) is gone. To compensate, the electric power from the MGU-K is nearly tripling—jumping from 120kW to 350kW. This creates a roughly 50/50 split between internal combustion and electric power. To help with overtaking, a new <span class="highlight-text">Override Mode</span> will allow chasing drivers to deploy more energy at high speeds, acting as an electronic boost to replace the traditional DRS gap.</p>
+
+    <h2>The "Nimble Car" Concept</h2>
+    <p>For years, drivers have complained that F1 cars have become too heavy and "boat-like." 2026 fixes this by shrinking the footprint. The wheelbase is being cut by 200mm, and the width is narrowing by 100mm. Most importantly, the FIA is targeting a weight reduction of 30kg. These smaller dimensions are designed to make the cars more agile, allowing for closer wheel-to-wheel racing on tighter street circuits where modern cars often feel cramped.</p>
+
+    <h2>Active Aero: X-Mode and Z-Mode</h2>
+    <p>This is the centerpiece of the new era. Instead of just a moving rear wing flap (DRS), the 2026 cars will feature fully <span class="highlight-text">Active Aerodynamics</span>. Both the front and rear wings will change position to balance the car in real-time. There are two primary configurations:</p>
+    <p>• <span class="highlight-text">Z-Mode (High Downforce):</span> The default setting for corners. The wings open up to provide maximum grip and stability through the turns.<br>
+       • <span class="highlight-text">X-Mode (Low Drag):</span> On the straights, the wing elements flatten out. This reduces drag and increases top speed, ensuring the cars don't "run out of breath" despite the increased reliance on electric power.</p>
+
+    <h2>The End of DRS as We Know It</h2>
+    <p>Because the aero is now active for every driver on every lap, the old "one-second gap" for DRS is being phased out. Instead, the <span class="highlight-text">Manual Override Mode</span> mentioned earlier will become the primary tool for overtaking. It gives the attacking driver a temporary power advantage, forcing the battle to be about energy management and tactical deployment rather than just waiting for a wing flap to open.</p>
+
+    <div class="back-link">
+        <a href="apexanatomy.html">← Back to Apex Anatomy</a>
+    </div>
+    <div class="back-link">
+        <a href="formula1.html">← Back to Formula 1</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 300);
+        });
+
+        document.querySelectorAll('.back-link a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                document.body.style.transition = 'all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                document.body.classList.remove('loaded');
+                setTimeout(function() {
+                    window.location.href = href;
+                }, 1200);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -43,28 +43,6 @@
             font-weight: 700;
         }
 
-        h2 {
-            color: #FF2800;
-            text-align: center;
-            font-size: 20px;
-            margin-top: 0px;
-            padding-top: 0px;
-            line-height: 1;
-            opacity: 0;
-            transform: translateY(15px);
-            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-        }
-
-        h3 {
-            color: #FF2800;
-            font-size: 20px;
-            margin: 0 0 8px 0;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-        }
-
         p {
             color: white;
             font-size: 18px;
@@ -177,7 +155,6 @@
             overflow: hidden;
         }
 
-        /* UPDATED: Gloss effect matching GE buttons */
         .article-box::before {
             content: '';
             position: absolute;
@@ -200,7 +177,6 @@
             z-index: 1;
         }
 
-        /* UPDATED: Hover state with white border and silver sweep */
         .article-box:hover {
             background-color: #222;
             border-color: #ffffff;
@@ -230,8 +206,6 @@
             margin-bottom: 12px;
             line-height: 1.2;
             text-align: center;
-            position: relative;
-            z-index: 3;
             font-family: 'Montserrat', sans-serif;
         }
 
@@ -242,8 +216,6 @@
             text-align: justify;
             flex-grow: 1;
             margin-bottom: 12px;
-            position: relative;
-            z-index: 3;
             font-family: 'Montserrat', sans-serif;
         }
 
@@ -254,7 +226,6 @@
             position: absolute;
             bottom: 15px;
             left: 20px;
-            z-index: 3;
             font-family: 'Montserrat', sans-serif;
         }
 
@@ -322,12 +293,10 @@
             font-style: italic;
         }
 
-        /* Animation States */
         body.loaded { opacity: 1; transform: translateY(0); }
         body.loaded .back-link { opacity: 1; transform: translateX(0); transition-delay: 0.1s; }
         body.loaded h1 { opacity: 1; transform: scale(1); transition-delay: 0.2s; }
         body.loaded .tagline { opacity: 1; transform: translateY(0); transition-delay: 0.3s; }
-        body.loaded h2 { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
         body.loaded p { opacity: 1; transform: translateY(0); transition-delay: 0.6s; }
         body.loaded .era-tabs { opacity: 1; transform: translateY(0); transition-delay: 0.7s; }
         body.loaded .articles-section { opacity: 1; transform: translateY(0); transition-delay: 0.8s; }
@@ -339,7 +308,6 @@
 
         @media (max-width: 768px) {
             .article-grid { grid-template-columns: 1fr; gap: 15px; }
-            .article-box { min-height: 200px; }
             h1 { font-size: 40px; }
             body { padding: 15px; }
             .era-tab { font-size: 15px; padding: 10px 24px; }
@@ -356,12 +324,10 @@
         <div class="tagline">The engineering sanctum of Desi Downshift</div>
         <br>
         
-        <p>This isn't just another pit garage — Apex Anatomy is where the soul of speed gets dissected. It's the high-octane lab of Desi Downshift, where we break down the brilliant, brutal, and beautiful science behind Formula 1 machinery.
-
-        From the wizardry of aerodynamics to the mind-bending intricacies of energy recovery systems, we explore the inner mechanics of the world's fastest sport — and explain them in a way your chai-loving brain will love.</p>
+        <p>This isn't just another pit garage — Apex Anatomy is where the soul of speed gets dissected. It's the high-octane lab of Desi Downshift, where we break down the brilliant, brutal, and beautiful science behind Formula 1 machinery. From the wizardry of aerodynamics to the mind-bending intricacies of energy recovery systems, we explore the inner mechanics of the world's fastest sport.</p>
 
         <div class="era-tabs">
-	    <button class="era-tab" onclick="switchEra('ge', this)">GE Era</button>
+            <button class="era-tab" onclick="switchEra('ge', this)">GE Era</button>
             <button class="era-tab active" onclick="switchEra('active', this)">Active Aero Era</button> 
         </div>
 
@@ -435,7 +401,7 @@
                 link: "DRSsystem.html"
             },
             {
-                title: " Grip or Slip — Rain Tyres",
+                title: "Grip or Slip — Rain Tyres",
                 description: "How rain tyres turn F1 into a high-stakes gamble of grip and guts.",
                 date: "June 29, 2025",
                 link: "wettyres.html"
@@ -466,7 +432,14 @@
             }
         ];
 
-        const articlesActive = []; 
+        const articlesActive = [
+            {
+                title: "Smaller Cars, Bigger Problems: Welcome to the 2026 Era",
+                description: " Smaller cars, fancier aero, a shiny new boost button, and absolutely zero guarantees any of it will actually improve the racing — welcome to 2026.",
+                date: "January 2, 2026",
+                link: "regulations2026.html"
+            }
+        ]; 
 
         const ARTICLES_PER_PAGE = 9;
         let currentPage = 1;
@@ -499,7 +472,7 @@
 
             setTimeout(() => {
                 if (articlesToShow.length === 0) {
-                    articleGrid.innerHTML = '<div class="empty-state">No tech dissections yet for this era. Stay tuned for the Active Aero update!</div>';
+                    articleGrid.innerHTML = '<div class="empty-state">No tech dissections yet for this era. Stay tuned for updates!</div>';
                 } else {
                     articlesToShow.forEach((article, index) => {
                         const articleElement = document.createElement('div');
@@ -512,6 +485,12 @@
                             </a>
                         `;
                         articleGrid.appendChild(articleElement);
+                        
+                        articleElement.addEventListener('click', function(e) {
+                            if (e.target.tagName !== 'A') {
+                                window.location.href = article.link;
+                            }
+                        });
                     });
                 }
                 loadingElement.style.display = 'none';

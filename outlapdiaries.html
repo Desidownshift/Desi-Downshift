@@ -267,42 +267,6 @@
             transition-delay: 0.8s;
         }
 
-        body.loaded .article-box:nth-child(1) {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-            transition-delay: 1.0s;
-        }
-
-        body.loaded .article-box:nth-child(2) {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-            transition-delay: 1.1s;
-        }
-
-        body.loaded .article-box:nth-child(3) {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-            transition-delay: 1.2s;
-        }
-
-        body.loaded .article-box:nth-child(4) {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-            transition-delay: 1.3s;
-        }
-
-        body.loaded .article-box:nth-child(5) {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-            transition-delay: 1.4s;
-        }
-
-        body.loaded .article-box:nth-child(6) {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-            transition-delay: 1.5s;
-        }
-
         body.loaded .back-link {
             opacity: 1;
             transform: translateX(0);
@@ -399,47 +363,8 @@
 
     <!-- Articles Section with Enhanced 3-Column Grid Layout -->
     <div class="articles-section">
-        <div class="article-grid">
-            <div class="article-box">
-                <a href="chai.html">
-                    <h3 class="article-box-title">The Philosophy of Chai Breaks</h3>
-                    <p class="article-box-description">Why the best engineering solutions come not from CAD software, but from those 5-minute chai breaks when your brain finally gets a chance to breathe.</p>
-                    <div class="article-box-date">June 14, 2025</div>
-                </a>
-            </div>
-
-            <div class="article-box">
-                <a href="generaldibbi.html">
-                    <h3 class="article-box-title">Unreserved Realities</h3>
-                    <p class="article-box-description">Where Prada meets plastic bottles, and strangers become co-survivors.</p>
-                    <div class="article-box-date">June 1, 2025</div>
-                </a>
-            </div>
-
-            <div class="article-box">
-                <a href="perspectives.html">
-                    <h3 class="article-box-title">Perspectives</h3>
-                    <p class="article-box-description">A poignant reminder that cemeteries aren’t houses of horror for the dead, but beautiful sanctuaries built by the living out of love and remembrance.</p>
-                    <div class="article-box-date">July 7, 2026</div>
-                </a>
-            </div>
-                        <div class="article-box">
-                <a href="mumlocals.html">
-                    <h3 class="article-box-title">Mum Locals</h3>
-                    <p class="article-box-description">Measuring stress and strain in a BARC lab, only to find the city's strongest material on the 6:00 PM fast train.</p>
-                    <div class="article-box-date">25 June 2026</div>
-                </a>
-            </div>
-
-            <div class="article-box">
-                <a href="genz.html">
-                    <h3 class="article-box-title">An Old Soul with a Fast Charger</h3>
-                    <p class="article-box-description">A ranodom 3AM thought</p>
-                    <div class="article-box-date">12 August 2026</div>
-                </a>
-            </div>
-
-
+        <div class="article-grid" id="article-grid">
+            <!-- Articles will be dynamically loaded here -->
         </div>
     </div>
 
@@ -448,26 +373,104 @@
     </div>
 
     <script>
-        // Smooth fade in page on load
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(function() {
-                document.body.classList.add('loaded');
-            }, 300);
-        });
+        // Article dataset for Outlap Diaries with consistent dates
+        const outlapArticles = [
+            {
+                title: "The Philosophy of Chai Breaks",
+                description: "Why the best engineering solutions come not from CAD software, but from those 5-minute chai breaks when your brain finally gets a chance to breathe.",
+                date: "14 June 2025",
+                link: "chai.html"
+            },
+            {
+                title: "Unreserved Realities",
+                description: "Where Prada meets plastic bottles, and strangers become co-survivors.",
+                date: "01 June 2025",
+                link: "generaldibbi.html"
+            },
+            {
+                title: "Perspectives",
+                description: "A poignant reminder that cemeteries aren’t houses of horror for the dead, but beautiful sanctuaries built by the living out of love and remembrance.",
+                date: "07 July 2026",
+                link: "perspectives.html"
+            },
+            {
+                title: "Mum Locals",
+                description: "Measuring stress and strain in a BARC lab, only to find the city's strongest material on the 6:00 PM fast train.",
+                date: "25 June 2026",
+                link: "mumlocals.html"
+            },
+            {
+                title: "An Old Soul with a Fast Charger",
+                description: "A ranodom 3AM thought",
+                date: "12 August 2026",
+                link: "genz.html"
+            }
+               { title: "Ripples Across Spacetime: How Laser Interferometer Gravitational Wave Observatory Captures the Whispers of the Cosmos",
+                description: "How lasers catch ripples across cosmic spacetime.",
+                date: "22 August, 2026",
+                link: "Ligo.html"
+            },}
+        ];
 
-        // Smooth fade out on navigation click
-        document.querySelectorAll('nav a, .back-link a, .article-box a').forEach(link => {
-            link.addEventListener('click', function(e) {
+        const articleGrid = document.getElementById('article-grid');
+
+        // Attach transition fade-out to links
+        function attachFadeOut(el) {
+            el.addEventListener('click', function(e) {
                 e.preventDefault();
                 const href = this.getAttribute('href');
-                
                 document.body.style.transition = 'all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
                 document.body.classList.remove('loaded');
-                
                 setTimeout(function() {
                     window.location.href = href;
-                }, 1200);
+                }, 800);
             });
+        }
+
+        // Render articles into the grid
+        function renderArticles() {
+            outlapArticles.forEach((article) => {
+                const articleElement = document.createElement('div');
+                articleElement.className = 'article-box';
+                articleElement.innerHTML = `
+                    <a href="${article.link}">
+                        <h3 class="article-box-title">${article.title}</h3>
+                        <p class="article-box-description">${article.description}</p>
+                        <div class="article-box-date">${article.date}</div>
+                    </a>
+                `;
+                articleGrid.appendChild(articleElement);
+
+                attachFadeOut(articleElement.querySelector('a'));
+
+                articleElement.addEventListener('click', function(e) {
+                    if (e.target.tagName !== 'A') {
+                        window.location.href = article.link;
+                    }
+                });
+            });
+        }
+
+        // Animate article cards in with staggered timing
+        function animateArticles() {
+            const articles = document.querySelectorAll('.article-box');
+            articles.forEach((article, index) => {
+                const delay = 1.0 + (index * 0.1);
+                article.style.transition = `all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${delay}s`;
+                article.style.opacity = '1';
+                article.style.transform = 'translateY(0) scale(1)';
+            });
+        }
+
+        // Run on DOM ready
+        document.addEventListener('DOMContentLoaded', function() {
+            renderArticles();
+            document.querySelectorAll('.back-link a').forEach(attachFadeOut);
+
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+                animateArticles();
+            }, 300);
         });
 
         // Enhanced browser navigation handling
@@ -475,6 +478,7 @@
             if (event.persisted) {
                 setTimeout(function() {
                     document.body.classList.add('loaded');
+                    animateArticles();
                 }, 200);
             }
         });

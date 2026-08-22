@@ -118,9 +118,10 @@
             font-weight: 600;
         }
 
+        /* Standardized 3-column layout matching Outlap Diaries */
         .article-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 20px;
             margin-top: 30px;
         }
@@ -130,7 +131,7 @@
             border: 2px solid #333;
             border-radius: 8px;
             padding: 20px;
-            min-height: 220px;
+            height: 220px;
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             position: relative;
@@ -296,6 +297,23 @@
         body.loaded p { opacity: 1; transform: translateY(0); transition-delay: 0.6s; }
         body.loaded .articles-section { opacity: 1; transform: translateY(0); transition-delay: 0.8s; }
         body.loaded .pagination { opacity: 1; transform: translateY(0); transition-delay: 1.0s; }
+
+        @media (max-width: 1024px) {
+            .article-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 18px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .article-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            .article-box {
+                height: 200px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -316,7 +334,7 @@
             <h2 class="section-title">Latest Builds</h2>
 
             <div class="article-grid" id="article-grid">
-                </div>
+            </div>
 
             <div class="loading" id="loading">Syncing Workshop Data</div>
 
@@ -333,45 +351,50 @@
     </div>
 
     <script>
+        // Dates updated to match "DD Month YYYY" format
         const allArticles = [
+             {
+                title: "Ripples Across Spacetime: How Laser Interferometer Gravitational Wave Observatory Captures the Whispers of the Cosmos",
+                description: "How lasers catch ripples across cosmic spacetime.",
+                date: "22 August, 2026",
+                link: "Ligo.html"
+            },
             {
                 title: "The Physics of Generative Materials: Decoding MatterGen",
                 description: "Exploring Microsoft's diffusion-based model that generates stable inorganic crystals across the periodic table, reducing reliance on slow computational screenings.",
-                date: "18 October, 2026",
+                date: "18 November 2026",
                 link: "Mattergen.html"
             },
-
             {
                 title: "Beyond Silicon: DRDO’s Push for Gallium Nitride Sovereignty",
                 description: "How GAETEC and DRDO are localized GaN chip production to power next-gen AESA radars and high-frequency electronic warfare systems.",
-                date: "20 September, 2025",
+                date: "20 October 2025",
                 link: "GaN.html"
             },
             {
                 title: "The Silent Fracture: Mechanics of Hydrogen Embrittlement",
                 description: "A deep dive into HELP and HEDE theories, exploring how hydrogen atoms compromise the structural integrity of high-strength alloys in infrastructure.",
-                date: "18 November, 2025",
+                date: "18 September 2025",
                 link: "HEmbrittlement.html"
             },
             {
                 title: "CNC Machining: From Hand Tools to High-Tech Whirrs",
                 description: "A beginner-friendly dive into CNC machining and Mastercam — where machines take orders, metal takes shape, and traditional manufacturing gets a techy upgrade.",
-                date: "June 18, 2025",
+                date: "18 June 2025",
                 link: "cncmachining.html"
             },
             {
                 title: "Layer by Layer: Why 3D Printing Isn't Just a Buzzword Anymore",
                 description: "From prototype to production — how 3D printing is reshaping the way we design, build, and think in modern manufacturing.",
-                date: "June 8, 2025",
+                date: "08 June 2025",
                 link: "additivemanf.html"
             },
             {
                 title: "Composite Materials: Strength in Layers",
                 description: "Exploring the world of composite materials from carbon fiber to fiberglass and their applications in modern engineering.",
-                date: "June 1, 2025",
+                date: "01 June 2025",
                 link: "composites.html"
             }
-            // Add more articles here to test page 2 (triggering at > 9 articles)
         ];
 
         const ARTICLES_PER_PAGE = 9;
@@ -433,7 +456,6 @@
             prevButton.disabled = currentPage === 1;
             nextButton.disabled = currentPage === totalPages;
             
-            // Hide pagination if only one page exists
             document.getElementById('pagination').style.display = totalPages <= 1 ? 'none' : 'flex';
         }
 
